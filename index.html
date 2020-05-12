@@ -66,11 +66,12 @@
             }
         }
         function convert() {
-            initial();
+
             const startLocalTime = document.getElementById('startDate').value;
             const endLocalTIme = document.getElementById('endDate').value;
 
             setQueryString(startLocalTime, endLocalTIme);
+            initial();
             updateConverData(startLocalTime, endLocalTIme);
         }
 
