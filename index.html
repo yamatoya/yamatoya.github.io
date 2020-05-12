@@ -47,7 +47,6 @@
         crossorigin="anonymous"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
-            initial();
             convert();
             btnConvert.addEventListener('click', function () {
                 return convert();
@@ -67,6 +66,7 @@
             }
         }
         function convert() {
+            initial();
             const startLocalTime = document.getElementById('startDate').value;
             const endLocalTIme = document.getElementById('endDate').value;
 
