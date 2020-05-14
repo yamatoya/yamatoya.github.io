@@ -36,7 +36,8 @@
             <tbody>
                 <tr id='jp'></tr>
                 <tr id='eu'></tr>
-                <tr id='us'> </tr>
+                <tr id='us'></tr>
+                <tr id='utc'></tr>
             </tbody>
         </table>
     </div>
@@ -86,8 +87,11 @@
             document.getElementById('jp').innerHTML = `<th scope="row">Asia/Tokyo</th><td>${moment(startLocalTime).tz("Asia/Tokyo")}</td><td>${moment(endLocalTIme).tz("Asia/Tokyo")}</td>`;
             document.getElementById('eu').innerHTML = `<th scope="row">Europe/Luxembourg</th><td>${moment(startLocalTime).tz("Europe/Luxembourg")}</td><td>${moment(endLocalTIme).tz("Europe/Luxembourg")}</td>`;
             document.getElementById('us').innerHTML = `<th scope="row">America/Los_Angeles</th><td>${moment(startLocalTime).tz("America/Los_Angeles")}</td><td>${moment(endLocalTIme).tz("America/Los_Angeles")}</td>`;
+            document.getElementById('utc').innerHTML = `<th scope="row">UTC</th><td>${moment(startLocalTime).tz("UTC")}</td><td>${moment(endLocalTIme).tz("UTC")}</td>`;
         }
     </script>
+    <!-- <script type="text/javascript" data-main="index.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.js"></script> -->
 </body>
 
 </html>
