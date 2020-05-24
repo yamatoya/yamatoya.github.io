@@ -50,54 +50,7 @@
     </script>
     <script src="https://momentjs.com/downloads/moment-timezone-with-data-10-year-range.js"
         crossorigin="anonymous"></script>
-    <script type="application/javascript">
-        window.addEventListener('DOMContentLoaded', function () {
-            initial();
-            convert();
-            btnConvert.addEventListener('click', function () {
-                return convert();
-            });
-        });
-        function initial() {
-            const params = new URLSearchParams(window.location.search)
-            if (params.has('start')) {
-                document.getElementById('startDate').value = moment.unix(params.get('start')).format(moment.HTML5_FMT.DATETIME_LOCAL);
-            } else {
-                document.getElementById('startDate').value = moment().format(moment.HTML5_FMT.DATETIME_LOCAL);
-            }
-            if (params.has('end')) {
-                document.getElementById('endDate').value = moment.unix(params.get('end')).format(moment.HTML5_FMT.DATETIME_LOCAL);
-            } else {
-                document.getElementById('endDate').value = moment().format(moment.HTML5_FMT.DATETIME_LOCAL);
-            }
-        }
-        function convert() {
-
-            const startLocalTime = document.getElementById('startDate').value;
-            const endLocalTime = document.getElementById('endDate').value;
-
-            setQueryString(startLocalTime, endLocalTime);
-            updateConverData(startLocalTime, endLocalTime);
-        }
-
-        function setQueryString(startLocalTime, endLocalTime) {
-            const params = new URLSearchParams(location.search);
-            params.set('start', moment(startLocalTime).unix());
-            params.set('end', moment(endLocalTime).unix());
-            console.log(params.toString());
-            history.pushState({}, '', `${location.pathname}?${params.toString()}`);
-        }
-
-        function updateConverData(startLocalTime, endLocalTIme) {
-            moment.locale('ja');
-            document.getElementById('jp').innerHTML = `<th scope="row">Asia/Tokyo +9</th><td>${moment(startLocalTime).tz("Asia/Tokyo").format('llll')}</td><td>${moment(endLocalTIme).tz("Asia/Tokyo").format('llll')}</td>`;
-            moment.locale('lb');
-            document.getElementById('eu').innerHTML = `<th scope="row">Europe/Luxembourg +2</th><td>${moment(startLocalTime).tz("Europe/Luxembourg").format('llll')}</td><td>${moment(endLocalTIme).tz("Europe/Luxembourg").format('llll')}</td>`;
-            moment.locale('en');
-            document.getElementById('us').innerHTML = `<th scope="row">America/Los_Angeles -7</th><td>${moment(startLocalTime).tz("America/Los_Angeles").format('llll')}</td><td>${moment(endLocalTIme).tz("America/Los_Angeles").format('llll')}</td>`;
-            document.getElementById('utc').innerHTML = `<th scope="row">UTC ±0</th><td>${moment(startLocalTime).tz("UTC").format('llll')}</td><td>${moment(endLocalTIme).tz("UTC").format('llll')}</td>`;
-        }
-    </script>
+    <script src="dist/main.js"></script>
 </body>
 
 </html>

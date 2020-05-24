@@ -1,0 +1,22 @@
+{
+  "name": "loki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "author": "Takahito Yamatoya",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.31"
+  }
+}
