@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
+    "debug": "webpack --config webpack.dev.js",
     "watch": "webpack -w"
   },
   "author": "Takahito Yamatoya",
@@ -14,7 +15,9 @@
     "ts-loader": "^7.0.4",
     "typescript": "^3.9.3",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "chart.js": "^2.9.3",
