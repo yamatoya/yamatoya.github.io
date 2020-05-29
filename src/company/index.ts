@@ -4,19 +4,20 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.plugins.unregister(ChartDataLabels);
 
 window.addEventListener('DOMContentLoaded', function () {
-    graph();
+    graph("coincheck", "revenue");
 });
 
 interface CompanyData {
     label: string[];
     revenue: number[];
+    revenue_unit: string;
 }
 
-async function graph() {
+async function graph(name: string, target: string) {
     const ctx = document.getElementById('myChart');
 
     const data = await http<CompanyData>(
-        "https://yamatoya.github.io/coincheck/data.json"
+        `https://yamatoya.github.io/{name}/data.json`
     );
 
     if (ctx instanceof HTMLCanvasElement) {
@@ -25,7 +26,7 @@ async function graph() {
             data: {
                 "labels": data.label,
                 datasets: [{
-                    data: data.revenue,
+                    data: data["target"],
                     "backgroundColor": "rgba(255, 99, 132, 0.2)",
                     "borderColor": "rgb(255, 99, 132)",
                     "borderWidth": 1
@@ -50,7 +51,7 @@ async function graph() {
                         color: 'black',
                         display: true,
                         formatter: function (value: number) {
-                            return value + '億円'
+                            return `${value}${data.revenue_unit}`
                         }
                     },
                     font: {
