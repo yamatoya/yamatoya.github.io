@@ -91,7 +91,7 @@
                 <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
                 <h2>収益・主な販管費</h2>
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+                    <table class="table table-striped table-sm" id="companyDataTable">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -102,72 +102,6 @@
                                 <th>システム関連費用</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>2020/01-03</td>
-                                <td>12.56億円</td>
-                                <td>2.69億円</td>
-                                <td>7500万円</td>
-                                <td>3.21億円</td>
-                                <td>1.55億円</td>
-                            </tr>
-                            <tr>
-                                <td>2019/10-12</td>
-                                <td>4.81億円</td>
-                                <td>-1.27億円</td>
-                                <td>5900万円</td>
-                                <td>2.58億円</td>
-                                <td>1.51億円</td>
-                            </tr>
-                            <tr>
-                                <td>2019/07-09</td>
-                                <td>8.01億円</td>
-                                <td>900万円</td>
-                                <td>8700万円</td>
-                                <td>3.08億円</td>
-                                <td>2.59億円</td>
-                            </tr>
-                            <tr>
-                                <td>2019/04-06</td>
-                                <td>12.74億円</td>
-                                <td>1.42億円</td>
-                                <td>4200万円</td>
-                                <td>3.99億円</td>
-                                <td>3.39億円</td>
-                            </tr>
-                            <tr>
-                                <td>2019/01-03</td>
-                                <td>3.1億円</td>
-                                <td>-5.60億円</td>
-                                <td>5600万円</td>
-                                <td>5.26億円</td>
-                                <td>4.19億円</td>
-                            </tr>
-                            <tr>
-                                <td>2018/10-12</td>
-                                <td>5.5億円</td>
-                                <td>-3.24億円</td>
-                                <td>1100万円</td>
-                                <td>4.21億円</td>
-                                <td>3.43億円</td>
-                            </tr>
-                            <tr>
-                                <td>2018/07-09</td>
-                                <td>3.15億円</td>
-                                <td>-5.88億円</td>
-                                <td>1000万円</td>
-                                <td>3.73億円</td>
-                                <td>2.71億円</td>
-                            </tr>
-                            <tr>
-                                <td>2018/04-06</td>
-                                <td>9.42億円</td>
-                                <td>-2.59億円</td>
-                                <td>700万円</td>
-                                <td>4.06億円</td>
-                                <td>2.92億円</td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </main>
@@ -178,7 +112,9 @@
     <script src="../dist/company.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
     <script>
-        feather.replace()
+        window.addEventListener('DOMContentLoaded', function () {
+            feather.replace()
+        });
     </script>
 </body>
 

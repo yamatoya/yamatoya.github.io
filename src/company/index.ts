@@ -39,6 +39,7 @@ function bindURL(name: string) {
     })
 }
 
+// メインメソッド
 async function generatePage() {
     const targetInfo = getQueryString();
     const data = await http<CompanyData>(
@@ -48,6 +49,7 @@ async function generatePage() {
     bindURL(targetInfo.name);
     const graphData = getGraphData(data, targetInfo);
     bindGraph(graphData);
+    bindTable(data);
     setPageInformation(targetInfo)
 }
 
@@ -150,6 +152,23 @@ function bindGraph(graphData: GraphData) {
                 }
             }
         });
+    }
+}
+
+function bindTable(data: CompanyData) {
+    const targetTable = <HTMLTableElement>document.getElementById('companyDataTable');
+    if (targetTable == null) {
+        return;
+    }
+    for (let index = 0; index < data.label.length; index++) {
+        let tr: HTMLTableRowElement = targetTable.insertRow(0);
+        tr.innerHTML = `<td>${data.label[index]}</td>
+        <td>${data.revenue[index]}${data.revenue_unit}</td>
+        <td>${data.profit[index]}${data.profit_unit}</td>
+        <td>${data.ad[index]}${data.ad_unit}</td>
+        <td>${data.hr[index]}${data.hr_unit}</td>
+        <td>${data.system[index]}${data.system_unit}</td>`;
+        targetTable.appendChild(tr);
     }
 }
 
