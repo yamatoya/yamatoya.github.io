@@ -31,32 +31,78 @@ function setPageInformation(targetInfo: CompanyOption) {
     }
 }
 
-function bindURL(name: string) {
-    document.querySelectorAll('a.nav-link').forEach(function (x) {
-        if (x instanceof HTMLAnchorElement) {
-            x.href.replace('coincheck', name)
-        }
-    })
-}
-
 // メインメソッド
 async function generatePage() {
     const targetInfo = getQueryString();
     const data = await http<CompanyData>(
         `https://yamatoya.github.io/${targetInfo.name}/data.json`
     );
+    setPageInformation(targetInfo)
     bindCompanyName(targetInfo.name);
-    bindURL(targetInfo.name);
+    bindMenu(data, targetInfo);
+    bindTable(data);
     const graphData = getGraphData(data, targetInfo);
     bindGraph(graphData);
-    bindTable(data);
-    setPageInformation(targetInfo)
+}
+
+function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
+    const sideNav = <HTMLTableElement>document.getElementById('sideNav');
+    if (sideNav == null) {
+        return;
+    }
+    const sideTop = <HTMLAnchorElement>document.getElementById('sideTop');
+    if (sideNav == null) {
+        return;
+    }
+    let sideNavText = "";
+    if (companyData.revenue.length != 0) {
+        sideNavText += `<li class="nav-item">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                                <span data-feather="bar-chart-2"></span>
+                                営業収益
+                            </a>
+                        </li>`
+    }
+    if (companyData.profit.length != 0) {
+        sideNavText += `<li class="nav-item">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                                <span data-feather="activity"></span>
+                                税引き前利益
+                            </a>
+                        </li>`
+    }
+    if (companyData.ad.length != 0) {
+        sideNavText += `<li class="nav-item">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                                <span data-feather="tv"></span>
+                                広告宣伝費
+                            </a>
+                        </li>`
+    }
+    if (companyData.hr.length != 0) {
+        sideNavText += `<li class="nav-item">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                                <span data-feather="users"></span>
+                                人件費
+                            </a>
+                        </li>`
+    }
+    if (companyData.system.length != 0) {
+        sideNavText += `<li class="nav-item">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                                <span data-feather="monitor"></span>
+                                システム関連費用
+                            </a>
+                        </li>`
+    }
+    sideNav.innerHTML = sideNavText;
+    sideTop.href = `../${targetInfo.name}/index.html`;
 }
 
 // 会社名マッピング
 // TASK：会社ページを追加した場合は、ここに追加が必要
 function bindCompanyName(companyName: string) {
-    const targetCompanyName = document.getElementById('companyName');
+    const targetCompanyName = <HTMLAnchorElement>document.getElementById('companyName');
     if (targetCompanyName == null) {
         return;
     }
@@ -65,11 +111,14 @@ function bindCompanyName(companyName: string) {
         case 'coincheck':
             name = 'コインチェック株式会社';
             break;
-
+        case 'gmocoin':
+            name = 'GMOコイン株式会社';
+            break;
         default:
             break;
     }
-    targetCompanyName.innerText = name
+    targetCompanyName.innerText = `${name} / yamaNote`
+    targetCompanyName.href = `../${name}/index.html`
     document.title = `${name}ダッシュボード: yamaNonte`
 }
 
@@ -160,14 +209,67 @@ function bindTable(data: CompanyData) {
     if (targetTable == null) {
         return;
     }
+    let thead: HTMLTableSectionElement = targetTable.createTHead();
+    let tr: HTMLTableRowElement = thead.insertRow(0);
+    let thdText = '<th>#</th>';
+    if (data.revenue.length != 0) {
+        thdText += '<th>営業収益</th>';
+    }
+    if (data.profit.length != 0) {
+        thdText += '<th>税引き前利益</th>';
+    }
+    if (data.ad.length != 0) {
+        thdText += '<th>広告宣伝費</th>';
+    }
+    if (data.hr.length != 0) {
+        thdText += '<th>人件費</th>';
+    }
+    if (data.system.length != 0) {
+        thdText += '<th>システム関連費用</th>';
+    }
+    tr.innerHTML = thdText;
+    targetTable.appendChild(tr);
+
     for (let index = 0; index < data.label.length; index++) {
         let tr: HTMLTableRowElement = targetTable.insertRow(0);
-        tr.innerHTML = `<td>${data.label[index]}</td>
-        <td>${data.revenue[index]}${data.revenue_unit}</td>
-        <td>${data.profit[index]}${data.profit_unit}</td>
-        <td>${data.ad[index]}${data.ad_unit}</td>
-        <td>${data.hr[index]}${data.hr_unit}</td>
-        <td>${data.system[index]}${data.system_unit}</td>`;
+        let trText: string = '';
+
+        if (data.label[index] != null) {
+            trText += `<td>${data.label[index]}</td>`
+        } else {
+            trText += '<td></td>';
+        }
+
+        if (data.revenue[index] != null) {
+            trText += `<td>${data.revenue[index]}${data.revenue_unit}</td>`
+        } else {
+            trText += '<td></td>';
+        }
+
+        if (data.profit[index] != null) {
+            trText += `<td>${data.profit[index]}${data.profit_unit}</td>`
+        } else {
+            trText += '<td></td>';
+        }
+
+        if (data.ad[index] != null) {
+            trText += `<td>${data.ad[index]}${data.ad_unit}</td>`
+        } else {
+            trText += '<td></td>';
+        }
+
+        if (data.hr[index] != null) {
+            trText += `<td>${data.hr[index]}${data.hr_unit}</td>`
+        } else {
+            trText += '<td></td>';
+        }
+
+        if (data.system[index] != null) {
+            trText += `<td>${data.system[index]}${data.system_unit}</td>`;
+        } else {
+            trText += '<td></td>';
+        }
+        tr.innerHTML = trText;
         targetTable.appendChild(tr);
     }
 }
