@@ -4,33 +4,93 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.plugins.unregister(ChartDataLabels);
 
 window.addEventListener('DOMContentLoaded', function () {
-    generateGraph();
+    generatePage();
 });
 
-async function generateGraph() {
-    const ctx = document.getElementById('myChart');
-    if (ctx == null) {
-        return;
+function setPageInformation(targetInfo: CompanyOption) {
+    const ctx = document.getElementById('pageTitle');
+    if (ctx != null) {
+        switch (targetInfo.target) {
+            case 'profit':
+                ctx.innerText = "四半期 税引き前利益 推移"
+                break;
+            case 'ad':
+                ctx.innerText = "四半期 広告宣伝費 推移"
+                break;
+            case 'hr':
+                ctx.innerText = "四半期 人件費 推移"
+                break;
+            case 'system':
+                ctx.innerText = "四半期 システム関連費用 推移"
+                break;
+            case 'revenue':
+            default:
+                ctx.innerText = "四半期 営業収益 推移"
+                break;
+        }
     }
+}
+
+function bindURL(name: string) {
+    document.querySelectorAll('a.nav-link').forEach(function (x) {
+        if (x instanceof HTMLAnchorElement) {
+            x.href.replace('coincheck', name)
+        }
+    })
+}
+
+async function generatePage() {
     const targetInfo = getQueryString();
     const data = await http<CompanyData>(
         `https://yamatoya.github.io/${targetInfo.name}/data.json`
     );
+    bindCompanyName(targetInfo.name);
+    bindURL(targetInfo.name);
     const graphData = getGraphData(data, targetInfo);
-    bindGraph(graphData, ctx);
+    bindGraph(graphData);
+    setPageInformation(targetInfo)
+}
+
+// 会社名マッピング
+// TASK：会社ページを追加した場合は、ここに追加が必要
+function bindCompanyName(companyName: string) {
+    const targetCompanyName = document.getElementById('companyName');
+    if (targetCompanyName == null) {
+        return;
+    }
+    let name = '';
+    switch (companyName) {
+        case 'coincheck':
+            name = 'コインチェック株式会社';
+            break;
+
+        default:
+            break;
+    }
+    targetCompanyName.innerText = name
+    document.title = `${name}ダッシュボード: yamaNonte`
 }
 
 function getGraphData(data: CompanyData, targetInfo: CompanyOption): GraphData {
     let graphData: GraphData = { label: [], data: [], unit: "" };
-    let unit: 'revenue_unit' | 'profit_unit';
-    let target: 'revenue' | 'profit';
+    let unit: 'revenue_unit' | 'profit_unit' | 'hr_unit' | 'ad_unit' | 'system_unit';
+    let target: 'revenue' | 'profit' | 'hr' | 'system' | 'ad';
 
-    console.log(data);
     graphData.label = data.label
     target = targetInfo.target;
     switch (targetInfo.target) {
         case 'profit':
             unit = 'profit_unit'
+            break;
+        case 'hr':
+            unit = 'hr_unit'
+            break;
+        case 'system':
+            unit = 'system_unit'
+            break;
+        case 'ad':
+            unit = 'ad_unit'
+            break;
         case 'revenue':
         default:
             unit = 'revenue_unit'
@@ -45,8 +105,11 @@ function getGraphData(data: CompanyData, targetInfo: CompanyOption): GraphData {
     return graphData;
 }
 
-function bindGraph(graphData: GraphData, targetGraph: HTMLElement) {
-    console.log(graphData);
+function bindGraph(graphData: GraphData) {
+    const targetGraph = document.getElementById('myChart');
+    if (targetGraph == null) {
+        return;
+    }
     if (targetGraph instanceof HTMLCanvasElement) {
         var myChart = new Chart(targetGraph, {
             type: 'bar',
@@ -109,11 +172,10 @@ function getQueryString() {
     }
     if (params.has('target')) {
         const target = params.get('target');
-        if (target != null && (target == 'revenue' || target == 'profit')) {
+        if (target != null && (target == 'revenue' || target == 'profit' || target == 'hr' || target == 'system' || target == 'ad')) {
             option.target = target
         }
     }
-    console.log(option);
     return option;
 }
 
@@ -123,6 +185,12 @@ interface CompanyData {
     revenue_unit: string;
     profit: number[];
     profit_unit: string;
+    hr: number[];
+    hr_unit: string;
+    system: number[];
+    system_unit: string;
+    ad: number[];
+    ad_unit: string;
 }
 
 interface GraphData {
@@ -133,5 +201,5 @@ interface GraphData {
 
 interface CompanyOption {
     name: string;
-    target: 'revenue' | 'profit';
+    target: 'revenue' | 'profit' | 'hr' | 'system' | 'ad';
 }
