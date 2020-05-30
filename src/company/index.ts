@@ -57,7 +57,7 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
     let sideNavText = "";
     if (companyData.revenue.length != 0) {
         sideNavText += `<li class="nav-item">
-                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=revenue">
                                 <span data-feather="bar-chart-2"></span>
                                 営業収益
                             </a>
@@ -65,7 +65,7 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
     }
     if (companyData.profit.length != 0) {
         sideNavText += `<li class="nav-item">
-                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=profit">
                                 <span data-feather="activity"></span>
                                 税引き前利益
                             </a>
@@ -73,7 +73,7 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
     }
     if (companyData.ad.length != 0) {
         sideNavText += `<li class="nav-item">
-                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=ad">
                                 <span data-feather="tv"></span>
                                 広告宣伝費
                             </a>
@@ -81,7 +81,7 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
     }
     if (companyData.hr.length != 0) {
         sideNavText += `<li class="nav-item">
-                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=hr">
                                 <span data-feather="users"></span>
                                 人件費
                             </a>
@@ -89,7 +89,7 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
     }
     if (companyData.system.length != 0) {
         sideNavText += `<li class="nav-item">
-                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${targetInfo.target}">
+                            <a class="nav-link" href="index.html?name=${targetInfo.name}&target=system">
                                 <span data-feather="monitor"></span>
                                 システム関連費用
                             </a>
