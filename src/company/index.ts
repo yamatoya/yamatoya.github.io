@@ -4,29 +4,56 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.plugins.unregister(ChartDataLabels);
 
 window.addEventListener('DOMContentLoaded', function () {
-    graph("coincheck", "revenue");
+    generateGraph();
 });
 
-interface CompanyData {
-    label: string[];
-    revenue: number[];
-    revenue_unit: string;
+async function generateGraph() {
+    const ctx = document.getElementById('myChart');
+    if (ctx == null) {
+        return;
+    }
+    const targetInfo = getQueryString();
+    const data = await http<CompanyData>(
+        `https://yamatoya.github.io/${targetInfo.name}/data.json`
+    );
+    const graphData = getGraphData(data, targetInfo);
+    bindGraph(graphData, ctx);
 }
 
-async function graph(name: string, target: string) {
-    const ctx = document.getElementById('myChart');
+function getGraphData(data: CompanyData, targetInfo: CompanyOption): GraphData {
+    let graphData: GraphData = { label: [], data: [], unit: "" };
+    let unit: 'revenue_unit' | 'profit_unit';
+    let target: 'revenue' | 'profit';
 
-    const data = await http<CompanyData>(
-        `https://yamatoya.github.io/{name}/data.json`
-    );
+    console.log(data);
+    graphData.label = data.label
+    target = targetInfo.target;
+    switch (targetInfo.target) {
+        case 'profit':
+            unit = 'profit_unit'
+        case 'revenue':
+        default:
+            unit = 'revenue_unit'
+            break;
+    }
+    const targetKey: keyof CompanyData = target
+    graphData.data = data[targetKey]
 
-    if (ctx instanceof HTMLCanvasElement) {
-        var myChart = new Chart(ctx, {
+    const unitKey: keyof CompanyData = unit
+    graphData.unit = data[unitKey]
+
+    return graphData;
+}
+
+function bindGraph(graphData: GraphData, targetGraph: HTMLElement) {
+    console.log(graphData);
+    if (targetGraph instanceof HTMLCanvasElement) {
+        var myChart = new Chart(targetGraph, {
             type: 'bar',
             data: {
-                "labels": data.label,
+                "labels": graphData.label,
                 datasets: [{
-                    data: data["target"],
+                    data: graphData.data,
                     "backgroundColor": "rgba(255, 99, 132, 0.2)",
                     "borderColor": "rgb(255, 99, 132)",
                     "borderWidth": 1
@@ -51,7 +78,7 @@ async function graph(name: string, target: string) {
                         color: 'black',
                         display: true,
                         formatter: function (value: number) {
-                            return `${value}${data.revenue_unit}`
+                            return `${value}${graphData.unit}`
                         }
                     },
                     font: {
@@ -71,10 +98,40 @@ async function http<T>(
     return body;
 }
 
-// example consuming code
-interface Todo {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
+function getQueryString() {
+    const params = new URLSearchParams(window.location.search)
+    const option: CompanyOption = { name: "coincheck", target: "revenue" };
+    if (params.has('name')) {
+        const name = params.get('name');
+        if (name != null) {
+            option.name = name
+        }
+    }
+    if (params.has('target')) {
+        const target = params.get('target');
+        if (target != null && (target == 'revenue' || target == 'profit')) {
+            option.target = target
+        }
+    }
+    console.log(option);
+    return option;
+}
+
+interface CompanyData {
+    label: string[];
+    revenue: number[];
+    revenue_unit: string;
+    profit: number[];
+    profit_unit: string;
+}
+
+interface GraphData {
+    label: string[];
+    data: number[];
+    unit: string;
+}
+
+interface CompanyOption {
+    name: string;
+    target: 'revenue' | 'profit';
 }
