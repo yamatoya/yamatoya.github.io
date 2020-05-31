@@ -1,5 +1,6 @@
 import Chart, { plugins } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import feather from 'feather-icons';
 
 Chart.plugins.unregister(ChartDataLabels);
 
@@ -45,12 +46,13 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
     companyData.dataset.forEach(c => {
         sideNavText += `<li class="nav-item">
                             <a class="nav-link" href="index.html?name=${targetInfo.name}&target=${c.key}">
-                                <span data-feather="bar-chart-2"></span>
+                                <span data-feather="${c.icon}"></span>
                                 ${c.name}
                             </a>
                         </li>`
     });
     sideNav.innerHTML = sideNavText;
+    feather.replace();
     sideTop.href = `../${targetInfo.name}/index.html`;
 }
 
@@ -184,6 +186,7 @@ interface CompanyDetailData {
     value: number[];
     unit: string;
     name: string;
+    icon: string;
 }
 
 interface GraphData {
