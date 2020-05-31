@@ -138,15 +138,14 @@ function bindTable(data: CompanyData) {
 
     data.dataset.forEach(c => {
         let tr: HTMLTableRowElement = targetTable.insertRow(0);
-        let trText: string = '';
+        let trText: string = `<td>${c.name}</td>`;
         c.value.forEach(v => {
-            trText += `<td>${v}</td>`
+            trText += `<td>${v}</td>`;
         });
         tr.innerHTML = trText;
         targetTable.appendChild(tr);
     });
 }
-
 
 async function http<T>(
     request: RequestInfo
