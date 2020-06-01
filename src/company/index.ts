@@ -132,16 +132,14 @@ function bindTable(data: CompanyData) {
         return;
     }
 
+    let quarterThead: HTMLTableSectionElement = targetQuarterTable.createTHead();
+    let quarterThr: HTMLTableRowElement = quarterThead.insertRow(0);
+    let thdQuarterText = '<th>#</th>';
+    let monthlyThead: HTMLTableSectionElement = targetMonthlyTable.createTHead();
+    let monthlyThr: HTMLTableRowElement = monthlyThead.insertRow(0);
+    let thdMonthlyText = '<th>#</th>';
+
     data.dataset.forEach(c => {
-
-        let quarterThead: HTMLTableSectionElement = targetQuarterTable.createTHead();
-        let quarterThr: HTMLTableRowElement = quarterThead.insertRow(0);
-        let thdQuarterText = '<th>#</th>';
-        let monthlyThead: HTMLTableSectionElement = targetMonthlyTable.createTHead();
-        let monthlyThr: HTMLTableRowElement = monthlyThead.insertRow(0);
-        let thdMonthlyText = '<th>#</th>';
-
-
         if (c.term == 'q') {
 
             if (quarterThr.innerHTML == '') {
@@ -177,6 +175,13 @@ function bindTable(data: CompanyData) {
             targetMonthlyTable.appendChild(tr);
         }
     });
+    if (monthlyThr.innerHTML == '') {
+        const targetMonthlyTitle = <HTMLTableElement>document.getElementById('monthlyTitle');
+        if (targetMonthlyTitle == null) {
+            return;
+        }
+        targetMonthlyTitle.remove();
+    }
 }
 
 function createTable() {
