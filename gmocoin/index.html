@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#563d7c">
-    <title>コインチェック株式会社ダッシュボード: yamaNonte</title>
+    <title>GMOコイン株式会社ダッシュボード: yamaNonte</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
@@ -20,7 +20,7 @@
             overflow-y: auto;
         }
 
-        a#companyName {
+        a.navbar-brand.col-md-3.col-lg-2.mr-0.px-3 {
             margin-left: 40px;
         }
     </style>
@@ -28,7 +28,7 @@
 
 <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#" id='companyName'> / yamaNote</a>
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">GMOコイン株式会社 / yamaNote</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../coincheck/index.html" id="sideTop">
+                            <a class="nav-link active" href="index.html">
                                 <span data-feather="home"></span>
                                 概要 <span class="sr-only">(current)</span>
                             </a>
@@ -63,28 +63,44 @@
                         class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>四半期 推移データ</span>
                     </h6>
-                    <ul class="nav flex-column" id="sideNav">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../d/index.html?name=gmocoin&target=revenue">
+                                <span data-feather="bar-chart-2"></span>
+                                営業収益
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../d/index.html?name=gmocoin&target=profit">
+                                <span data-feather="activity"></span>
+                                税引き前利益
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2" id="pageTitle">四半期 営業収益 推移</h1>
+                    <h1 class="h2">GMOコイン 2020年3月期</h1>
                 </div>
 
-                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-                <h2>収益・主な販管費</h2>
-                <div class="table-responsive">
-                    <table class="table table-striped table-sm" id="companyDataTable">
-                    </table>
-                </div>
-            </main>
+                <h2>概要</h2>
+                <ul>
+
+                </ul>
+
         </div>
+
+        <h2>参考資料</h2>
+
     </div>
-    <script src="../dist/vendor.bundle.js"></script>
     <script src="../dist/compnayvendor.bundle.js"></script>
     <script src="../dist/company.bundle.js"></script>
+    </main>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -94,6 +110,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            feather.replace()
+        });
+    </script>
 </body>
 
 </html>
