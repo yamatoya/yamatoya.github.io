@@ -81,7 +81,7 @@ function bindGraph(graphData: CompanyData, target: string) {
                 var myChart = new Chart(targetGraph, {
                     type: 'bar',
                     data: {
-                        "labels": graphData.label,
+                        "labels": v.label,
                         datasets: [{
                             data: v.value,
                             "backgroundColor": "rgba(255, 99, 132, 0.2)",
@@ -123,30 +123,64 @@ function bindGraph(graphData: CompanyData, target: string) {
 }
 
 function bindTable(data: CompanyData) {
-    const targetTable = <HTMLTableElement>document.getElementById('companyDataTable');
-    if (targetTable == null) {
+    const targetQuarterTable = <HTMLTableElement>document.getElementById('companyQuarterDataTable');
+    if (targetQuarterTable == null) {
         return;
     }
-    let thead: HTMLTableSectionElement = targetTable.createTHead();
-    let tr: HTMLTableRowElement = thead.insertRow(0);
-    let thdText = '<th>#</th>';
-
-    data.label.forEach(element => {
-        thdText += `<th>${element}</th>`
-    });
-
-    tr.innerHTML = thdText;
-    targetTable.appendChild(tr);
+    const targetMonthlyTable = <HTMLTableElement>document.getElementById('companyMonthlyDataTable');
+    if (targetMonthlyTable == null) {
+        return;
+    }
 
     data.dataset.forEach(c => {
-        let tr: HTMLTableRowElement = targetTable.insertRow(0);
-        let trText: string = `<td>${c.name}</td>`;
-        c.value.forEach(v => {
-            trText += `<td>${v}</td>`;
-        });
-        tr.innerHTML = trText;
-        targetTable.appendChild(tr);
+
+        let quarterThead: HTMLTableSectionElement = targetQuarterTable.createTHead();
+        let quarterThr: HTMLTableRowElement = quarterThead.insertRow(0);
+        let thdQuarterText = '<th>#</th>';
+        let monthlyThead: HTMLTableSectionElement = targetMonthlyTable.createTHead();
+        let monthlyThr: HTMLTableRowElement = monthlyThead.insertRow(0);
+        let thdMonthlyText = '<th>#</th>';
+
+
+        if (c.term == 'q') {
+
+            if (quarterThr.innerHTML == '') {
+                c.label.forEach(element => {
+                    thdQuarterText += `<th>${element}</th>`
+                });
+                quarterThr.innerHTML = thdQuarterText;
+                targetQuarterTable.appendChild(quarterThr);
+            }
+
+
+            let tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
+            let trText: string = `<td>${c.name}</td>`;
+            c.value.forEach(v => {
+                trText += `<td>${v}</td>`;
+            });
+            tr.innerHTML = trText;
+            targetQuarterTable.appendChild(tr);
+        } else if (c.term == 'm') {
+            if (monthlyThr.innerHTML == '') {
+                c.label.forEach(element => {
+                    thdMonthlyText += `<th>${element}</th>`
+                });
+                monthlyThr.innerHTML = thdMonthlyText;
+                targetQuarterTable.appendChild(monthlyThr);
+            }
+            let tr: HTMLTableRowElement = targetMonthlyTable.insertRow(0);
+            let trText: string = `<td>${c.name}</td>`;
+            c.value.forEach(v => {
+                trText += `<td>${v}</td>`;
+            });
+            tr.innerHTML = trText;
+            targetMonthlyTable.appendChild(tr);
+        }
     });
+}
+
+function createTable() {
+
 }
 
 async function http<T>(
@@ -176,13 +210,14 @@ function getQueryString() {
 }
 
 interface CompanyData {
-    label: string[];
     name: string;
     dataset: CompanyDetailData[];
 }
 
 interface CompanyDetailData {
     key: string;
+    term: string;
+    label: string[];
     value: number[];
     unit: string;
     name: string;
