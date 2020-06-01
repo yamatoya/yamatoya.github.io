@@ -78,9 +78,12 @@ function bindGraph(graphData: CompanyData, target: string) {
     if (targetGraph == null) {
         return;
     }
-
+    console.log(`target:${target}`)
     graphData.dataset.forEach(v => {
+        console.log(`key:${v.key}`)
+
         if (v.key == target) {
+            console.log('match')
             if (targetGraph instanceof HTMLCanvasElement) {
                 var myChart = new Chart(targetGraph, {
                     type: 'bar',
@@ -110,7 +113,7 @@ function bindGraph(graphData: CompanyData, target: string) {
                         plugins: {
                             datalabels: {
                                 color: 'black',
-                                display: true,
+                                display: function () { if (v.term == 'q') { return true } else { return false } },
                                 formatter: function (value: number) {
                                     return `${value}${v.unit}`
                                 }
@@ -164,11 +167,16 @@ function bindTable(data: CompanyData) {
             targetQuarterTable.appendChild(tr);
         } else if (c.term == 'm') {
             if (monthlyThr.innerHTML == '') {
+                const targetMonthlyTitle = <HTMLTableElement>document.getElementById('monthlyTitle');
+                if (targetMonthlyTitle == null) {
+                    return;
+                }
+                targetMonthlyTitle.innerText = '月間データ推移';
                 c.label.forEach(element => {
                     thdMonthlyText += `<th>${element}</th>`
                 });
                 monthlyThr.innerHTML = thdMonthlyText;
-                targetQuarterTable.appendChild(monthlyThr);
+                targetMonthlyTable.appendChild(monthlyThr);
             }
             let tr: HTMLTableRowElement = targetMonthlyTable.insertRow(0);
             let trText: string = `<td>${c.name}</td>`;
@@ -179,13 +187,6 @@ function bindTable(data: CompanyData) {
             targetMonthlyTable.appendChild(tr);
         }
     });
-    if (monthlyThr.innerHTML == '') {
-        const targetMonthlyTitle = <HTMLTableElement>document.getElementById('monthlyTitle');
-        if (targetMonthlyTitle == null) {
-            return;
-        }
-        targetMonthlyTitle.remove();
-    }
 }
 
 async function http<T>(
@@ -201,13 +202,15 @@ function getQueryString() {
     const option: CompanyOption = { name: "coincheck", target: "revenue" };
     if (params.has('name')) {
         const name = params.get('name');
+        console.log(`name: ${name}`)
         if (name != null) {
             option.name = name
         }
     }
     if (params.has('target')) {
         const target = params.get('target');
-        if (target != null && (target == 'revenue' || target == 'profit' || target == 'hr' || target == 'system' || target == 'ad')) {
+        console.log(`target: ${target}`)
+        if (target != null) {
             option.target = target
         }
     }
@@ -237,5 +240,5 @@ interface GraphData {
 
 interface CompanyOption {
     name: string;
-    target: 'revenue' | 'profit' | 'hr' | 'system' | 'ad';
+    target: string;
 }
