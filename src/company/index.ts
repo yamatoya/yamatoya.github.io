@@ -188,10 +188,6 @@ function bindTable(data: CompanyData) {
     }
 }
 
-function createTable() {
-
-}
-
 async function http<T>(
     request: RequestInfo
 ): Promise<T> {
