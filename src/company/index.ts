@@ -13,7 +13,11 @@ function bindPageTitle(targetInfo: CompanyOption, data: CompanyData) {
     data.dataset.forEach(v => {
         if (v.key == targetInfo.target) {
             if (ctx != null) {
-                ctx.innerText = `四半期 ${v.name} 推移`
+                if (v.term == 'q') {
+                    ctx.innerText = `四半期 ${v.name} 推移`
+                } else if (v.term == 'm') {
+                    ctx.innerText = `月間 ${v.name} 推移`
+                }
             }
         }
     });
