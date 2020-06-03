@@ -78,12 +78,9 @@ function bindGraph(graphData: CompanyData, target: string) {
     if (targetGraph == null) {
         return;
     }
-    console.log(`target:${target}`)
     graphData.dataset.forEach(v => {
-        console.log(`key:${v.key}`)
 
         if (v.key == target) {
-            console.log('match')
             if (targetGraph instanceof HTMLCanvasElement) {
                 var myChart = new Chart(targetGraph, {
                     type: 'bar',
@@ -145,10 +142,12 @@ function bindTable(data: CompanyData) {
     let monthlyThead: HTMLTableSectionElement = targetMonthlyTable.createTHead();
     let monthlyThr: HTMLTableRowElement = monthlyThead.insertRow(0);
     let thdMonthlyText = '<th>#</th>';
+    let trMonthlyText = "";
+    let monthlyDataSets: Array<String[] | number[]> = []
+    let i = 1;
 
     data.dataset.forEach(c => {
         if (c.term == 'q') {
-
             if (quarterThr.innerHTML == '') {
                 c.label.forEach(element => {
                     thdQuarterText += `<th>${element}</th>`
@@ -166,27 +165,51 @@ function bindTable(data: CompanyData) {
             tr.innerHTML = trText;
             targetQuarterTable.appendChild(tr);
         } else if (c.term == 'm') {
+            console.log(`i: ${i}`)
             if (monthlyThr.innerHTML == '') {
                 const targetMonthlyTitle = <HTMLTableElement>document.getElementById('monthlyTitle');
                 if (targetMonthlyTitle == null) {
                     return;
                 }
                 targetMonthlyTitle.innerText = '月間データ推移';
-                c.label.forEach(element => {
-                    thdMonthlyText += `<th>${element}</th>`
-                });
-                monthlyThr.innerHTML = thdMonthlyText;
-                targetMonthlyTable.appendChild(monthlyThr);
+                thdMonthlyText += `<th>${c.name}</th>`;
             }
-            let tr: HTMLTableRowElement = targetMonthlyTable.insertRow(0);
-            let trText: string = `<td>${c.name}</td>`;
-            c.value.forEach(v => {
-                trText += `<td>${v}</td>`;
+            let k = 0
+            c.label.forEach(v => {
+
+                if (monthlyDataSets[k] == undefined) {
+                    monthlyDataSets[k] = [];
+                }
+                monthlyDataSets[k][0] = v;
+                console.log(`k:${k}:${v}`);
+                k++;
             });
-            tr.innerHTML = trText;
-            targetMonthlyTable.appendChild(tr);
+            let j = 0;
+            c.value.forEach(v => {
+                if (monthlyDataSets[j] == undefined) {
+                    monthlyDataSets[j] = [];
+                }
+                monthlyDataSets[j][i] = v;
+                j++;
+            });
+            i++;
         }
     });
+    if (monthlyDataSets.length > 0) {
+        console.log(monthlyDataSets)
+        monthlyThr.innerHTML = thdMonthlyText;
+        monthlyThead.appendChild(monthlyThr);
+
+        monthlyDataSets.forEach(v => {
+            let tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
+            let trText = "";
+            v.forEach((z: any) => {
+                trText += `<td>${z}</td>`;
+            })
+            tr.innerHTML = trText;
+            targetMonthlyTable.appendChild(tr);
+        })
+    }
 }
 
 async function http<T>(
@@ -202,14 +225,12 @@ function getQueryString() {
     const option: CompanyOption = { name: "coincheck", target: "revenue" };
     if (params.has('name')) {
         const name = params.get('name');
-        console.log(`name: ${name}`)
         if (name != null) {
             option.name = name
         }
     }
     if (params.has('target')) {
         const target = params.get('target');
-        console.log(`target: ${target}`)
         if (target != null) {
             option.target = target
         }
