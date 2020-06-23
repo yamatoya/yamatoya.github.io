@@ -8,23 +8,32 @@ window.addEventListener('DOMContentLoaded', function () {
     generatePage();
 });
 
+const quarterly = 'q';
+const monthly = 'm';
+
+// ページタイトルを設定する
 function bindPageTitle(targetInfo: CompanyOption, data: CompanyData) {
     const ctx = document.getElementById('pageTitle');
-    data.dataset.forEach(v => {
-        if (v.key == targetInfo.target) {
-            if (ctx != null) {
-                if (v.term == 'q') {
-                    ctx.innerText = `四半期 ${v.name} 推移`
-                } else if (v.term == 'm') {
-                    ctx.innerText = `月間 ${v.name} 推移`
+    let title = "";
+    data.dataset.filter(v => v.key === targetInfo.target)
+        .map(v => {
+            if (v.key == targetInfo.target) {
+                if (v.term == quarterly) {
+                    title = `四半期 ${v.name} 推移`
+                } else if (v.term == monthly) {
+                    title = `月間 ${v.name} 推移`
                 }
             }
-        }
-    });
+        });
+    if (ctx != null) {
+        ctx.innerText = title;
+    }
 }
 
 // メインメソッド
 async function generatePage() {
+
+    // 対象データをクエリストリングから取得して読み込む
     const targetInfo = getQueryString();
     const data = await http<CompanyData>(
         `https://yamatoya.github.io/${targetInfo.name}/data.json`
@@ -61,7 +70,6 @@ function bindMenu(companyData: CompanyData, targetInfo: CompanyOption) {
 }
 
 // 会社名マッピング
-// TASK：会社ページを追加した場合は、ここに追加が必要
 function bindCompanyName(companyName: string) {
     const targetCompanyName = <HTMLAnchorElement>document.getElementById('companyName');
     if (targetCompanyName == null) {
@@ -146,37 +154,33 @@ function bindTable(data: CompanyData) {
     let monthlyDataSets: Array<String[] | number[]> = []
     let i = 1;
 
-    data.dataset.forEach(c => {
-        if (c.term == 'q') {
-            if (quarterThr.innerHTML == '') {
-                c.label.forEach(element => {
-                    thdQuarterText += `<th>${element}</th>`
-                });
-                quarterThr.innerHTML = thdQuarterText;
-                targetQuarterTable.appendChild(quarterThr);
-            }
+    thdQuarterText += data.dataset
+        .find(v => v.term == quarterly)?.label
+        .reduce((thdText, element) => thdText += `<th>${element}</th>`);
+    quarterThr.innerHTML = thdQuarterText;
+    targetQuarterTable.appendChild(quarterThr);
 
-
+    data.dataset.filter(v => v.term == quarterly)
+        .map(c => {
             let tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
             let trText: string = `<td>${c.name}</td>`;
-            c.value.forEach(v => {
-                trText += `<td>${v}</td>`;
-            });
+            const v = c.value as unknown as string[]
+            trText += v.reduce((text, v) => text += `<td>${v}</td>`);
             tr.innerHTML = trText;
             targetQuarterTable.appendChild(tr);
-        } else if (c.term == 'm') {
-            console.log(`i: ${i}`)
-            if (monthlyThr.innerHTML == '') {
-                const targetMonthlyTitle = <HTMLTableElement>document.getElementById('monthlyTitle');
-                if (targetMonthlyTitle == null) {
-                    return;
-                }
-                targetMonthlyTitle.innerText = '月間データ推移';
-                thdMonthlyText += `<th>${c.name}</th>`;
+        });
+
+    data.dataset.filter(v => v.term == monthly)
+        .map(c => {
+            const targetMonthlyTitle = <HTMLTableElement>document.getElementById('monthlyTitle');
+            if (targetMonthlyTitle == null) {
+                return;
             }
+            targetMonthlyTitle.innerText = '月間データ推移';
+            thdMonthlyText += `<th>${c.name}</th>`;
+
             let k = 0
             c.label.forEach(v => {
-
                 if (monthlyDataSets[k] == undefined) {
                     monthlyDataSets[k] = [];
                 }
@@ -193,8 +197,9 @@ function bindTable(data: CompanyData) {
                 j++;
             });
             i++;
-        }
-    });
+        });
+
+
     if (monthlyDataSets.length > 0) {
         console.log(monthlyDataSets)
         monthlyThr.innerHTML = thdMonthlyText;
@@ -212,28 +217,29 @@ function bindTable(data: CompanyData) {
     }
 }
 
-async function http<T>(
-    request: RequestInfo
-): Promise<T> {
+function bindMonthlyDataToTable() {
+
+}
+
+async function http<T>(request: RequestInfo): Promise<T> {
     const response = await fetch(request);
     const body = await response.json();
     return body;
 }
 
 function getQueryString() {
+    // クエリストリングを取得する
     const params = new URLSearchParams(window.location.search)
     const option: CompanyOption = { name: "coincheck", target: "revenue" };
-    if (params.has('name')) {
-        const name = params.get('name');
-        if (name != null) {
-            option.name = name
-        }
+
+    const name = params.get('name');
+    if (name != null) {
+        option.name = name
     }
-    if (params.has('target')) {
-        const target = params.get('target');
-        if (target != null) {
-            option.target = target
-        }
+
+    const target = params.get('target');
+    if (target != null) {
+        option.target = target
     }
     return option;
 }
