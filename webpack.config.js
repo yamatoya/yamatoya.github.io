@@ -6,6 +6,7 @@ module.exports = {
     entry: {
         index: './src/time-convert/index.ts',
         company: './src/company/index.ts',
+        lokichart: './src/lokichart/index.ts',
     },
     output: {
         path: path.join(__dirname, "dist"),
