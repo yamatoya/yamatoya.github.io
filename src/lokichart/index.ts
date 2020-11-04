@@ -250,9 +250,10 @@ function drow(e: MouseEvent,ctx: CanvasRenderingContext2D | null) {
     // 横
     ctx.fillRect(keisenMargine, n.y, graphwidth, 1);
     ctx.fillStyle = "red";
-    ctx.font = "14px sans-serif";
+    ctx.font = "12px sans-serif";
     ctx.textBaseline  = "bottom";
-    ctx.fillText(`${data.name} ${convertLabel(data.label[selectedBar])} ${data.value[selectedBar].toLocaleString()}${data.unit}`, keisenMargine, keisenMargine-10);
+    ctx.fillText(`${convertLabel(data.label[selectedBar])}`, n.x, keisenMargine-24);
+    ctx.fillText(`${data.value[selectedBar].toLocaleString()}${data.unit}`, n.x, keisenMargine-10);
 }
 
 function convertLabel(label:string) {
