@@ -23,6 +23,16 @@
         #graph {
             height: 400px;
             border: 1px solid blue;
+            cursor: crosshair;
+            position: relative;
+            touch-action: none;
+        }
+
+        #graph>canvas {
+            position: absolute;
+            max-width: 100%;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: pixelated;
         }
 
         a.navbar-brand.col-md-3.col-lg-2.mr-0.px-3 {
