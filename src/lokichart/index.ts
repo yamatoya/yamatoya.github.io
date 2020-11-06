@@ -79,10 +79,33 @@ export interface graphData {
     name: string
 }
 
-let canvases = []
-let contexts = []
-let width = 0, height = 0, keisenMargine = 50, barWidth = 0, graphwidth=0, graphHeight=0, rightMargin = 0;
-let _chartContainer = document.getElementById("graph");
+export class lokichart {
+
+    width = 0
+    height = 0
+    keisenMargine = 50
+    barWidth = 0
+    graphwidth=0
+    graphHeight=0
+    rightMargin = 0;
+
+    private canvases: HTMLCanvasElement[];
+    private contexts: CanvasRenderingContext2D[];
+    private _chartContainer: HTMLElement;
+    
+    constructor(container: HTMLElement) {
+        //this._chartContainer = document.getElementById("graph");
+        this._chartContainer = container;
+        this.canvases = []
+        this.contexts = []
+
+        this._create();
+    }
+
+
+private _create() {
+    
+
 
 let overlay: canvasStr = {
     canvas: document.createElement("canvas"),
@@ -121,6 +144,7 @@ overlay.canvas.addEventListener('mousemove', e => {
     drow(e,grid.context);
 })
 
+}
 
 function initial(container: HTMLElement | null) {
     if (container == undefined) {
