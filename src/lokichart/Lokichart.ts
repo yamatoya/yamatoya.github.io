@@ -43,14 +43,14 @@ const data: graphData = {
         6319,
         6549,
         7026,
-        8314,
-        10143,
-        9143,
-        5259,
-        4446,
-        3857,
-        3100,
-        2406,
+        -8314,
+        -10143,
+        -9143,
+        -5259,
+        -4446,
+        -3857,
+        -3100,
+        -2406,
         2320,
         6578,
         3322,
@@ -144,7 +144,6 @@ export class Lokichart {
         }
         this.width = container.clientWidth;
         this.height = container.clientHeight;
-        console.log(this.height);
         this.chart.canvas.width = this.width;
         this.chart.canvas.height = this.height;
         this.grid.canvas.width = this.width;
@@ -193,6 +192,23 @@ export class Lokichart {
         ctx.stroke();
     }
 
+    writeYAxis(
+        ctx: CanvasRenderingContext2D | null,
+        x: number,
+        y: number,
+        Yxis: number
+    ) {
+        if (ctx == null) {
+            return;
+        }
+        ctx.fillStyle = "#0063B1";
+        ctx.font = "12px sans-serif";
+        ctx.textAlign = "end";
+
+        ctx.fillText(Yxis.toString(), x, y);
+        console.log(`x:${x}/y:${y}/yaxis:${Yxis}`);
+    }
+
     drawBar(
         data: graphData,
         ctx: CanvasRenderingContext2D | null,
@@ -214,30 +230,28 @@ export class Lokichart {
         const aryMax = (a: number, b: number) => {
             return Math.max(a, b);
         };
+
+        const aryMin = (a: number, b: number) => {
+            return Math.min(a, b);
+        };
+
         const maxPrice = Math.ceil(data.value.reduce(aryMax));
+        const minPrice = Math.ceil(data.value.reduce(aryMin));
+        const tick = 10;
+        const scale = this.makeYaxis(minPrice, maxPrice, tick);
 
-        ctx.fillStyle = "#0063B1";
-        ctx.font = "12px sans-serif";
-        ctx.textAlign = "end";
-        ctx.fillText(
-            maxPrice.toString(),
-            this.keisenMargine - 2,
-            this.keisenMargine + 10
-        );
-        ctx.fillText(
-            " 0",
-            this.keisenMargine - 2,
-            can.height - this.keisenMargine
-        );
-
-        const memoriCount = Math.floor(maxPrice / Math.ceil(maxPrice / 10));
-        for (let i = 0; i < memoriCount; i++) {
+        for (let i = 0; i < tick; i++) {
             this.drawMemori(
                 ctx,
                 this.keisenMargine,
-                this.keisenMargine +
-                    Math.ceil(this.graphHeight / memoriCount) * i,
+                this.keisenMargine + Math.ceil(this.graphHeight / tick) * i,
                 this.graphwidth
+            );
+            this.writeYAxis(
+                ctx,
+                this.keisenMargine - 5,
+                this.keisenMargine + Math.ceil(this.graphHeight / tick) * i,
+                scale[i]
             );
         }
 
@@ -261,9 +275,40 @@ export class Lokichart {
                     (this.barWidth + this.barhMargine) * b,
                 can.height - this.keisenMargine - 1,
                 this.barWidth,
-                (-this.graphHeight * data.value[b]) / maxPrice
+                (-this.graphHeight * data.value[b]) / scale[scale.length - 1]
             );
         }
+    }
+
+    private makeYaxis(yMin: number, yMax: number, ticks: number = 10) {
+        let result: number[] = [];
+        if (yMin == yMax) {
+            yMin = yMin - 10;
+            yMax = yMax + 10;
+        }
+        const range = yMax - yMin;
+        if (ticks < 2) {
+            ticks = 2;
+        } else if (ticks > 2) {
+            ticks -= 2;
+        }
+        let tmepStep = range / ticks;
+        let mag = Math.floor(Math.log10(tmepStep));
+        let magPow = Math.pow(10, mag);
+        let magMsd = Math.floor(tmepStep / magPow + 0.5);
+        let stepSize = magMsd * magPow;
+        let lb = stepSize * Math.floor(yMin / stepSize);
+        let ub = stepSize * Math.ceil(yMax / stepSize);
+
+        let val = lb;
+        while (1) {
+            result.push(val);
+            val += stepSize;
+            if (val > ub) {
+                break;
+            }
+        }
+        return result;
     }
 
     private n = {
@@ -292,7 +337,6 @@ export class Lokichart {
                     (this.barWidth + this.barhMargine) +
                 (this.keisenMargine + this.barhMargine);
         }
-        console.log(this.width - this.rightMargin);
 
         if (e.offsetY < this.keisenMargine) {
             this.n.y = this.keisenMargine;
