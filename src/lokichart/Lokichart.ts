@@ -157,6 +157,7 @@ export class Lokichart {
         this.drawBar(data, this.chart.context, this.chart.canvas);
     }
 
+    /// 罫線を引く
     drawKeisen(ctx: CanvasRenderingContext2D | null, can: HTMLCanvasElement) {
         if (ctx == null) {
             return;
@@ -167,24 +168,30 @@ export class Lokichart {
         ctx.moveTo(this.keisenMargine, this.keisenMargine);
         ctx.lineTo(this.keisenMargine, this.keisenMargine);
         ctx.lineTo(this.keisenMargine, can.height - this.keisenMargine);
-        ctx.lineTo(
-            can.width - this.keisenMargine + 3,
-            can.height - this.keisenMargine
-        );
+        // ctx.lineTo(
+        //     can.width - this.keisenMargine + 3,
+        //     can.height - this.keisenMargine
+        // );
         ctx.stroke();
     }
 
+    // 横の補助線を引く
     drawMemori(
         ctx: CanvasRenderingContext2D | null,
         x: number,
         y: number,
-        width: number
+        width: number,
+        genten: boolean = false
     ) {
         if (ctx == null) {
             return;
         }
-        ctx.fillStyle = color.border;
         ctx.strokeStyle = color.grid;
+
+        // Y=0の時
+        if (genten) {
+            ctx.strokeStyle = color.border;
+        }
         ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.lineTo(x, y);
@@ -192,6 +199,7 @@ export class Lokichart {
         ctx.stroke();
     }
 
+    /// Y軸の目盛りを描写する
     writeYAxis(
         ctx: CanvasRenderingContext2D | null,
         x: number,
@@ -206,9 +214,9 @@ export class Lokichart {
         ctx.textAlign = "end";
 
         ctx.fillText(Yxis.toString(), x, y);
-        console.log(`x:${x}/y:${y}/yaxis:${Yxis}`);
     }
 
+    /// グラフのバーを引く
     drawBar(
         data: graphData,
         ctx: CanvasRenderingContext2D | null,
@@ -237,21 +245,25 @@ export class Lokichart {
 
         const maxPrice = Math.ceil(data.value.reduce(aryMax));
         const minPrice = Math.ceil(data.value.reduce(aryMin));
-        const tick = 10;
+        const tick = 12;
         const scale = this.makeYaxis(minPrice, maxPrice, tick);
 
-        for (let i = 0; i < tick; i++) {
+        for (let i = 0; i < tick + 1; i++) {
+            // Y軸の補助線
             this.drawMemori(
                 ctx,
                 this.keisenMargine,
                 this.keisenMargine + Math.ceil(this.graphHeight / tick) * i,
-                this.graphwidth
+                this.graphwidth,
+                scale[i] == 0 ? true : false
             );
+
+            // Y軸の目盛り表示
             this.writeYAxis(
                 ctx,
                 this.keisenMargine - 5,
                 this.keisenMargine + Math.ceil(this.graphHeight / tick) * i,
-                scale[i]
+                scale[scale.length - i - 1]
             );
         }
 
@@ -268,14 +280,16 @@ export class Lokichart {
                 barLabel
             );
 
+            // グラフのバー描画
             ctx.fillStyle = "#0063B1";
             ctx.fillRect(
                 this.keisenMargine +
                     this.barhMargine +
                     (this.barWidth + this.barhMargine) * b,
-                can.height - this.keisenMargine - 1,
+                can.height / 2,
                 this.barWidth,
-                (-this.graphHeight * data.value[b]) / scale[scale.length - 1]
+                ((-this.graphHeight / 2) * data.value[b]) /
+                    scale[scale.length - 1]
             );
         }
     }
