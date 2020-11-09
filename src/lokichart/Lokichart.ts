@@ -1,66 +1,4 @@
-import { convertCompilerOptionsFromJson } from "typescript";
-
-const data: graphData = {
-    "term": "m",
-    label: [
-        "2018/04",
-        "2018/05",
-        "2018/06",
-        "2018/07",
-        "2018/08",
-        "2018/09",
-        "2018/10",
-        "2018/11",
-        "2018/12",
-        "2019/01",
-        "2019/02",
-        "2019/03",
-        "2019/04",
-        "2019/05",
-        "2019/06",
-        "2019/07",
-        "2019/08",
-        "2019/09",
-        "2019/10",
-        "2019/11",
-        "2019/12",
-        "2020/01",
-        "2020/02",
-        "2020/03",
-        "2020/04",
-        "2020/05",
-    ],
-    value: [
-        10138,
-        8675,
-        6699,
-        7971,
-        9589,
-        9867,
-        11360,
-        8589,
-        8162,
-        7345,
-        6319,
-        6549,
-        7026,
-        8314,
-        10143,
-        -9143,
-        -5259,
-        -4446,
-        -3857,
-        -3100,
-        -2406,
-        2320,
-        6578,
-        3322,
-        2625,
-        845,
-    ],
-    unit: "億円",
-    name: "営業収益",
-};
+import graphData from "./graphData";
 
 const color = {
     grid: "#ccc",
@@ -70,14 +8,6 @@ const color = {
 export interface InLayer {
     canvas: HTMLCanvasElement;
     context: CanvasRenderingContext2D | null;
-}
-
-export interface graphData {
-    term: string;
-    label: string[];
-    value: number[];
-    unit: string;
-    name: string;
 }
 
 export class Lokichart {
@@ -92,14 +22,16 @@ export class Lokichart {
 
     private canvases: HTMLCanvasElement[];
     private _chartContainer: HTMLElement;
+    private graphData: graphData;
 
     chart: InLayer;
     overlay: InLayer;
     grid: InLayer;
 
-    constructor(container: HTMLElement) {
+    constructor(container: HTMLElement, originalData: graphData) {
         //this._chartContainer = document.getElementById("graph");
         this._chartContainer = container;
+        this.graphData = originalData;
         this.canvases = [];
 
         this.overlay = {
@@ -155,7 +87,7 @@ export class Lokichart {
 
         this.graphwidth = this.width - this.keisenMargine * 2;
         this.graphHeight = this.height - this.keisenMargine * 2;
-        this.drawBar(data, this.chart.context, this.chart.canvas);
+        this.drawBar(this.chart.context, this.chart.canvas);
     }
 
     /// Y軸の目盛りを描写する
@@ -176,15 +108,11 @@ export class Lokichart {
     }
 
     /// グラフのバーを引く
-    drawBar(
-        data: graphData,
-        ctx: CanvasRenderingContext2D | null,
-        can: HTMLCanvasElement
-    ) {
+    drawBar(ctx: CanvasRenderingContext2D | null, can: HTMLCanvasElement) {
         if (ctx == null) {
             return;
         }
-        const count = data.label.length;
+        const count = this.graphData.label.length;
 
         this.barWidth = Math.round(this.graphwidth / count) - this.barhMargine;
         this.rightMargin =
@@ -202,37 +130,42 @@ export class Lokichart {
             return Math.min(a, b);
         };
 
-        const maxPrice = Math.ceil(data.value.reduce(aryMax));
-        const minPrice = Math.ceil(data.value.reduce(aryMin));
+        const maxPrice = Math.ceil(this.graphData.value.reduce(aryMax));
+        const minPrice = Math.ceil(this.graphData.value.reduce(aryMin));
         const tick = 10;
         const scale = this.makeYaxis(minPrice, maxPrice, tick);
-        console.log(scale)
+        console.log(scale);
         let gentenHeight = can.height - this.keisenMargine;
-        let minGraphHeight = 0
+        let minGraphHeight = 0;
 
         for (let i = 0; i < scale.length; i++) {
-
             if (scale[scale.length - i - 1] == 0) {
-                gentenHeight = this.keisenMargine + Math.ceil(this.graphHeight * (i + 1) / scale.length)
+                gentenHeight =
+                    this.keisenMargine +
+                    Math.ceil((this.graphHeight * (i + 1)) / scale.length);
             }
-            console.log(`genten:${gentenHeight} low:${can.height - this.keisenMargine}`)
+            console.log(
+                `genten:${gentenHeight} low:${can.height - this.keisenMargine}`
+            );
 
             // Y軸の補助線
             this.drawGentenKeisen(
                 ctx,
                 this.keisenMargine,
                 gentenHeight,
-                this.graphwidth,
+                this.graphwidth
             );
-            minGraphHeight = this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i
+            minGraphHeight =
+                this.keisenMargine +
+                Math.ceil(this.graphHeight / scale.length) * i;
         }
 
-        const positiveGraphHeight = gentenHeight - this.keisenMargine
-        const negativeGraphHeight = minGraphHeight - gentenHeight
+        const positiveGraphHeight = gentenHeight - this.keisenMargine;
+        const negativeGraphHeight = minGraphHeight - gentenHeight;
 
         for (let b = 0; b < count; b++) {
             if (this.overlay.context == null) {
-                return
+                return;
             }
             this.overlay.context.fillStyle = "red";
             this.overlay.context.font = "12px sans-serif";
@@ -241,8 +174,8 @@ export class Lokichart {
             this.overlay.context.fillText(
                 this.getXlabel(b),
                 this.keisenMargine +
-                this.barhMargine * 1.5 +
-                (this.barWidth + this.barhMargine) * b,
+                    this.barhMargine * 1.5 +
+                    (this.barWidth + this.barhMargine) * b,
                 barLabel
             );
 
@@ -250,24 +183,36 @@ export class Lokichart {
             ctx.fillStyle = "#81C784";
             ctx.fillRect(
                 this.keisenMargine +
-                this.barhMargine +
-                (this.barWidth + this.barhMargine) * b,
-                gentenHeight,
+                    this.barhMargine +
+                    (this.barWidth + this.barhMargine) * b,
+                this.graphData.value[b] >= 0
+                    ? gentenHeight - 1
+                    : gentenHeight + 1,
                 this.barWidth,
-                data.value[b] >= 0 ? -(positiveGraphHeight * data.value[b]) / scale[scale.length - 1] : (negativeGraphHeight * data.value[b]) / scale[0]
+                this.graphData.value[b] >= 0
+                    ? -(positiveGraphHeight * this.graphData.value[b]) /
+                          scale[scale.length - 1]
+                    : (negativeGraphHeight * this.graphData.value[b]) / scale[0]
             );
 
             // データ量
             this.overlay.context.fillText(
-                data.value[b].toLocaleString(),
+                this.graphData.value[b].toLocaleString(),
                 this.keisenMargine +
-                this.barhMargine * 1.5 +
-                (this.barWidth + this.barhMargine) * b,
-                data.value[b] >= 0 ? gentenHeight - (positiveGraphHeight * data.value[b]) / scale[scale.length - 1] - 10 : gentenHeight + (negativeGraphHeight * data.value[b]) / scale[0] + 20
+                    this.barhMargine * 1.5 +
+                    (this.barWidth + this.barhMargine) * b,
+                this.graphData.value[b] >= 0
+                    ? gentenHeight -
+                          (positiveGraphHeight * this.graphData.value[b]) /
+                              scale[scale.length - 1] -
+                          10
+                    : gentenHeight +
+                          (negativeGraphHeight * this.graphData.value[b]) /
+                              scale[0] +
+                          20
             );
         }
     }
-
 
     // 横の補助線を引く
     drawGentenKeisen(
@@ -288,20 +233,20 @@ export class Lokichart {
         ctx.stroke();
     }
 
-    private yearLabel: string = ""
+    private yearLabel: string = "";
     /// X軸のラベル文字列を生成
     private getXlabel(plot: number) {
-        let result = ""
-        if (data.term == "m") {
-            let label = data.label[plot].split("/")
+        let result = "";
+        if (this.graphData.term == "m") {
+            let label = this.graphData.label[plot].split("/");
             if (this.yearLabel != label[0] || this.yearLabel == "") {
-                this.yearLabel = label[0]
-                result = `${label[0]}年`
+                this.yearLabel = label[0];
+                result = `${label[0]}年`;
             } else {
-                result = `${label[1]}月`
+                result = `${label[1]}月`;
             }
         }
-        return result
+        return result;
     }
 
     private makeYaxis(yMin: number, yMax: number, ticks: number = 10) {
@@ -356,9 +301,9 @@ export class Lokichart {
             this.n.x =
                 Math.floor(
                     (e.offsetX - this.keisenMargine) /
-                    (this.barWidth + this.barhMargine)
+                        (this.barWidth + this.barhMargine)
                 ) *
-                (this.barWidth + this.barhMargine) +
+                    (this.barWidth + this.barhMargine) +
                 (this.keisenMargine + this.barhMargine);
         }
 
@@ -382,12 +327,12 @@ export class Lokichart {
 
         let selectedBar = Math.floor(
             (e.offsetX - this.keisenMargine) /
-            (this.barWidth + this.barhMargine)
+                (this.barWidth + this.barhMargine)
         );
         if (selectedBar < 0) {
             selectedBar = 0;
-        } else if (selectedBar > data.label.length - 1) {
-            selectedBar = data.label.length - 1;
+        } else if (selectedBar > this.graphData.label.length - 1) {
+            selectedBar = this.graphData.label.length - 1;
         }
 
         // 横
@@ -396,12 +341,14 @@ export class Lokichart {
         ctx.font = "12px sans-serif";
         ctx.textBaseline = "bottom";
         ctx.fillText(
-            `${this.convertLabel(data.label[selectedBar])}`,
+            `${this.convertLabel(this.graphData.label[selectedBar])}`,
             this.n.x,
             this.keisenMargine - 24
         );
         ctx.fillText(
-            `${data.value[selectedBar].toLocaleString()}${data.unit}`,
+            `${this.graphData.value[selectedBar].toLocaleString()}${
+                this.graphData.unit
+            }`,
             this.n.x,
             this.keisenMargine - 10
         );
