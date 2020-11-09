@@ -46,8 +46,8 @@ const data: graphData = {
         7026,
         8314,
         10143,
-        9143,
-        5259,
+        -9143,
+        -5259,
         -4446,
         -3857,
         -3100,
@@ -56,7 +56,7 @@ const data: graphData = {
         6578,
         3322,
         2625,
-        2845,
+        845,
     ],
     unit: "億円",
     name: "営業収益",
@@ -155,50 +155,7 @@ export class Lokichart {
 
         this.graphwidth = this.width - this.keisenMargine * 2;
         this.graphHeight = this.height - this.keisenMargine * 2;
-        this.drawKeisen(this.chart.context, this.chart.canvas);
         this.drawBar(data, this.chart.context, this.chart.canvas);
-    }
-
-    /// 罫線を引く
-    drawKeisen(ctx: CanvasRenderingContext2D | null, can: HTMLCanvasElement) {
-        if (ctx == null) {
-            return;
-        }
-        ctx.fillStyle = color.border;
-        ctx.strokeStyle = color.border;
-        ctx.beginPath();
-        ctx.moveTo(this.keisenMargine, this.keisenMargine);
-        ctx.lineTo(this.keisenMargine, this.keisenMargine);
-        ctx.lineTo(this.keisenMargine, can.height - this.keisenMargine);
-        // ctx.lineTo(
-        //     can.width - this.keisenMargine + 3,
-        //     can.height - this.keisenMargine
-        // );
-        ctx.stroke();
-    }
-
-    // 横の補助線を引く
-    drawMemori(
-        ctx: CanvasRenderingContext2D | null,
-        x: number,
-        y: number,
-        width: number,
-        genten: boolean = false
-    ) {
-        if (ctx == null) {
-            return;
-        }
-        ctx.strokeStyle = color.grid;
-
-        // Y=0の時
-        if (genten) {
-            ctx.strokeStyle = color.border;
-        }
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x, y);
-        ctx.lineTo(x + width, y);
-        ctx.stroke();
     }
 
     /// Y軸の目盛りを描写する
@@ -249,30 +206,23 @@ export class Lokichart {
         const minPrice = Math.ceil(data.value.reduce(aryMin));
         const tick = 10;
         const scale = this.makeYaxis(minPrice, maxPrice, tick);
-        let gentenHeight = 0;
+        console.log(scale)
+        let gentenHeight = can.height - this.keisenMargine;
         let minGraphHeight = 0
 
         for (let i = 0; i < scale.length; i++) {
 
             if (scale[scale.length - i - 1] == 0) {
-                gentenHeight = this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i
+                gentenHeight = this.keisenMargine + Math.ceil(this.graphHeight * (i + 1) / scale.length)
             }
+            console.log(`genten:${gentenHeight} low:${can.height - this.keisenMargine}`)
 
             // Y軸の補助線
-            this.drawMemori(
+            this.drawGentenKeisen(
                 ctx,
                 this.keisenMargine,
-                this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i,
+                gentenHeight,
                 this.graphwidth,
-                scale[scale.length - i - 1] == 0 ? true : false
-            );
-
-            // Y軸の目盛り表示
-            this.writeYAxis(
-                ctx,
-                this.keisenMargine - 5,
-                this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i,
-                scale[scale.length - i - 1]
             );
             minGraphHeight = this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i
         }
@@ -306,7 +256,36 @@ export class Lokichart {
                 this.barWidth,
                 data.value[b] >= 0 ? -(positiveGraphHeight * data.value[b]) / scale[scale.length - 1] : (negativeGraphHeight * data.value[b]) / scale[0]
             );
+
+            // データ量
+            this.overlay.context.fillText(
+                data.value[b].toLocaleString(),
+                this.keisenMargine +
+                this.barhMargine * 1.5 +
+                (this.barWidth + this.barhMargine) * b,
+                data.value[b] >= 0 ? gentenHeight - (positiveGraphHeight * data.value[b]) / scale[scale.length - 1] - 10 : gentenHeight + (negativeGraphHeight * data.value[b]) / scale[0] + 20
+            );
         }
+    }
+
+
+    // 横の補助線を引く
+    drawGentenKeisen(
+        ctx: CanvasRenderingContext2D | null,
+        x: number,
+        y: number,
+        width: number
+    ) {
+        if (ctx == null) {
+            return;
+        }
+        ctx.strokeStyle = color.grid;
+        ctx.strokeStyle = color.border;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, y);
+        ctx.lineTo(x + width, y);
+        ctx.stroke();
     }
 
     private yearLabel: string = ""
