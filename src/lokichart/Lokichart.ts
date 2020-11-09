@@ -1,6 +1,7 @@
 import { convertCompilerOptionsFromJson } from "typescript";
 
 const data: graphData = {
+    "term": "m",
     label: [
         "2018/04",
         "2018/05",
@@ -43,10 +44,10 @@ const data: graphData = {
         6319,
         6549,
         7026,
-        -8314,
-        -10143,
-        -9143,
-        -5259,
+        8314,
+        10143,
+        9143,
+        5259,
         -4446,
         -3857,
         -3100,
@@ -72,6 +73,7 @@ export interface InLayer {
 }
 
 export interface graphData {
+    term: string;
     label: string[];
     value: number[];
     unit: string;
@@ -245,53 +247,82 @@ export class Lokichart {
 
         const maxPrice = Math.ceil(data.value.reduce(aryMax));
         const minPrice = Math.ceil(data.value.reduce(aryMin));
-        const tick = 12;
+        const tick = 10;
         const scale = this.makeYaxis(minPrice, maxPrice, tick);
+        let gentenHeight = 0;
+        let minGraphHeight = 0
 
-        for (let i = 0; i < tick + 1; i++) {
+        for (let i = 0; i < scale.length; i++) {
+
+            if (scale[scale.length - i - 1] == 0) {
+                gentenHeight = this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i
+            }
+
             // Y軸の補助線
             this.drawMemori(
                 ctx,
                 this.keisenMargine,
-                this.keisenMargine + Math.ceil(this.graphHeight / tick) * i,
+                this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i,
                 this.graphwidth,
-                scale[i] == 0 ? true : false
+                scale[scale.length - i - 1] == 0 ? true : false
             );
 
             // Y軸の目盛り表示
             this.writeYAxis(
                 ctx,
                 this.keisenMargine - 5,
-                this.keisenMargine + Math.ceil(this.graphHeight / tick) * i,
+                this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i,
                 scale[scale.length - i - 1]
             );
+            minGraphHeight = this.keisenMargine + Math.ceil(this.graphHeight / scale.length) * i
         }
 
+        const positiveGraphHeight = gentenHeight - this.keisenMargine
+        const negativeGraphHeight = minGraphHeight - gentenHeight
+
         for (let b = 0; b < count; b++) {
-            ctx.fillStyle = "red";
-            ctx.font = "12px sans-serif";
-            ctx.textAlign = "left";
+            if (this.overlay.context == null) {
+                return
+            }
+            this.overlay.context.fillStyle = "red";
+            this.overlay.context.font = "12px sans-serif";
+            this.overlay.context.textAlign = "left";
             // x軸のlabel表示
-            ctx.fillText(
-                data.label[b],
+            this.overlay.context.fillText(
+                this.getXlabel(b),
                 this.keisenMargine +
-                    this.barhMargine * 1.5 +
-                    (this.barWidth + this.barhMargine) * b,
+                this.barhMargine * 1.5 +
+                (this.barWidth + this.barhMargine) * b,
                 barLabel
             );
 
             // グラフのバー描画
-            ctx.fillStyle = "#0063B1";
+            ctx.fillStyle = "#81C784";
             ctx.fillRect(
                 this.keisenMargine +
-                    this.barhMargine +
-                    (this.barWidth + this.barhMargine) * b,
-                can.height / 2,
+                this.barhMargine +
+                (this.barWidth + this.barhMargine) * b,
+                gentenHeight,
                 this.barWidth,
-                ((-this.graphHeight / 2) * data.value[b]) /
-                    scale[scale.length - 1]
+                data.value[b] >= 0 ? -(positiveGraphHeight * data.value[b]) / scale[scale.length - 1] : (negativeGraphHeight * data.value[b]) / scale[0]
             );
         }
+    }
+
+    private yearLabel: string = ""
+    /// X軸のラベル文字列を生成
+    private getXlabel(plot: number) {
+        let result = ""
+        if (data.term == "m") {
+            let label = data.label[plot].split("/")
+            if (this.yearLabel != label[0] || this.yearLabel == "") {
+                this.yearLabel = label[0]
+                result = `${label[0]}年`
+            } else {
+                result = `${label[1]}月`
+            }
+        }
+        return result
     }
 
     private makeYaxis(yMin: number, yMax: number, ticks: number = 10) {
@@ -346,9 +377,9 @@ export class Lokichart {
             this.n.x =
                 Math.floor(
                     (e.offsetX - this.keisenMargine) /
-                        (this.barWidth + this.barhMargine)
+                    (this.barWidth + this.barhMargine)
                 ) *
-                    (this.barWidth + this.barhMargine) +
+                (this.barWidth + this.barhMargine) +
                 (this.keisenMargine + this.barhMargine);
         }
 
@@ -360,7 +391,7 @@ export class Lokichart {
             this.n.y = e.offsetY;
         }
 
-        ctx.fillStyle = "#e9546b";
+        ctx.fillStyle = "#ccc";
 
         // // カーソルがある場所に縦の線を引く
         ctx.fillRect(
@@ -372,7 +403,7 @@ export class Lokichart {
 
         let selectedBar = Math.floor(
             (e.offsetX - this.keisenMargine) /
-                (this.barWidth + this.barhMargine)
+            (this.barWidth + this.barhMargine)
         );
         if (selectedBar < 0) {
             selectedBar = 0;
