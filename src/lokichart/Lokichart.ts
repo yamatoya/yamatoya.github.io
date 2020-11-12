@@ -17,9 +17,12 @@ export class Lokichart {
     height = 0;
     keisenMargine = 50;
     barWidth = 0;
+    barBoxWidth = 0;
     graphwidth = 0;
     graphHeight = 0;
     rightMargin = 0;
+
+    readonly maxGraphWidth = 30;
 
     private canvases: HTMLCanvasElement[];
     private _chartContainer: HTMLElement;
@@ -141,12 +144,18 @@ export class Lokichart {
         }
         const count = this.graphData.label.length;
 
-        this.barWidth = Math.round(this.graphwidth / count) - this.barhMargine;
+        this.barBoxWidth =
+            Math.round(this.graphwidth / count) - this.barhMargine;
+        this.barWidth =
+            Math.round(this.graphwidth / count) - this.barhMargine >
+            this.maxGraphWidth
+                ? this.maxGraphWidth
+                : Math.round(this.graphwidth / count) - this.barhMargine;
         this.rightMargin =
             this.width -
             (this.keisenMargine +
-                (this.barWidth + this.barhMargine) * count -
-                this.barWidth);
+                (this.barBoxWidth + this.barhMargine) * count -
+                this.barBoxWidth);
         this.barLabelHeight = can.height - this.keisenMargine + 20;
 
         const aryMax = (a: number, b: number) => {
@@ -172,17 +181,18 @@ export class Lokichart {
                         (this.graphHeight * (i + 1)) / this.scaleY.length
                     );
             }
-            // Y軸の補助線
-            this.drawGentenKeisen(
-                ctx,
-                this.keisenMargine,
-                this.gentenHeight,
-                this.graphwidth
-            );
             minGraphHeight =
                 this.keisenMargine +
                 Math.ceil(this.graphHeight / this.scaleY.length) * i;
         }
+
+        // Y=0の罫線
+        this.drawGentenKeisen(
+            ctx,
+            this.keisenMargine,
+            this.gentenHeight,
+            this.graphwidth
+        );
 
         this.positiveGraphHeight = this.gentenHeight - this.keisenMargine;
         this.negativeGraphHeight = minGraphHeight - this.gentenHeight;
@@ -239,7 +249,7 @@ export class Lokichart {
             result,
             this.keisenMargine +
                 this.barhMargine * 1.5 +
-                (this.barWidth + this.barhMargine) * plot,
+                (this.barBoxWidth + this.barhMargine) * plot,
             this.barLabelHeight
         );
     }
@@ -253,7 +263,7 @@ export class Lokichart {
             result,
             this.keisenMargine +
                 this.barhMargine * 1.5 +
-                (this.barWidth + this.barhMargine) * plot,
+                (this.barBoxWidth + this.barhMargine) * plot,
             this.barLabelHeight + 14
         );
     }
@@ -263,7 +273,7 @@ export class Lokichart {
         ctx.fillRect(
             this.keisenMargine +
                 this.barhMargine +
-                (this.barWidth + this.barhMargine) * plot,
+                (this.barBoxWidth + this.barhMargine) * plot,
             this.graphData.value[plot] >= 0
                 ? this.gentenHeight - 1
                 : this.gentenHeight + 1,
@@ -283,8 +293,8 @@ export class Lokichart {
         this.overlay.context.fillText(
             this.graphData.value[plot].toLocaleString(),
             this.keisenMargine +
-                this.barhMargine * 1.5 +
-                (this.barWidth + this.barhMargine) * plot,
+                this.barhMargine +
+                (this.barBoxWidth + this.barhMargine) * plot,
             this.graphData.value[plot] >= 0
                 ? this.gentenHeight -
                       (this.positiveGraphHeight * this.graphData.value[plot]) /
@@ -375,28 +385,33 @@ export class Lokichart {
         y: 10,
     };
 
+    /**
+     * マウスカーソルがあるグラフをハイライトし、横の高さを示す補助線を引く
+     * @param e マウスカーソルイベント
+     * @param ctx Canvas
+     */
     drow(e: MouseEvent, ctx: CanvasRenderingContext2D | null) {
         if (ctx == null) {
             return;
         }
         ctx.clearRect(0, 0, this.width, this.height);
 
+        // マウスのカーソル位置をX軸方向でグラフにスナップさせる
         if (e.offsetX <= this.keisenMargine + this.barhMargine) {
             this.n.x = this.keisenMargine + this.barhMargine;
         } else if (e.offsetX >= this.width - this.rightMargin) {
             this.n.x = this.width - this.rightMargin;
         } else {
-            //n.x=e.offsetX
-            //  n.x = width - (Math.floor((width - e.offsetX - keisenMargine) / (barWidth + this.barhMargine) + 1) * (barWidth + this.barhMargine)) - keisenMargine + this.barhMargine
             this.n.x =
                 Math.floor(
                     (e.offsetX - this.keisenMargine) /
-                        (this.barWidth + this.barhMargine)
+                        (this.barBoxWidth + this.barhMargine)
                 ) *
-                    (this.barWidth + this.barhMargine) +
+                    (this.barBoxWidth + this.barhMargine) +
                 (this.keisenMargine + this.barhMargine);
         }
 
+        // 縦の線をグラフの領域内に収める
         if (e.offsetY < this.keisenMargine) {
             this.n.y = this.keisenMargine;
         } else if (e.offsetY > this.height - this.keisenMargine) {
@@ -417,7 +432,7 @@ export class Lokichart {
 
         let selectedBar = Math.floor(
             (e.offsetX - this.keisenMargine) /
-                (this.barWidth + this.barhMargine)
+                (this.barBoxWidth + this.barhMargine)
         );
         if (selectedBar < 0) {
             selectedBar = 0;
@@ -425,11 +440,13 @@ export class Lokichart {
             selectedBar = this.graphData.label.length - 1;
         }
 
-        // 横
+        // カーソルがある場所に横の線を引く
         ctx.fillRect(this.keisenMargine, this.n.y, this.graphwidth, 1);
         ctx.fillStyle = "red";
         ctx.font = "12px sans-serif";
         ctx.textBaseline = "bottom";
+
+        // 選択したグラフの値と時期を描画する
         ctx.fillText(
             `${this.convertLabel(this.graphData.label[selectedBar])}`,
             this.n.x,
