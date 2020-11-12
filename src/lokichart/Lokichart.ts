@@ -34,6 +34,7 @@ export class Lokichart {
     private gentenHeight: number = 0;
     private scaleY: number[] = [];
     private barLabelHeight: number = 0;
+    private minGraphHeight: number = 0;
     private Term = {
         Monthly: "m",
         Quorter: "q",
@@ -175,7 +176,6 @@ export class Lokichart {
         const tick = 10;
         this.scaleY = this.makeYaxis(minPrice, maxPrice, tick);
         this.gentenHeight = can.height - this.keisenMargine;
-        let minGraphHeight = 0;
 
         for (let i = 0; i < this.scaleY.length; i++) {
             if (this.scaleY[this.scaleY.length - i - 1] == 0) {
@@ -185,7 +185,7 @@ export class Lokichart {
                         (this.graphHeight * (i + 1)) / this.scaleY.length
                     );
             }
-            minGraphHeight =
+            this.minGraphHeight =
                 this.keisenMargine +
                 Math.ceil(this.graphHeight / this.scaleY.length) * i;
         }
@@ -199,7 +199,7 @@ export class Lokichart {
         );
 
         this.positiveGraphHeight = this.gentenHeight - this.keisenMargine;
-        this.negativeGraphHeight = minGraphHeight - this.gentenHeight;
+        this.negativeGraphHeight = this.minGraphHeight - this.gentenHeight;
 
         for (let b = 0; b < count; b++) {
             if (this.overlay.context == null) {
@@ -287,6 +287,24 @@ export class Lokichart {
                 (this.barBoxWidth + this.barhMargine) * plot,
             this.barLabelHeight + 14
         );
+
+        let separetaYearWidth =
+            this.keisenMargine +
+            this.barhMargine +
+            (this.barBoxWidth + this.barhMargine) * plot -
+            this.barhMargine * 0.5;
+
+        if (this.grid.context == null) {
+            return;
+        }
+        this.overlay.context.strokeStyle = color.grid;
+        this.overlay.context.strokeStyle = color.border;
+        this.overlay.context.beginPath();
+        this.overlay.context.moveTo(separetaYearWidth, this.gentenHeight - 10);
+        this.overlay.context.lineTo(separetaYearWidth, this.gentenHeight - 10);
+        this.overlay.context.lineTo(separetaYearWidth, this.gentenHeight + 10);
+        this.overlay.context.stroke();
+        console.log(`sepa:${separetaYearWidth}/min:${this.gentenHeight}`);
     }
 
     /**
