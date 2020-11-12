@@ -34,6 +34,10 @@ export class Lokichart {
     private gentenHeight: number = 0;
     private scaleY: number[] = [];
     private barLabelHeight: number = 0;
+    private Term = {
+        Monthly: "m",
+        Quorter: "q",
+    } as const;
 
     chart: InLayer;
     overlay: InLayer;
@@ -221,23 +225,30 @@ export class Lokichart {
         let result = "";
 
         // 月データのラベル
-        if (this.graphData.term == "m") {
+        if (this.isTermMonthly(this.graphData.term)) {
             let label = this.graphData.label[plot].split("/");
             if (this.yearLabel != label[0] || this.yearLabel == "") {
                 this.yearLabel = label[0];
                 this.writeLabelXYear(plot, `${label[0]}年`);
             }
             this.writeLabelXEach(plot, `${label[1]}月`);
-        } else if ((this.graphData.term = "q")) {
-            // 四半期のラベル
+        } else if (this.isTermQuorter(this.graphData.term)) {
             let label = this.graphData.label[plot].split("/");
-            console.log(this.yearLabel);
+
             if (this.yearLabel != label[0] || this.yearLabel == "") {
                 this.yearLabel = label[0];
                 this.writeLabelXYear(plot, `${label[0]}年`);
             }
             this.writeLabelXEach(plot, `${label[1]}`);
         }
+    }
+
+    private isTermMonthly(term: string) {
+        return term == this.Term.Monthly;
+    }
+
+    private isTermQuorter(term: string) {
+        return (term = this.Term.Quorter);
     }
 
     /**
@@ -339,7 +350,7 @@ export class Lokichart {
     /// X軸のラベル文字列を生成
     private getXlabel(plot: number) {
         let result = "";
-        if (this.graphData.term == "m") {
+        if (this.graphData.term == this.Term.Monthly) {
             let label = this.graphData.label[plot].split("/");
             if (this.yearLabel != label[0] || this.yearLabel == "") {
                 this.yearLabel = label[0];
@@ -347,7 +358,7 @@ export class Lokichart {
             } else {
                 result = `${label[1]}月`;
             }
-        } else if ((this.graphData.term = "q")) {
+        } else if ((this.graphData.term = this.Term.Quorter)) {
             let label = this.graphData.label[plot].split("/");
             if (this.yearLabel != label[0] || this.yearLabel == "") {
                 this.yearLabel = label[0];
