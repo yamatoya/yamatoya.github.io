@@ -1,4 +1,5 @@
 import graphData from "./graphData";
+import { graphDataSet } from "./graphData";
 
 const color = {
     grid: "#ccc",
@@ -22,16 +23,42 @@ export class Lokichart {
 
     private canvases: HTMLCanvasElement[];
     private _chartContainer: HTMLElement;
-    private graphData: graphData;
+    private graphData: graphDataSet;
+    private targetKey: string;
+    private yearLabel: string = "";
+    private positiveGraphHeight: number = 0;
+    private negativeGraphHeight: number = 0;
+    private gentenHeight: number = 0;
+    private scaleY: number[] = [];
+    private barLabelHeight: number = 0;
 
     chart: InLayer;
     overlay: InLayer;
     grid: InLayer;
 
-    constructor(container: HTMLElement, originalData: graphData) {
+    constructor(
+        container: HTMLElement,
+        originalData: graphData,
+        targetKey: string
+    ) {
         //this._chartContainer = document.getElementById("graph");
         this._chartContainer = container;
-        this.graphData = originalData;
+        this.targetKey = targetKey;
+        this.graphData = {
+            icon: "",
+            key: "",
+            label: [],
+            name: "",
+            term: "",
+            unit: "",
+            value: [],
+        };
+        originalData.dataset.forEach((s) => {
+            if (s.key == this.targetKey) {
+                this.graphData = s;
+                console.log(this.graphData);
+            }
+        });
         this.canvases = [];
 
         this.overlay = {
@@ -120,7 +147,7 @@ export class Lokichart {
             (this.keisenMargine +
                 (this.barWidth + this.barhMargine) * count -
                 this.barWidth);
-        const barLabel = can.height - this.keisenMargine + 20;
+        this.barLabelHeight = can.height - this.keisenMargine + 20;
 
         const aryMax = (a: number, b: number) => {
             return Math.max(a, b);
@@ -133,35 +160,32 @@ export class Lokichart {
         const maxPrice = Math.ceil(this.graphData.value.reduce(aryMax));
         const minPrice = Math.ceil(this.graphData.value.reduce(aryMin));
         const tick = 10;
-        const scale = this.makeYaxis(minPrice, maxPrice, tick);
-        console.log(scale);
-        let gentenHeight = can.height - this.keisenMargine;
+        this.scaleY = this.makeYaxis(minPrice, maxPrice, tick);
+        this.gentenHeight = can.height - this.keisenMargine;
         let minGraphHeight = 0;
 
-        for (let i = 0; i < scale.length; i++) {
-            if (scale[scale.length - i - 1] == 0) {
-                gentenHeight =
+        for (let i = 0; i < this.scaleY.length; i++) {
+            if (this.scaleY[this.scaleY.length - i - 1] == 0) {
+                this.gentenHeight =
                     this.keisenMargine +
-                    Math.ceil((this.graphHeight * (i + 1)) / scale.length);
+                    Math.ceil(
+                        (this.graphHeight * (i + 1)) / this.scaleY.length
+                    );
             }
-            console.log(
-                `genten:${gentenHeight} low:${can.height - this.keisenMargine}`
-            );
-
             // Y軸の補助線
             this.drawGentenKeisen(
                 ctx,
                 this.keisenMargine,
-                gentenHeight,
+                this.gentenHeight,
                 this.graphwidth
             );
             minGraphHeight =
                 this.keisenMargine +
-                Math.ceil(this.graphHeight / scale.length) * i;
+                Math.ceil(this.graphHeight / this.scaleY.length) * i;
         }
 
-        const positiveGraphHeight = gentenHeight - this.keisenMargine;
-        const negativeGraphHeight = minGraphHeight - gentenHeight;
+        this.positiveGraphHeight = this.gentenHeight - this.keisenMargine;
+        this.negativeGraphHeight = minGraphHeight - this.gentenHeight;
 
         for (let b = 0; b < count; b++) {
             if (this.overlay.context == null) {
@@ -170,48 +194,107 @@ export class Lokichart {
             this.overlay.context.fillStyle = "red";
             this.overlay.context.font = "12px sans-serif";
             this.overlay.context.textAlign = "left";
-            // x軸のlabel表示
-            this.overlay.context.fillText(
-                this.getXlabel(b),
-                this.keisenMargine +
-                    this.barhMargine * 1.5 +
-                    (this.barWidth + this.barhMargine) * b,
-                barLabel
-            );
+
+            // Xのラベル描画
+            this.writeLabelX(b);
 
             // グラフのバー描画
-            ctx.fillStyle = "#81C784";
-            ctx.fillRect(
-                this.keisenMargine +
-                    this.barhMargine +
-                    (this.barWidth + this.barhMargine) * b,
-                this.graphData.value[b] >= 0
-                    ? gentenHeight - 1
-                    : gentenHeight + 1,
-                this.barWidth,
-                this.graphData.value[b] >= 0
-                    ? -(positiveGraphHeight * this.graphData.value[b]) /
-                          scale[scale.length - 1]
-                    : (negativeGraphHeight * this.graphData.value[b]) / scale[0]
-            );
+            this.writeGraphBar(ctx, b);
 
             // データ量
-            this.overlay.context.fillText(
-                this.graphData.value[b].toLocaleString(),
-                this.keisenMargine +
-                    this.barhMargine * 1.5 +
-                    (this.barWidth + this.barhMargine) * b,
-                this.graphData.value[b] >= 0
-                    ? gentenHeight -
-                          (positiveGraphHeight * this.graphData.value[b]) /
-                              scale[scale.length - 1] -
-                          10
-                    : gentenHeight +
-                          (negativeGraphHeight * this.graphData.value[b]) /
-                              scale[0] +
-                          20
-            );
+            this.writeDataAmount(b);
         }
+    }
+
+    // X軸のラベル描画
+    private writeLabelX(plot: number) {
+        let result = "";
+
+        // 月データのラベル
+        if (this.graphData.term == "m") {
+            let label = this.graphData.label[plot].split("/");
+            if (this.yearLabel != label[0] || this.yearLabel == "") {
+                this.yearLabel = label[0];
+                this.writeLabelXYear(plot, `${label[0]}年`);
+            }
+            this.writeLabelXEach(plot, `${label[1]}月`);
+        } else if ((this.graphData.term = "q")) {
+            // 四半期のラベル
+            let label = this.graphData.label[plot].split("/");
+            console.log(this.yearLabel);
+            if (this.yearLabel != label[0] || this.yearLabel == "") {
+                this.yearLabel = label[0];
+                this.writeLabelXYear(plot, `${label[0]}年`);
+            }
+            this.writeLabelXEach(plot, `${label[1]}`);
+        }
+    }
+
+    private writeLabelXEach(plot: number, result: string) {
+        if (this.overlay.context == null) {
+            return;
+        }
+        // x軸のlabel表示
+        this.overlay.context.fillText(
+            result,
+            this.keisenMargine +
+                this.barhMargine * 1.5 +
+                (this.barWidth + this.barhMargine) * plot,
+            this.barLabelHeight
+        );
+    }
+
+    private writeLabelXYear(plot: number, result: string) {
+        if (this.overlay.context == null) {
+            return;
+        }
+        // x軸のlabel表示
+        this.overlay.context.fillText(
+            result,
+            this.keisenMargine +
+                this.barhMargine * 1.5 +
+                (this.barWidth + this.barhMargine) * plot,
+            this.barLabelHeight + 14
+        );
+    }
+
+    private writeGraphBar(ctx: CanvasRenderingContext2D, plot: number) {
+        ctx.fillStyle = "#81C784";
+        ctx.fillRect(
+            this.keisenMargine +
+                this.barhMargine +
+                (this.barWidth + this.barhMargine) * plot,
+            this.graphData.value[plot] >= 0
+                ? this.gentenHeight - 1
+                : this.gentenHeight + 1,
+            this.barWidth,
+            this.graphData.value[plot] >= 0
+                ? -(this.positiveGraphHeight * this.graphData.value[plot]) /
+                      this.scaleY[this.scaleY.length - 1]
+                : (this.negativeGraphHeight * this.graphData.value[plot]) /
+                      this.scaleY[0]
+        );
+    }
+
+    private writeDataAmount(plot: number) {
+        if (this.overlay.context == null) {
+            return;
+        }
+        this.overlay.context.fillText(
+            this.graphData.value[plot].toLocaleString(),
+            this.keisenMargine +
+                this.barhMargine * 1.5 +
+                (this.barWidth + this.barhMargine) * plot,
+            this.graphData.value[plot] >= 0
+                ? this.gentenHeight -
+                      (this.positiveGraphHeight * this.graphData.value[plot]) /
+                          this.scaleY[this.scaleY.length - 1] -
+                      10
+                : this.gentenHeight +
+                      (this.negativeGraphHeight * this.graphData.value[plot]) /
+                          this.scaleY[0] +
+                      20
+        );
     }
 
     // 横の補助線を引く
@@ -233,7 +316,6 @@ export class Lokichart {
         ctx.stroke();
     }
 
-    private yearLabel: string = "";
     /// X軸のラベル文字列を生成
     private getXlabel(plot: number) {
         let result = "";
@@ -244,6 +326,14 @@ export class Lokichart {
                 result = `${label[0]}年`;
             } else {
                 result = `${label[1]}月`;
+            }
+        } else if ((this.graphData.term = "q")) {
+            let label = this.graphData.label[plot].split("/");
+            if (this.yearLabel != label[0] || this.yearLabel == "") {
+                this.yearLabel = label[0];
+                result = `${label[0]}年`;
+            } else {
+                result = `${label[1]}`;
             }
         }
         return result;
