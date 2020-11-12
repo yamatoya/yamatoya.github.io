@@ -240,6 +240,11 @@ export class Lokichart {
         }
     }
 
+    /**
+     * X軸のラベルで一行目に描画する
+     * @param plot
+     * @param result
+     */
     private writeLabelXEach(plot: number, result: string) {
         if (this.overlay.context == null) {
             return;
@@ -254,6 +259,11 @@ export class Lokichart {
         );
     }
 
+    /**
+     * X軸のラベルで二行目に描画する
+     * @param plot
+     * @param result
+     */
     private writeLabelXYear(plot: number, result: string) {
         if (this.overlay.context == null) {
             return;
