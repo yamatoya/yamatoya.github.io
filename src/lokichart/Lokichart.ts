@@ -289,6 +289,11 @@ export class Lokichart {
         );
     }
 
+    /**
+     * 各データのグラフバーを描画する
+     * @param ctx
+     * @param plot
+     */
     private writeGraphBar(ctx: CanvasRenderingContext2D, plot: number) {
         ctx.fillStyle = "#81C784";
         ctx.fillRect(
@@ -307,6 +312,10 @@ export class Lokichart {
         );
     }
 
+    /**
+     * 実データをグラフの上に描画する
+     * @param plot
+     */
     private writeDataAmount(plot: number) {
         if (this.overlay.context == null) {
             return;
@@ -328,7 +337,7 @@ export class Lokichart {
         );
     }
 
-    // 横の補助線を引く
+    // 原点の罫線を描画する
     drawGentenKeisen(
         ctx: CanvasRenderingContext2D | null,
         x: number,
@@ -347,6 +356,12 @@ export class Lokichart {
         ctx.stroke();
     }
 
+    /**
+     * Yの補助線目盛りを生成する
+     * @param yMin
+     * @param yMax
+     * @param ticks
+     */
     private makeYaxis(yMin: number, yMax: number, ticks: number = 10) {
         let result: number[] = [];
         if (yMin == yMax) {
