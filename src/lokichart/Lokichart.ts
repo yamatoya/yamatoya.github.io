@@ -347,29 +347,6 @@ export class Lokichart {
         ctx.stroke();
     }
 
-    /// X軸のラベル文字列を生成
-    private getXlabel(plot: number) {
-        let result = "";
-        if (this.graphData.term == this.Term.Monthly) {
-            let label = this.graphData.label[plot].split("/");
-            if (this.yearLabel != label[0] || this.yearLabel == "") {
-                this.yearLabel = label[0];
-                result = `${label[0]}年`;
-            } else {
-                result = `${label[1]}月`;
-            }
-        } else if ((this.graphData.term = this.Term.Quorter)) {
-            let label = this.graphData.label[plot].split("/");
-            if (this.yearLabel != label[0] || this.yearLabel == "") {
-                this.yearLabel = label[0];
-                result = `${label[0]}年`;
-            } else {
-                result = `${label[1]}`;
-            }
-        }
-        return result;
-    }
-
     private makeYaxis(yMin: number, yMax: number, ticks: number = 10) {
         let result: number[] = [];
         if (yMin == yMax) {
