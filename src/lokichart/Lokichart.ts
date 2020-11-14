@@ -170,19 +170,19 @@ export class Lokichart {
         if (ctx == null) {
             return;
         }
-        const count = this.graphData.label.length;
+        const BarCount = this.graphData.label.length;
 
         this.barBoxWidth =
-            Math.round(this.GraphWidth / count) - this.barhMargine;
+            Math.round(this.GraphWidth / BarCount) - this.barhMargine;
         this.BarWidth =
-            Math.round(this.GraphWidth / count) - this.barhMargine >
+            Math.round(this.GraphWidth / BarCount) - this.barhMargine >
             this.maxGraphWidth
                 ? this.maxGraphWidth
-                : Math.round(this.GraphWidth / count) - this.barhMargine;
+                : Math.round(this.GraphWidth / BarCount) - this.barhMargine;
         this.rightMargin =
             this.GraphAreaWidth -
             (this.keisenMargine +
-                (this.barBoxWidth + this.barhMargine) * count -
+                (this.barBoxWidth + this.barhMargine) * BarCount -
                 this.barBoxWidth);
         this.barLabelHeight = can.height - this.keisenMargine + 20;
 
@@ -219,7 +219,7 @@ export class Lokichart {
         this.positiveGraphHeight = this.gentenHeight - this.keisenMargine;
         this.negativeGraphHeight = this.minGraphHeight - this.gentenHeight;
 
-        for (let b = 0; b < count; b++) {
+        for (let b = 0; b < BarCount; b++) {
             if (this.overlay.context == null) {
                 return;
             }
