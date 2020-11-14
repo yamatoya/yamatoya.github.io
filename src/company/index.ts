@@ -1,5 +1,5 @@
 import Lokichart from "../lokichart/Lokichart";
-import graphData from "../lokichart/graphData";
+import graphData from "../lokichart/GraphData";
 import feather from "feather-icons";
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -86,7 +86,11 @@ function bindGraph(graphData: graphData, target: string) {
     if (targetGraph == null) {
         return;
     }
-    new Lokichart(targetGraph, graphData, target);
+    new Lokichart({
+        container: targetGraph,
+        originalData: graphData,
+        targetKey: target,
+    });
     console.log(graphData);
     console.log(target);
 }

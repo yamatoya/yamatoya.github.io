@@ -1,9 +1,13 @@
-export interface graphData {
+export class GraphData {
     name: string;
-    dataset: graphDataSet[];
+    dataset: GraphDataSet[];
+    constructor() {
+        this.name = "";
+        this.dataset = [];
+    }
 }
 
-export interface graphDataSet {
+export class GraphDataSet {
     key: string;
     term: string;
     label: string[];
@@ -11,6 +15,15 @@ export interface graphDataSet {
     unit: string;
     name: string;
     icon: string;
+    constructor() {
+        this.icon = "";
+        this.key = "";
+        this.label = [];
+        this.name = "";
+        this.term = "";
+        this.unit = "";
+        this.value = [];
+    }
 }
 
-export default graphData;
+export default GraphData;

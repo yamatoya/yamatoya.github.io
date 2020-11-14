@@ -1,5 +1,5 @@
 import Lokichart from "./Lokichart";
-import graphData from "./graphData";
+import graphData from "./GraphData";
 
 const data: graphData = {
     name: "コインチェック株式会社",
@@ -108,5 +108,9 @@ window.addEventListener("DOMContentLoaded", function () {
     if (container == null) {
         return;
     }
-    new Lokichart(container, data, targetKey);
+    new Lokichart({
+        container: container,
+        originalData: data,
+        targetKey: targetKey,
+    });
 });
