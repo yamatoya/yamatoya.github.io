@@ -1,7 +1,7 @@
 import Lokichart from "./Lokichart";
-import graphData from "./GraphData";
+import GraphData from "./GraphData";
 
-const data: graphData = {
+const data: GraphData = {
     name: "コインチェック株式会社",
     dataset: [
         {

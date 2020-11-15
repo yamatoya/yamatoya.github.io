@@ -1,3 +1,4 @@
+import BarSet from "./BarSet";
 import { ChartCfg } from "./ChartCfg";
 import { GraphDataSet } from "./GraphData";
 
@@ -26,9 +27,9 @@ export class Lokichart {
     private GraphHeight: number;
     private GraphWidth: number;
     private GraphXAxisCoordinateY: number;
-    private BarWidth: number = 30;
 
-    barhMargine = 10;
+    private BarSet: BarSet;
+
     keisenMargine = 50;
     barBoxWidth = 0;
     rightMargin = 0;
@@ -94,6 +95,7 @@ export class Lokichart {
             this.GraphAreaWidth - LeftGraphAreaMagine - RightGraphAreaMagine;
         this.GraphXAxisCoordinateY = 0;
         this.canvases = [];
+        this.BarSet = new BarSet(this.graphData.value.length, this.GraphWidth);
 
         this.overlay = {
             canvas: document.createElement("canvas"),
@@ -173,16 +175,11 @@ export class Lokichart {
         const BarCount = this.graphData.label.length;
 
         this.barBoxWidth =
-            Math.round(this.GraphWidth / BarCount) - this.barhMargine;
-        this.BarWidth =
-            Math.round(this.GraphWidth / BarCount) - this.barhMargine >
-            this.maxGraphWidth
-                ? this.maxGraphWidth
-                : Math.round(this.GraphWidth / BarCount) - this.barhMargine;
+            Math.round(this.GraphWidth / BarCount) - this.BarSet.BarMagine;
         this.rightMargin =
             this.GraphAreaWidth -
             (this.keisenMargine +
-                (this.barBoxWidth + this.barhMargine) * BarCount -
+                (this.barBoxWidth + this.BarSet.BarMagine) * BarCount -
                 this.barBoxWidth);
         this.barLabelHeight = can.height - this.keisenMargine + 20;
 
@@ -282,8 +279,8 @@ export class Lokichart {
         this.overlay.context.fillText(
             result,
             this.keisenMargine +
-                this.barhMargine * 1.5 +
-                (this.barBoxWidth + this.barhMargine) * plot,
+                this.BarSet.BarMagine * 1.5 +
+                (this.barBoxWidth + this.BarSet.BarMagine) * plot,
             this.barLabelHeight
         );
     }
@@ -301,16 +298,16 @@ export class Lokichart {
         this.overlay.context.fillText(
             result,
             this.keisenMargine +
-                this.barhMargine * 1.5 +
-                (this.barBoxWidth + this.barhMargine) * plot,
+                this.BarSet.BarMagine * 1.5 +
+                (this.barBoxWidth + this.BarSet.BarMagine) * plot,
             this.barLabelHeight + 14
         );
 
         let separetaYearWidth =
             this.keisenMargine +
-            this.barhMargine +
-            (this.barBoxWidth + this.barhMargine) * plot -
-            this.barhMargine * 0.5;
+            this.BarSet.BarMagine +
+            (this.barBoxWidth + this.BarSet.BarMagine) * plot -
+            this.BarSet.BarMagine * 0.5;
 
         if (this.grid.context == null) {
             return;
@@ -334,12 +331,12 @@ export class Lokichart {
         ctx.fillStyle = "#81C784";
         ctx.fillRect(
             this.keisenMargine +
-                this.barhMargine +
-                (this.barBoxWidth + this.barhMargine) * plot,
+                this.BarSet.BarMagine +
+                (this.barBoxWidth + this.BarSet.BarMagine) * plot,
             this.graphData.value[plot] >= 0
                 ? this.gentenHeight - 1
                 : this.gentenHeight + 1,
-            this.BarWidth,
+            this.BarSet.BarWidth,
             this.graphData.value[plot] >= 0
                 ? -(this.positiveGraphHeight * this.graphData.value[plot]) /
                       this.scaleY[this.scaleY.length - 1]
@@ -359,8 +356,8 @@ export class Lokichart {
         this.overlay.context.fillText(
             this.graphData.value[plot].toLocaleString(),
             this.keisenMargine +
-                this.barhMargine +
-                (this.barBoxWidth + this.barhMargine) * plot,
+                this.BarSet.BarMagine +
+                (this.barBoxWidth + this.BarSet.BarMagine) * plot,
             this.graphData.value[plot] >= 0
                 ? this.gentenHeight -
                       (this.positiveGraphHeight * this.graphData.value[plot]) /
@@ -441,18 +438,18 @@ export class Lokichart {
         ctx.clearRect(0, 0, this.GraphAreaWidth, this.GraphAreaHeight);
 
         // マウスのカーソル位置をX軸方向でグラフにスナップさせる
-        if (e.offsetX <= this.keisenMargine + this.barhMargine) {
-            this.n.x = this.keisenMargine + this.barhMargine;
+        if (e.offsetX <= this.keisenMargine + this.BarSet.BarMagine) {
+            this.n.x = this.keisenMargine + this.BarSet.BarMagine;
         } else if (e.offsetX >= this.GraphAreaWidth - this.rightMargin) {
             this.n.x = this.GraphAreaWidth - this.rightMargin;
         } else {
             this.n.x =
                 Math.floor(
                     (e.offsetX - this.keisenMargine) /
-                        (this.barBoxWidth + this.barhMargine)
+                        (this.barBoxWidth + this.BarSet.BarMagine)
                 ) *
-                    (this.barBoxWidth + this.barhMargine) +
-                (this.keisenMargine + this.barhMargine);
+                    (this.barBoxWidth + this.BarSet.BarMagine) +
+                (this.keisenMargine + this.BarSet.BarMagine);
         }
 
         // 縦の線をグラフの領域内に収める
@@ -470,13 +467,13 @@ export class Lokichart {
         ctx.fillRect(
             this.n.x,
             this.keisenMargine,
-            this.BarWidth,
+            this.BarSet.BarWidth,
             this.GraphHeight
         );
 
         let selectedBar = Math.floor(
             (e.offsetX - this.keisenMargine) /
-                (this.barBoxWidth + this.barhMargine)
+                (this.barBoxWidth + this.BarSet.BarMagine)
         );
         if (selectedBar < 0) {
             selectedBar = 0;
