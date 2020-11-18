@@ -17,8 +17,6 @@ export class Lokichart {
 
     barBoxWidth = 0;
 
-    readonly maxGraphWidth = 30;
-
     private canvases: HTMLCanvasElement[];
     private yearLabel: string = "";
     private Term = {
@@ -199,17 +197,12 @@ export class Lokichart {
         // x軸のlabel表示
         this.overlay.context.fillText(
             result,
-            this.GraphArea.LeftMagine +
-            this.GraphArea.BarSet.BarMagine * 1.5 +
-            (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot,
+            this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine * 1.5 + (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot,
             this.GraphArea.BarGroupLavelCoordinateY
         );
 
         let separetaYearWidth =
-            this.GraphArea.LeftMagine +
-            this.GraphArea.BarSet.BarMagine +
-            (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot -
-            this.GraphArea.BarSet.BarMagine * 0.5;
+            this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine + (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot - this.GraphArea.BarSet.BarMagine * 0.5;
 
         if (this.grid.context == null) {
             return;
