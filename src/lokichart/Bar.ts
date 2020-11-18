@@ -1,16 +1,16 @@
 export class Bar {
-    private BarHeight: number;
-    private BarWidth: number;
-    private BarNumberCoordinateY: number;
-    private BarNumber: number;
-    private BarLabel: string;
+    public readonly BarHeight: number;
+    public readonly BarCoordinateX: number;
+    public readonly BarNumberCoordinateY: number;
+    public readonly BarNumber: number;
+    public readonly BarLabel: string;
 
-    constructor() {
-        this.BarHeight = 0;
-        this.BarWidth = 0;
-        this.BarNumberCoordinateY = 0;
-        this.BarNumber = 0;
-        this.BarLabel = "";
+    constructor(barNumber: number, barLabel: string, coordinateX: number, height: number, barNumberCoordinateY: number) {
+        this.BarHeight = height;
+        this.BarNumberCoordinateY = barNumberCoordinateY;
+        this.BarNumber = barNumber;
+        this.BarLabel = barLabel;
+        this.BarCoordinateX = coordinateX
     }
 }
 
