@@ -4,9 +4,6 @@ import { GraphData, GraphDataSet } from "./GraphData";
 
 export class BarSet {
 
-    BarLabelCoordinateY: number = 0;
-    BarGroupLavelCoordinateY: number = 0;
-
     BarMagine: number = 10;
     BarMaxWidth = 30;
     BarWidth: number = 30;
@@ -50,8 +47,10 @@ export class BarSet {
             const bar = new Bar(this.GraphData.value[i], this.GraphData.label[i], coordinateX, graphHeight, barNumberCoordinateY)
             this.Bars.push(bar)
         }
+    }
 
-
+    public get LastBarStartCoordinateX() {
+        return this.Bars[this.Bars.length - 1].BarCoordinateX
     }
 
 }

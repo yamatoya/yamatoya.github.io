@@ -15,11 +15,7 @@ export interface InLayer {
 export class Lokichart {
     private GraphArea: GraphArea;
 
-    private GraphXAxisCoordinateY: number;
-
-    keisenMargine = 50;
     barBoxWidth = 0;
-    rightMargin = 0;
 
     readonly maxGraphWidth = 30;
 
@@ -47,7 +43,6 @@ export class Lokichart {
 
         this.GraphArea = new GraphArea(container, TopGraphAreaMagine, RightGraphAreaMagine, LowerGraphAreaMagine, LeftGraphAreaMagine, originalData, targetKey);
 
-        this.GraphXAxisCoordinateY = 0;
         this.canvases = [];
 
         this.overlay = {
@@ -125,11 +120,6 @@ export class Lokichart {
 
         this.barBoxWidth =
             Math.round(this.GraphArea.GraphWidth / BarCount) - this.GraphArea.BarSet.BarMagine;
-        this.rightMargin =
-            this.GraphArea.Width -
-            (this.keisenMargine +
-                (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * BarCount -
-                this.barBoxWidth);
 
         // Y=0の罫線
         this.drawGentenKeisen(ctx);
@@ -209,14 +199,14 @@ export class Lokichart {
         // x軸のlabel表示
         this.overlay.context.fillText(
             result,
-            this.keisenMargine +
+            this.GraphArea.LeftMagine +
             this.GraphArea.BarSet.BarMagine * 1.5 +
             (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot,
             this.GraphArea.BarGroupLavelCoordinateY
         );
 
         let separetaYearWidth =
-            this.keisenMargine +
+            this.GraphArea.LeftMagine +
             this.GraphArea.BarSet.BarMagine +
             (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot -
             this.GraphArea.BarSet.BarMagine * 0.5;
@@ -297,41 +287,41 @@ export class Lokichart {
         ctx.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height);
 
         // マウスのカーソル位置をX軸方向でグラフにスナップさせる
-        if (e.offsetX <= this.keisenMargine + this.GraphArea.BarSet.BarMagine) {
-            this.n.x = this.keisenMargine + this.GraphArea.BarSet.BarMagine;
-        } else if (e.offsetX >= this.GraphArea.Width - this.rightMargin) {
-            this.n.x = this.GraphArea.Width - this.rightMargin;
+        if (e.offsetX <= this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine) {
+            this.n.x = this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine;
+        } else if (e.offsetX >= this.GraphArea.BarSet.LastBarStartCoordinateX) {
+            this.n.x = this.GraphArea.BarSet.LastBarStartCoordinateX;
         } else {
             this.n.x =
                 Math.floor(
-                    (e.offsetX - this.keisenMargine) /
+                    (e.offsetX - this.GraphArea.LeftMagine) /
                     (this.barBoxWidth + this.GraphArea.BarSet.BarMagine)
                 ) *
                 (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) +
-                (this.keisenMargine + this.GraphArea.BarSet.BarMagine);
+                (this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine);
         }
 
         // 縦の線をグラフの領域内に収める
-        if (e.offsetY < this.keisenMargine) {
-            this.n.y = this.keisenMargine;
-        } else if (e.offsetY > this.GraphArea.Height - this.keisenMargine) {
-            this.n.y = this.GraphArea.Height - this.keisenMargine;
+        if (e.offsetY < this.GraphArea.LowerMagine) {
+            this.n.y = this.GraphArea.LowerMagine;
+        } else if (e.offsetY > this.GraphArea.Height - this.GraphArea.LowerMagine) {
+            this.n.y = this.GraphArea.Height - this.GraphArea.LowerMagine;
         } else {
             this.n.y = e.offsetY;
         }
 
         ctx.fillStyle = "#ccc";
 
-        // // カーソルがある場所に縦の線を引く
+        // カーソルがある場所に縦の線を引く
         ctx.fillRect(
             this.n.x,
-            this.keisenMargine,
+            this.GraphArea.TopMagine,
             this.GraphArea.BarSet.BarWidth,
             this.GraphArea.GraphHeight
         );
 
         let selectedBar = Math.floor(
-            (e.offsetX - this.keisenMargine) /
+            (e.offsetX - this.GraphArea.LeftMagine) /
             (this.barBoxWidth + this.GraphArea.BarSet.BarMagine)
         );
         if (selectedBar < 0) {
@@ -341,7 +331,7 @@ export class Lokichart {
         }
 
         // カーソルがある場所に横の線を引く
-        ctx.fillRect(this.keisenMargine, this.n.y, this.GraphArea.Width, 1);
+        ctx.fillRect(this.GraphArea.LeftMagine, this.n.y, this.GraphArea.Width, 1);
         ctx.fillStyle = "red";
         ctx.font = "12px sans-serif";
         ctx.textBaseline = "bottom";
@@ -350,13 +340,13 @@ export class Lokichart {
         ctx.fillText(
             `${this.convertLabel(this.GraphArea.GraphData.label[selectedBar])}`,
             this.n.x,
-            this.keisenMargine - 24
+            this.GraphArea.TopMagine - 24
         );
         ctx.fillText(
             `${this.GraphArea.GraphData.value[selectedBar].toLocaleString()}${this.GraphArea.GraphData.unit
             }`,
             this.n.x,
-            this.keisenMargine - 10
+            this.GraphArea.TopMagine - 10
         );
     }
 
