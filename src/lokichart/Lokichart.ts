@@ -25,7 +25,6 @@ export class Lokichart {
 
     private canvases: HTMLCanvasElement[];
     private yearLabel: string = "";
-    private barLabelHeight: number = 0;
     private Term = {
         Monthly: "m",
         Quorter: "q",
@@ -131,10 +130,9 @@ export class Lokichart {
             (this.keisenMargine +
                 (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * BarCount -
                 this.barBoxWidth);
-        this.barLabelHeight = can.height - this.keisenMargine + 20;
 
         // Y=0の罫線
-        this.drawGentenKeisen(ctx, this.GraphArea.GraphXAxisCoordinateY);
+        this.drawGentenKeisen(ctx);
 
         for (let b = 0; b < BarCount; b++) {
             if (this.overlay.context == null) {
@@ -196,7 +194,7 @@ export class Lokichart {
             return;
         }
         // x軸のlabel表示
-        this.overlay.context.fillText(result, this.GraphArea.BarSet.Bars[plot].BarCoordinateX, this.barLabelHeight);
+        this.overlay.context.fillText(result, this.GraphArea.BarSet.Bars[plot].BarCoordinateX, this.GraphArea.BarLabelCoordinateY);
     }
 
     /**
@@ -214,7 +212,7 @@ export class Lokichart {
             this.keisenMargine +
             this.GraphArea.BarSet.BarMagine * 1.5 +
             (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot,
-            this.barLabelHeight + 14
+            this.GraphArea.BarGroupLavelCoordinateY
         );
 
         let separetaYearWidth =
@@ -233,7 +231,6 @@ export class Lokichart {
         this.overlay.context.lineTo(separetaYearWidth, this.GraphArea.GraphXAxisCoordinateY - 10);
         this.overlay.context.lineTo(separetaYearWidth, this.GraphArea.GraphXAxisCoordinateY + 10);
         this.overlay.context.stroke();
-        console.log(`sepa:${separetaYearWidth}/min:${this.GraphArea.GraphXAxisCoordinateY}`);
     }
 
     /**
@@ -269,16 +266,16 @@ export class Lokichart {
     }
 
     // 原点の罫線を描画する
-    drawGentenKeisen(ctx: CanvasRenderingContext2D | null, y: number) {
+    drawGentenKeisen(ctx: CanvasRenderingContext2D) {
         if (ctx == null) {
             return;
         }
         ctx.strokeStyle = color.grid;
         ctx.strokeStyle = color.border;
         ctx.beginPath();
-        ctx.moveTo(this.GraphArea.GraphStartCoordinateX, y);
-        ctx.lineTo(this.GraphArea.GraphStartCoordinateX, y);
-        ctx.lineTo(this.GraphArea.GraphExndCoordinateX, y);
+        ctx.moveTo(this.GraphArea.GraphStartCoordinateX, this.GraphArea.GraphXAxisCoordinateY);
+        ctx.lineTo(this.GraphArea.GraphStartCoordinateX, this.GraphArea.GraphXAxisCoordinateY);
+        ctx.lineTo(this.GraphArea.GraphExndCoordinateX, this.GraphArea.GraphXAxisCoordinateY);
         ctx.stroke();
     }
 

@@ -1,3 +1,4 @@
+import { helpers } from "chart.js";
 import BarSet from "./BarSet";
 import { GraphData, GraphDataSet } from "./GraphData"
 
@@ -23,6 +24,9 @@ export class GrapArea {
     NegativeGraphHeight: number = 0
     PositiveGraphHeight: number = 0
 
+    BarLabelCoordinateY: number;
+    BarGroupLavelCoordinateY: number;
+
     ScaleY: number[] = [];
     BarSet: BarSet
 
@@ -41,6 +45,8 @@ export class GrapArea {
         this.GraphExndCoordinateX = this.Width - this.RightMagine;
         this.GraphHeight = this.Height - this.TopMagine - this.LowerMagine;
         this.GraphWidth = this.Width - this.LeftMagine - this.RightMagine;
+        this.BarLabelCoordinateY = this.Height - this.LowerMagine + 10
+        this.BarGroupLavelCoordinateY = this.BarLabelCoordinateY + 15
 
         this.GraphData = new GraphDataSet();
         data.dataset.forEach((s) => {
