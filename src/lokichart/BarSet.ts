@@ -7,10 +7,9 @@ export class BarSet {
     BarMagine: number = 10;
     BarMaxWidth = 30;
     BarWidth: number = 30;
+    Bars: Bar[];
     BarGroups: BarGroup[] = [];
     GraphData: GraphDataSet;
-
-    Bars: Bar[];
 
     constructor(data: GraphData, GraphWdith: number, target: string) {
 
@@ -31,11 +30,12 @@ export class BarSet {
         }
 
         this.Bars = [];
+        this.BarGroups = []
     }
     public generateBarData(positive: number, negative: number, scaleY: number[], left: number, xAxis: number) {
+        let group_year: string = "";
         for (let i = 0; i < this.GraphData.value.length; i++) {
-
-            const coordinateX = left + this.BarMagine + (this.BarWidth + this.BarMagine) * i
+            const coordinateX = left + (this.BarWidth + this.BarMagine) * i
             let graphHeight, barNumberCoordinateY
             if (this.GraphData.value[i] >= 0) {
                 graphHeight = -(positive * this.GraphData.value[i]) / scaleY[scaleY.length - 1]
@@ -46,7 +46,18 @@ export class BarSet {
             }
             const bar = new Bar(this.GraphData.value[i], this.GraphData.label[i], coordinateX, graphHeight, barNumberCoordinateY)
             this.Bars.push(bar)
+
+            let current_year = this.GraphData.label[i].split("/")[0]
+            if (group_year != current_year) {
+                if (group_year != "") {
+                    this.BarGroups[this.BarGroups.length - 1].BarGroupEndCoordinateX = coordinateX - this.BarMagine / 2
+                }
+                group_year = current_year;
+                const barGroup = new BarGroup(group_year, coordinateX - this.BarMagine / 2);
+                this.BarGroups.push(barGroup)
+            }
         }
+        this.BarGroups[this.BarGroups.length - 1].BarGroupEndCoordinateX = this.Bars[this.Bars.length - 1].BarCoordinateX + this.BarWidth + this.BarMagine / 2
     }
 
     public get LastBarStartCoordinateX() {

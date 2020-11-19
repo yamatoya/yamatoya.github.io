@@ -18,7 +18,6 @@ export class Lokichart {
     barBoxWidth = 0;
 
     private canvases: HTMLCanvasElement[];
-    private yearLabel: string = "";
     private Term = {
         Monthly: "m",
         Quorter: "q",
@@ -89,7 +88,7 @@ export class Lokichart {
         this.overlay.canvas.width = this.GraphArea.Width;
         this.overlay.canvas.height = this.GraphArea.Height;
 
-        this.drawBar(this.chart.context, this.chart.canvas);
+        this.draw(this.chart.context, this.chart.canvas);
     }
 
     /// Y軸の目盛りを描写する
@@ -110,7 +109,7 @@ export class Lokichart {
     }
 
     /// グラフのバーを引く
-    drawBar(ctx: CanvasRenderingContext2D | null, can: HTMLCanvasElement) {
+    draw(ctx: CanvasRenderingContext2D | null, can: HTMLCanvasElement) {
         if (ctx == null) {
             return;
         }
@@ -139,29 +138,60 @@ export class Lokichart {
             // データ量
             this.writeDataAmount(b);
         }
+        this.writeGroup();
+    }
+
+    /// 年区切りのラベル描画と区切り描画
+    writeGroup() {
+        if (this.overlay.context == null) {
+            return;
+        }
+
+        for (let i = 0; i < this.GraphArea.BarSet.BarGroups.length; i++) {
+            const group = this.GraphArea.BarSet.BarGroups[i];
+
+            this.overlay.context.fillStyle = "Blue";
+            this.overlay.context.font = "14px sans-serif";
+            this.overlay.context.textAlign = "center";
+
+            // x軸のlabel表示
+            this.overlay.context.fillText(
+                group.BarGroupLabel,
+                group.BarGroupLabelCoordinateX,
+                this.GraphArea.BarGroupLavelCoordinateY
+            );
+
+            if (i == this.GraphArea.BarSet.BarGroups.length - 1) {
+                break
+            }
+
+            this.overlay.context.strokeStyle = color.grid;
+            this.overlay.context.strokeStyle = color.border;
+            this.overlay.context.beginPath();
+            this.overlay.context.moveTo(group.BarGroupEndCoordinateX, this.GraphArea.GraphXAxisCoordinateY - 10);
+            this.overlay.context.lineTo(group.BarGroupEndCoordinateX, this.GraphArea.GraphXAxisCoordinateY - 10);
+            this.overlay.context.lineTo(group.BarGroupEndCoordinateX, this.GraphArea.GraphXAxisCoordinateY + 10);
+            this.overlay.context.stroke();
+        }
     }
 
     // X軸のラベル描画
     private writeLabelX(plot: number) {
-        let result = "";
+        let labels = this.GraphArea.GraphData.label[plot].split("/");
+        let label = ""
 
         // 月データのラベル
         if (this.isTermMonthly(this.GraphArea.GraphData.term)) {
-            let label = this.GraphArea.GraphData.label[plot].split("/");
-            if (this.yearLabel != label[0] || this.yearLabel == "") {
-                this.yearLabel = label[0];
-                this.writeLabelXYear(plot, `${label[0]}年`);
-            }
-            this.writeLabelXEach(plot, `${label[1]}月`);
+            label = `${labels[1]}月`;
         } else if (this.isTermQuorter(this.GraphArea.GraphData.term)) {
-            let label = this.GraphArea.GraphData.label[plot].split("/");
-
-            if (this.yearLabel != label[0] || this.yearLabel == "") {
-                this.yearLabel = label[0];
-                this.writeLabelXYear(plot, `${label[0]}年`);
-            }
-            this.writeLabelXEach(plot, `${label[1]}`);
+            label = `${labels[1]}`
         }
+
+        if (this.overlay.context == null) {
+            return;
+        }
+        // x軸のlabel表示
+        this.overlay.context.fillText(label, this.GraphArea.BarSet.Bars[plot].BarCoordinateX, this.GraphArea.BarLabelCoordinateY);
     }
 
     private isTermMonthly(term: string) {
@@ -183,37 +213,6 @@ export class Lokichart {
         }
         // x軸のlabel表示
         this.overlay.context.fillText(result, this.GraphArea.BarSet.Bars[plot].BarCoordinateX, this.GraphArea.BarLabelCoordinateY);
-    }
-
-    /**
-     * X軸のラベルで二行目に描画する
-     * @param plot
-     * @param result
-     */
-    private writeLabelXYear(plot: number, result: string) {
-        if (this.overlay.context == null) {
-            return;
-        }
-        // x軸のlabel表示
-        this.overlay.context.fillText(
-            result,
-            this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine * 1.5 + (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot,
-            this.GraphArea.BarGroupLavelCoordinateY
-        );
-
-        let separetaYearWidth =
-            this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine + (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) * plot - this.GraphArea.BarSet.BarMagine * 0.5;
-
-        if (this.grid.context == null) {
-            return;
-        }
-        this.overlay.context.strokeStyle = color.grid;
-        this.overlay.context.strokeStyle = color.border;
-        this.overlay.context.beginPath();
-        this.overlay.context.moveTo(separetaYearWidth, this.GraphArea.GraphXAxisCoordinateY - 10);
-        this.overlay.context.lineTo(separetaYearWidth, this.GraphArea.GraphXAxisCoordinateY - 10);
-        this.overlay.context.lineTo(separetaYearWidth, this.GraphArea.GraphXAxisCoordinateY + 10);
-        this.overlay.context.stroke();
     }
 
     /**
@@ -281,7 +280,7 @@ export class Lokichart {
 
         // マウスのカーソル位置をX軸方向でグラフにスナップさせる
         if (e.offsetX <= this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine) {
-            this.n.x = this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine;
+            this.n.x = this.GraphArea.LeftMagine
         } else if (e.offsetX >= this.GraphArea.BarSet.LastBarStartCoordinateX) {
             this.n.x = this.GraphArea.BarSet.LastBarStartCoordinateX;
         } else {
@@ -291,7 +290,7 @@ export class Lokichart {
                     (this.barBoxWidth + this.GraphArea.BarSet.BarMagine)
                 ) *
                 (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) +
-                (this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine);
+                (this.GraphArea.LeftMagine);
         }
 
         // 縦の線をグラフの領域内に収める

@@ -45,8 +45,6 @@ export class GrapArea {
         this.GraphExndCoordinateX = this.Width - this.RightMagine;
         this.GraphHeight = this.Height - this.TopMagine - this.LowerMagine;
         this.GraphWidth = this.Width - this.LeftMagine - this.RightMagine;
-        this.BarLabelCoordinateY = this.Height - this.LowerMagine + 10
-        this.BarGroupLavelCoordinateY = this.BarLabelCoordinateY + 15
 
         this.GraphData = new GraphDataSet();
         data.dataset.forEach((s) => {
@@ -65,6 +63,8 @@ export class GrapArea {
                 this.GraphXAxisCoordinateY = this.TopMagine + Math.ceil((this.GraphHeight * (i + 1)) / this.ScaleY.length);
             }
         }
+        this.BarLabelCoordinateY = this.GraphXAxisCoordinateY + 12
+        this.BarGroupLavelCoordinateY = this.BarLabelCoordinateY + 20
         this.PositiveGraphHeight = this.GraphXAxisCoordinateY - this.TopMagine
         this.NegativeGraphHeight = this.GraphHeight - this.GraphXAxisCoordinateY
         this.BarSet = new BarSet(this.OriginalData, this.GraphWidth, target)
