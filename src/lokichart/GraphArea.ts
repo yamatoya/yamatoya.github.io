@@ -1,4 +1,3 @@
-import { helpers } from "chart.js";
 import BarSet from "./BarSet";
 import { GraphData, GraphDataSet } from "./GraphData"
 

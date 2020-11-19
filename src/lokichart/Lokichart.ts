@@ -80,7 +80,7 @@ export class Lokichart {
         });
     }
 
-    initial() {
+    initial(): void {
         this.chart.canvas.width = this.GraphArea.Width;
         this.chart.canvas.height = this.GraphArea.Height;
         this.grid.canvas.width = this.GraphArea.Width;
@@ -88,16 +88,11 @@ export class Lokichart {
         this.overlay.canvas.width = this.GraphArea.Width;
         this.overlay.canvas.height = this.GraphArea.Height;
 
-        this.draw(this.chart.context, this.chart.canvas);
+        this.draw(this.chart.context);
     }
 
     /// Y軸の目盛りを描写する
-    writeYAxis(
-        ctx: CanvasRenderingContext2D | null,
-        x: number,
-        y: number,
-        Yxis: number
-    ) {
+    writeYAxis(ctx: CanvasRenderingContext2D | null, x: number, y: number, Yxis: number): void {
         if (ctx == null) {
             return;
         }
@@ -109,7 +104,7 @@ export class Lokichart {
     }
 
     /// グラフのバーを引く
-    draw(ctx: CanvasRenderingContext2D | null, can: HTMLCanvasElement) {
+    draw(ctx: CanvasRenderingContext2D | null): void {
         if (ctx == null) {
             return;
         }
@@ -142,7 +137,7 @@ export class Lokichart {
     }
 
     /// 年区切りのラベル描画と区切り描画
-    writeGroup() {
+    writeGroup(): void {
         if (this.overlay.context == null) {
             return;
         }
@@ -177,7 +172,7 @@ export class Lokichart {
 
     // X軸のラベル描画
     private writeLabelX(plot: number) {
-        let labels = this.GraphArea.GraphData.label[plot].split("/");
+        const labels = this.GraphArea.GraphData.label[plot].split("/");
         let label = ""
 
         // 月データのラベル
@@ -195,11 +190,11 @@ export class Lokichart {
     }
 
     private isTermMonthly(term: string) {
-        return term == this.Term.Monthly;
+        return term === this.Term.Monthly;
     }
 
     private isTermQuorter(term: string) {
-        return (term = this.Term.Quorter);
+        return term === this.Term.Quorter;
     }
 
     /**
@@ -248,7 +243,7 @@ export class Lokichart {
     }
 
     // 原点の罫線を描画する
-    drawGentenKeisen(ctx: CanvasRenderingContext2D) {
+    drawGentenKeisen(ctx: CanvasRenderingContext2D): void {
         if (ctx == null) {
             return;
         }
@@ -272,7 +267,7 @@ export class Lokichart {
      * @param e マウスカーソルイベント
      * @param ctx Canvas
      */
-    drow(e: MouseEvent, ctx: CanvasRenderingContext2D | null) {
+    drow(e: MouseEvent, ctx: CanvasRenderingContext2D | null): void {
         if (ctx == null) {
             return;
         }
@@ -342,7 +337,7 @@ export class Lokichart {
         );
     }
 
-    convertLabel(label: string) {
+    convertLabel(label: string): string {
         return `${label.split("/")[0]}年${label.split("/")[1]}月`;
     }
 }
