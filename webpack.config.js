@@ -31,7 +31,7 @@ module.exports = {
                     name: "vendor"
                 },
                 companyVendor: {
-                    test: /[\\/]node_modules[\\/](chart.js|chartjs-plugin-datalabels|feather-icons)[\\/]/,
+                    test: /[\\/]node_modules[\\/](feather-icons)[\\/]/,
                     name: "compnayvendor"
                 },
             },

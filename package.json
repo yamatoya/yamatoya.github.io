@@ -43,8 +43,6 @@
   },
   "dependencies": {
     "@types/jest": "^26.0.0",
-    "chart.js": "^2.9.3",
-    "chartjs-plugin-datalabels": "^0.7.0",
     "feather-icons": "^4.28.0",
     "jest": "^26.0.1",
     "moment": "^2.24.0",
