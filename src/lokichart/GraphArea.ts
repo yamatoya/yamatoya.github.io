@@ -9,6 +9,7 @@ export class GrapArea {
     Content: HTMLElement
     Height: number;
     Width: number;
+    Target: string
 
     LeftMagine: number;
     RightMagine: number;
@@ -23,8 +24,8 @@ export class GrapArea {
     NegativeGraphHeight = 0
     PositiveGraphHeight = 0
 
-    BarLabelCoordinateY: number;
-    BarGroupLavelCoordinateY: number;
+    BarLabelCoordinateY = 0;
+    BarGroupLavelCoordinateY = 0;
 
     ScaleY: number[] = [];
     BarSet: BarSet
@@ -35,6 +36,7 @@ export class GrapArea {
         this.Content = content;
         this.Height = content.clientHeight;
         this.Width = content.clientWidth;
+        this.Target = target
 
         this.LeftMagine = left;
         this.RightMagine = right;
@@ -54,8 +56,14 @@ export class GrapArea {
 
         const tick = 10;
         this.ScaleY = this.makeYaxis(this.MiniValue, this.MaxValue, tick);
-        console.log(this.ScaleY)
+        this.BarSet = new BarSet(this.OriginalData, this.GraphWidth, target)
+        this.load()
 
+    }
+    public load(): void {
+        this.GraphExndCoordinateX = this.Width - this.RightMagine;
+        this.GraphHeight = this.Height - this.TopMagine - this.LowerMagine;
+        this.GraphWidth = this.Width - this.LeftMagine - this.RightMagine;
         this.GraphXAxisCoordinateY = this.Height - this.LowerMagine
         for (let i = 0; i < this.ScaleY.length; i++) {
             if (this.ScaleY[this.ScaleY.length - i - 1] == 0) {
@@ -66,7 +74,7 @@ export class GrapArea {
         this.BarGroupLavelCoordinateY = this.BarLabelCoordinateY + 20
         this.PositiveGraphHeight = this.GraphXAxisCoordinateY - this.TopMagine
         this.NegativeGraphHeight = this.GraphHeight - this.GraphXAxisCoordinateY
-        this.BarSet = new BarSet(this.OriginalData, this.GraphWidth, target)
+        this.BarSet = new BarSet(this.OriginalData, this.GraphWidth, this.Target)
         this.BarSet.generateBarData(this.PositiveGraphHeight, this.NegativeGraphHeight, this.ScaleY, this.LeftMagine, this.GraphXAxisCoordinateY);
     }
 

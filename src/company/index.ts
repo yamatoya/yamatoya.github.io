@@ -10,7 +10,7 @@ const quarterly = "q";
 const monthly = "m";
 
 // ページタイトルを設定する
-function bindPageTitle(targetInfo: CompanyOption, data: graphData) {
+function bindPageTitle(targetInfo: CompanyOption, data: graphData): void {
     const ctx = document.getElementById("pageTitle");
     let title = "";
     data.dataset
@@ -30,7 +30,7 @@ function bindPageTitle(targetInfo: CompanyOption, data: graphData) {
 }
 
 // メインメソッド
-async function generatePage() {
+async function generatePage(): Promise<void> {
     // 対象データをクエリストリングから取得して読み込む
     const targetInfo = getQueryString();
     const data = await http<graphData>(
@@ -43,7 +43,7 @@ async function generatePage() {
     bindGraph(data, targetInfo.target);
 }
 
-function bindMenu(companyData: graphData, targetInfo: CompanyOption) {
+function bindMenu(companyData: graphData, targetInfo: CompanyOption): void {
     const sideNav = <HTMLTableElement>document.getElementById("sideNav");
     if (sideNav == null) {
         return;
@@ -68,7 +68,7 @@ function bindMenu(companyData: graphData, targetInfo: CompanyOption) {
 }
 
 // 会社名マッピング
-function bindCompanyName(companyName: string) {
+function bindCompanyName(companyName: string): void {
     const targetCompanyName = <HTMLAnchorElement>(
         document.getElementById("companyName")
     );
@@ -103,7 +103,7 @@ function bindGraph(graphData: graphData, target: string): void {
     });
 }
 
-function bindTable(data: graphData) {
+function bindTable(data: graphData): void {
     const targetQuarterTable = <HTMLTableElement>(
         document.getElementById("companyQuarterDataTable")
     );
@@ -117,14 +117,13 @@ function bindTable(data: graphData) {
         return;
     }
 
-    let quarterThead: HTMLTableSectionElement = targetQuarterTable.createTHead();
-    let quarterThr: HTMLTableRowElement = quarterThead.insertRow(0);
+    const quarterThead: HTMLTableSectionElement = targetQuarterTable.createTHead();
+    const quarterThr: HTMLTableRowElement = quarterThead.insertRow(0);
     let thdQuarterText = "<th>#</th>";
-    let monthlyThead: HTMLTableSectionElement = targetMonthlyTable.createTHead();
-    let monthlyThr: HTMLTableRowElement = monthlyThead.insertRow(0);
+    const monthlyThead: HTMLTableSectionElement = targetMonthlyTable.createTHead();
+    const monthlyThr: HTMLTableRowElement = monthlyThead.insertRow(0);
     let thdMonthlyText = "<th>#</th>";
-    let trMonthlyText = "";
-    let monthlyDataSets: Array<String[] | number[]> = [];
+    const monthlyDataSets: Array<string[] | number[]> = [];
     let i = 1;
 
     thdQuarterText += data.dataset
@@ -138,8 +137,8 @@ function bindTable(data: graphData) {
     data.dataset
         .filter((v) => v.term == quarterly)
         .map((c) => {
-            let tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
-            let trText: string = `<td>${c.name}</td>`;
+            const tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
+            let trText = `<td>${c.name}</td>`;
             const v = (c.value as unknown) as string[];
             trText += v.reduce((text, v) => (text += `<td>${v}</td>`));
             tr.innerHTML = trText;
@@ -164,7 +163,6 @@ function bindTable(data: graphData) {
                     monthlyDataSets[k] = [];
                 }
                 monthlyDataSets[k][0] = v;
-                console.log(`k:${k}:${v}`);
                 k++;
             });
             let j = 0;
@@ -179,14 +177,13 @@ function bindTable(data: graphData) {
         });
 
     if (monthlyDataSets.length > 0) {
-        console.log(monthlyDataSets);
         monthlyThr.innerHTML = thdMonthlyText;
         monthlyThead.appendChild(monthlyThr);
 
         monthlyDataSets.forEach((v) => {
-            let tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
+            const tr: HTMLTableRowElement = targetQuarterTable.insertRow(0);
             let trText = "";
-            v.forEach((z: any) => {
+            v.forEach((z: string | number) => {
                 trText += `<td>${z}</td>`;
             });
             tr.innerHTML = trText;
@@ -195,15 +192,13 @@ function bindTable(data: graphData) {
     }
 }
 
-function bindMonthlyDataToTable() { }
-
 async function http<T>(request: RequestInfo): Promise<T> {
     const response = await fetch(request);
     const body = await response.json();
     return body;
 }
 
-function getQueryString() {
+function getQueryString(): CompanyOption {
     // クエリストリングを取得する
     const params = new URLSearchParams(window.location.search);
     const option: CompanyOption = { name: "coincheck", target: "revenue" };

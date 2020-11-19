@@ -92,11 +92,13 @@ export class Lokichart {
     }
 
     resize(): void {
-        this.GraphArea.Height = this.GraphArea.Content.clientHeight;
-        this.GraphArea.Width = this.GraphArea.Content.clientWidth;
         this.grid.context?.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height)
         this.overlay.context?.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height)
         this.chart.context?.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height)
+
+        this.GraphArea.Height = this.GraphArea.Content.clientHeight;
+        this.GraphArea.Width = this.GraphArea.Content.clientWidth;
+        this.GraphArea.load();
         this.initial();
     }
 
