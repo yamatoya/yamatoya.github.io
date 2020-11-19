@@ -88,7 +88,16 @@ export class Lokichart {
         this.overlay.canvas.width = this.GraphArea.Width;
         this.overlay.canvas.height = this.GraphArea.Height;
 
-        this.draw(this.chart.context);
+        this.draw();
+    }
+
+    resize(): void {
+        this.GraphArea.Height = this.GraphArea.Content.clientHeight;
+        this.GraphArea.Width = this.GraphArea.Content.clientWidth;
+        this.grid.context?.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height)
+        this.overlay.context?.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height)
+        this.chart.context?.clearRect(0, 0, this.GraphArea.Width, this.GraphArea.Height)
+        this.initial();
     }
 
     /// Y軸の目盛りを描写する
@@ -104,17 +113,18 @@ export class Lokichart {
     }
 
     /// グラフのバーを引く
-    draw(ctx: CanvasRenderingContext2D | null): void {
-        if (ctx == null) {
+    draw(): void {
+        if (this.chart.context == null) {
             return;
         }
+
         const BarCount = this.GraphArea.BarSet.Bars.length
 
         this.barBoxWidth =
             Math.round(this.GraphArea.GraphWidth / BarCount) - this.GraphArea.BarSet.BarMagine;
 
         // Y=0の罫線
-        this.drawGentenKeisen(ctx);
+        this.drawGentenKeisen(this.chart.context);
 
         for (let b = 0; b < BarCount; b++) {
             if (this.overlay.context == null) {
@@ -128,7 +138,7 @@ export class Lokichart {
             this.writeLabelX(b);
 
             // グラフのバー描画
-            this.writeGraphBar(ctx, b);
+            this.writeGraphBar(this.chart.context, b);
 
             // データ量
             this.writeDataAmount(b);

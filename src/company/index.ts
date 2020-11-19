@@ -81,18 +81,26 @@ function bindCompanyName(companyName: string) {
     document.title = `${companyName}ダッシュボード: yamaNonte`;
 }
 
-function bindGraph(graphData: graphData, target: string) {
+function bindGraph(graphData: graphData, target: string): void {
     const targetGraph = document.getElementById("graph");
     if (targetGraph == null) {
         return;
     }
-    new Lokichart({
+    const loki = new Lokichart({
         container: targetGraph,
         originalData: graphData,
         targetKey: target,
     });
-    console.log(graphData);
-    console.log(target);
+    let resizeTimer: number;
+    window.addEventListener('resize', function () {
+        if (!resizeTimer) {
+            window.clearTimeout(resizeTimer);
+        }
+
+        resizeTimer = window.setTimeout(function () {
+            loki.resize();
+        }, 1e3);
+    });
 }
 
 function bindTable(data: graphData) {
@@ -187,7 +195,7 @@ function bindTable(data: graphData) {
     }
 }
 
-function bindMonthlyDataToTable() {}
+function bindMonthlyDataToTable() { }
 
 async function http<T>(request: RequestInfo): Promise<T> {
     const response = await fetch(request);
