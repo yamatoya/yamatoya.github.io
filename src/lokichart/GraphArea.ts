@@ -19,9 +19,9 @@ export class GrapArea {
 
     GraphHeight: number
     GraphWidth: number
-    GraphXAxisCoordinateY: number = 0
-    NegativeGraphHeight: number = 0
-    PositiveGraphHeight: number = 0
+    GraphXAxisCoordinateY = 0
+    NegativeGraphHeight = 0
+    PositiveGraphHeight = 0
 
     BarLabelCoordinateY: number;
     BarGroupLavelCoordinateY: number;
@@ -70,16 +70,16 @@ export class GrapArea {
         this.BarSet.generateBarData(this.PositiveGraphHeight, this.NegativeGraphHeight, this.ScaleY, this.LeftMagine, this.GraphXAxisCoordinateY);
     }
 
-    public get MiniValue() {
-        const aryMin = (a: number, b: number) => {
+    public get MiniValue(): number {
+        const aryMin = (a: number, b: number): number => {
             return Math.min(a, b);
         };
         const minPrice = Math.ceil(this.GraphData.value.reduce(aryMin));
         return minPrice
     }
 
-    public get MaxValue() {
-        const aryMax = (a: number, b: number) => {
+    public get MaxValue(): number {
+        const aryMax = (a: number, b: number): number => {
             return Math.max(a, b);
         };
         const maxPrice = Math.ceil(this.GraphData.value.reduce(aryMax));
@@ -89,8 +89,8 @@ export class GrapArea {
     /**
      * Yの補助線目盛りを生成する
     */
-    private makeYaxis(yMin: number, yMax: number, ticks: number = 10) {
-        let result: number[] = [];
+    private makeYaxis(yMin: number, yMax: number, ticks = 10): number[] {
+        const result = [];
         if (yMin == yMax) {
             yMin = yMin - 10;
             yMax = yMax + 10;
@@ -101,13 +101,13 @@ export class GrapArea {
         } else if (ticks > 2) {
             ticks -= 2;
         }
-        let tmepStep = range / ticks;
-        let mag = Math.floor(Math.log10(tmepStep));
-        let magPow = Math.pow(10, mag);
-        let magMsd = Math.floor(tmepStep / magPow + 0.5);
-        let stepSize = magMsd * magPow;
-        let lb = stepSize * Math.floor(yMin / stepSize);
-        let ub = stepSize * Math.ceil(yMax / stepSize);
+        const tmepStep = range / ticks;
+        const mag = Math.floor(Math.log10(tmepStep));
+        const magPow = Math.pow(10, mag);
+        const magMsd = Math.floor(tmepStep / magPow + 0.5);
+        const stepSize = magMsd * magPow;
+        const lb = stepSize * Math.floor(yMin / stepSize);
+        const ub = stepSize * Math.ceil(yMax / stepSize);
 
         let val = lb;
         while (1) {
