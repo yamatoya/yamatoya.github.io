@@ -57,7 +57,7 @@ export class Lokichart {
         this._create();
     }
 
-    private _create() {
+    private _create(): void {
         this.overlay.context = this.overlay.canvas.getContext("2d");
         this.canvases.push(this.overlay.canvas);
 
@@ -171,7 +171,7 @@ export class Lokichart {
     }
 
     // X軸のラベル描画
-    private writeLabelX(plot: number) {
+    private writeLabelX(plot: number): void {
         const labels = this.GraphArea.GraphData.label[plot].split("/");
         let label = ""
 
@@ -189,11 +189,11 @@ export class Lokichart {
         this.overlay.context.fillText(label, this.GraphArea.BarSet.Bars[plot].BarCoordinateX, this.GraphArea.BarLabelCoordinateY);
     }
 
-    private isTermMonthly(term: string) {
+    private isTermMonthly(term: string): boolean {
         return term === this.Term.Monthly;
     }
 
-    private isTermQuorter(term: string) {
+    private isTermQuorter(term: string): boolean {
         return term === this.Term.Quorter;
     }
 
@@ -202,7 +202,7 @@ export class Lokichart {
      * @param plot
      * @param result
      */
-    private writeLabelXEach(plot: number, result: string) {
+    private writeLabelXEach(plot: number, result: string): void {
         if (this.overlay.context == null) {
             return;
         }
@@ -215,7 +215,7 @@ export class Lokichart {
      * @param ctx
      * @param plot
      */
-    private writeGraphBar(ctx: CanvasRenderingContext2D, plot: number) {
+    private writeGraphBar(ctx: CanvasRenderingContext2D, plot: number): void {
 
         ctx.fillStyle = "#81C784";
         let BarCoordinateY
@@ -231,7 +231,7 @@ export class Lokichart {
      * 実データをグラフの上に描画する
      * @param plot
      */
-    private writeDataAmount(plot: number) {
+    private writeDataAmount(plot: number): void {
         if (this.overlay.context == null) {
             return;
         }
@@ -275,7 +275,7 @@ export class Lokichart {
 
         // マウスのカーソル位置をX軸方向でグラフにスナップさせる
         if (e.offsetX <= this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine) {
-            this.n.x = this.GraphArea.LeftMagine
+            this.n.x = this.GraphArea.LeftMagine + this.GraphArea.BarSet.BarMagine / 2
         } else if (e.offsetX >= this.GraphArea.BarSet.LastBarStartCoordinateX) {
             this.n.x = this.GraphArea.BarSet.LastBarStartCoordinateX;
         } else {
@@ -285,7 +285,7 @@ export class Lokichart {
                     (this.barBoxWidth + this.GraphArea.BarSet.BarMagine)
                 ) *
                 (this.barBoxWidth + this.GraphArea.BarSet.BarMagine) +
-                (this.GraphArea.LeftMagine);
+                (this.GraphArea.LeftMagine) + this.GraphArea.BarSet.BarMagine / 2;
         }
 
         // 縦の線をグラフの領域内に収める
