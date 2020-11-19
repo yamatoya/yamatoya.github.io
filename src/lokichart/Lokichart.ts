@@ -229,13 +229,18 @@ export class Lokichart {
      */
     private writeGraphBar(ctx: CanvasRenderingContext2D, plot: number): void {
 
-        ctx.fillStyle = "#81C784";
+        //ctx.fillStyle = "#81C784";
         let BarCoordinateY
         if (this.GraphArea.BarSet.Bars[plot].BarHeight > 0) {
             BarCoordinateY = this.GraphArea.GraphXAxisCoordinateY + 1
         } else {
             BarCoordinateY = this.GraphArea.GraphXAxisCoordinateY - 1
         }
+        const style = ctx.createLinearGradient(this.GraphArea.BarSet.Bars[plot].BarCoordinateX, BarCoordinateY, this.GraphArea.BarSet.Bars[plot].BarCoordinateX + this.GraphArea.BarSet.BarWidth, BarCoordinateY + this.GraphArea.BarSet.Bars[plot].BarHeight);
+        style.addColorStop(0, '#6FC3F7');
+        style.addColorStop(0.6, '#8bd1f1');
+        style.addColorStop(1, '#EAD6EE');
+        ctx.fillStyle = style;
         ctx.fillRect(this.GraphArea.BarSet.Bars[plot].BarCoordinateX, BarCoordinateY, this.GraphArea.BarSet.BarWidth, this.GraphArea.BarSet.Bars[plot].BarHeight)
     }
 
