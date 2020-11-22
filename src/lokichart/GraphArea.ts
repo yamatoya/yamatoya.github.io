@@ -57,7 +57,7 @@ export class GrapArea {
         this.LeftMagine = (this.Width * 5) / 100;
         this.RightMagine = (this.Width * 5) / 100;
         this.TopMagine = (this.Width * 5) / 100;
-        this.LowerMagine = (this.Width * 5) / 100;
+        this.LowerMagine = Math.min(45, Math.max(45, (this.Width * 5) / 100));
 
         this.GraphStartCoordinateX = this.LeftMagine;
         this.GraphExndCoordinateX = this.Width - this.RightMagine;
