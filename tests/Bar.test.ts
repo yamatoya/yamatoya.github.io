@@ -1,4 +1,4 @@
-import Bar from "./Bar";
+import Bar from "../src/lokichart/Bar";
 
 describe("Barクラスのテスト", () => {
     let bar: Bar;
