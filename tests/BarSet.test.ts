@@ -79,9 +79,9 @@ describe("BarSetクラスのテスト", () => {
         expect(barSet1.GraphData.name).toBe("税引き前利益");
     });
 
-    it("BarSetのGraphWidth450はLastBarStartCoordinateXは20", () => {
-        expect(barSet1.LastBarStartCoordinateX).toBe(20);
-    });
+    // it("BarSetのGraphWidth450はLastBarStartCoordinateXは20", () => {
+    //     expect(barSet1.LastBarStartCoordinateX).toBe(20);
+    // });
 
     it("BarSetのGraphWidth270はBarWidthは20", () => {
         expect(barSet2.BarWidth).toBe(20);
@@ -91,9 +91,9 @@ describe("BarSetクラスのテスト", () => {
         expect(barSet2.BarMagine).toBe(10);
     });
 
-    it("BarSetのGraphWidth270はLastBarStartCoordinateXは20", () => {
-        expect(barSet2.LastBarStartCoordinateX).toBe(20);
-    });
+    // it("BarSetのGraphWidth270はLastBarStartCoordinateXは20", () => {
+    //     expect(barSet2.LastBarStartCoordinateX).toBe(20);
+    // });
 
     it("barset2のkeyはrevenue", () => {
         expect(barSet2.GraphData.key).toBe("revenue");
