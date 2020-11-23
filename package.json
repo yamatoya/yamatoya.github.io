@@ -1,52 +1,37 @@
 {
-  "name": "loki",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "build": "webpack --config webpack.prod.js",
-    "debug": "webpack --config webpack.dev.js",
-    "watch": "webpack -w"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
+    "name": "loki",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test-report": "jest --coverage",
+        "build": "webpack --config webpack.prod.js",
+        "debug": "webpack --config webpack.dev.js",
+        "watch": "webpack -w"
     },
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.json"
-      }
+    "author": "Takahito Yamatoya",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/feather-icons": "^4.7.0",
+        "@types/jest": "^26.0.15",
+        "@typescript-eslint/eslint-plugin": "^4.6.1",
+        "@typescript-eslint/parser": "^4.6.1",
+        "eslint": "^7.13.0",
+        "eslint-plugin-import": "^2.22.1",
+        "jest": "^26.6.3",
+        "ts-jest": "^26.4.4",
+        "ts-loader": "^7.0.4",
+        "ts-node": "^9.0.0",
+        "typescript": "^3.9.3",
+        "webpack": "^4.44.2",
+        "webpack-bundle-analyzer": "^3.8.0",
+        "webpack-cli": "^3.3.12",
+        "webpack-merge": "^4.2.2"
     },
-    "testMatch": [
-      "**/tests/**/*.test.ts"
-    ]
-  },
-  "author": "Takahito Yamatoya",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/feather-icons": "^4.7.0",
-    "@typescript-eslint/eslint-plugin": "^4.6.1",
-    "@typescript-eslint/parser": "^4.6.1",
-    "eslint": "^7.13.0",
-    "eslint-plugin-import": "^2.22.1",
-    "ts-loader": "^7.0.4",
-    "typescript": "^3.9.3",
-    "webpack": "^4.44.2",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-merge": "^4.2.2"
-  },
-  "dependencies": {
-    "@types/jest": "^26.0.0",
-    "feather-icons": "^4.28.0",
-    "jest": "^26.0.1",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.31",
-    "ts-jest": "^26.1.0"
-  }
+    "dependencies": {
+        "feather-icons": "^4.28.0",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.31"
+    }
 }
