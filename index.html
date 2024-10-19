@@ -1,67 +1,45 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#563d7c">
-    <title>Convert timezone: yamaNote</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律文書一覧</title>
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#" id='companyName'>Time Converter / yamaNote</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
-            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/">Time Converter</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/coincheck/index.html">CoinCheck</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/gmocoin/index.html">GMOコイン</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="container">
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="inputStartDate">Start Date</label>
-                <input type="datetime-local" class="form-control" id="fromDate" required>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputEndDate">End Date</label>
-                <input type="datetime-local" class="form-control" id="toDate" required>
-            </div>
-            <div class="form-group col-md-1">
-                <button type=" button" class="btn btn-primary mt-4" id='btnConvert'>Convert</button>
-            </div>
-        </div>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Time Zone</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id='jp'></tr>
-                <tr id='eu'></tr>
-                <tr id='us'></tr>
-                <tr id='utc'></tr>
-            </tbody>
-        </table>
+    <h1>法律文書一覧</h1>
+    <div class="document-list">
+        
+            <a href="/document/crypto_guidelines">
+                <div class="document-item">
+                    <div class="document-icon">金</div>
+                    <div class="document-info">
+                        <div class="document-name">金融庁事務ガイドライン(暗号資産)</div>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/document/anti_money_laundering_act">
+                <div class="document-item">
+                    <div class="document-icon">犯</div>
+                    <div class="document-info">
+                        <div class="document-name">犯罪による収益の移転防止に関する法律</div>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/document/payment_services_act">
+                <div class="document-item">
+                    <div class="document-icon">資</div>
+                    <div class="document-info">
+                        <div class="document-name">資金決済に関する法律</div>
+                    </div>
+                </div>
+            </a>
+        
     </div>
-    <script src="dist/vendor.bundle.js"></script>
-    <script src="dist/index.bundle.js"></script>
+    <script>
+    console.log('Index page loaded');
+    </script>
 </body>
-
 </html>

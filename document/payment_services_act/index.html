@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資金決済に関する法律</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="profile-header">
+        <a href="/" class="back-link">←</a>
+        <h1>資金決済に関する法律</h1>
+    </div>
+    <div class="tweets">
+        
+            <div class="tweet">
+                <div class="tweet-header">
+                    <span class="index">第２条第14項</span>
+                    <span class="document-title">資金決済に関する法律</span>
+                </div>
+                
+                <p class="tweet-content" data-tweet-id="26sa66b8">この法律において「暗号資産」とは、次に掲げるものをいう。ただし、金融商品取引法第二十九条の二第一項第八号に規定する権利を表示するものを除く。</p>
+            </div>
+        
+            <div class="tweet">
+                <div class="tweet-header">
+                    <span class="index">第２条第14項</span>
+                    <span class="document-title">資金決済に関する法律</span>
+                </div>
+                
+                <p class="tweet-content" data-tweet-id="sa8u60cb">一 物品等を購入し、若しくは借り受け、又は役務の提供を受ける場合に、これらの代価の弁済のために不特定の者に対して使用することができ、かつ、不特定の者を相手方として購入及び売却を行うことができる財産的価値（電子機器その他の物に電子的方法により記録されているものに限り、本邦通貨及び外国通貨、通貨建資産並びに電子決済手段（通貨建資産に該当するものを除く。）を除く。次号において同じ。）であって、電子情報処理組織を用いて移転することができるもの</p>
+            </div>
+        
+            <div class="tweet">
+                <div class="tweet-header">
+                    <span class="index">第２条第14項</span>
+                    <span class="document-title">資金決済に関する法律</span>
+                </div>
+                
+                <p class="tweet-content" data-tweet-id="87td60cb">二 不特定の者を相手方として前号に掲げるものと相互に交換を行うことができる財産的価値であって、電子情報処理組織を用いて移転することができるもの</p>
+            </div>
+        
+    </div>
+    <script>
+    console.log('Document page loaded');
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const tweets = document.querySelectorAll('.tweet');
+        
+        tweets.forEach(tweet => {
+            const content = tweet.querySelector('.tweet-content');
+            const tweetId = content.getAttribute('data-tweet-id');
+            
+            content.addEventListener('mouseup', function(e) {
+                const selection = window.getSelection().toString();
+                if (selection.length > 0) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+            
+            tweet.addEventListener('click', function(e) {
+                if (window.getSelection().toString().length === 0) {
+                    window.location.href = `/document/payment_services_act/${tweetId}`;
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
