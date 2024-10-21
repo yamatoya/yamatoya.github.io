@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>法律文書一覧</title>
     <link rel="stylesheet" href="/styles/main.css">
-  <script type="module" crossorigin src="/assets/index-a681f18d.js"></script>
+    <script type="text/javascript">
+      // リダイレクト処理
+      (function(){
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          var url = new URL(window.location);
+          url.pathname = redirect;
+          history.replaceState(null, null, url.toString());
+        }
+      })();
+    </script>
+  <script type="module" crossorigin src="/assets/index-b162f53e.js"></script>
   <link rel="stylesheet" href="/assets/index-d3dd8872.css">
 </head>
 <body>
