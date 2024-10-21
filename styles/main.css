@@ -135,6 +135,7 @@ a:hover .document-item {
   font-size: 24px;
   text-decoration: none;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .tweet-content {
