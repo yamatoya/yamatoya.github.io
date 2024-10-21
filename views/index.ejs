@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律文書一覧</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <h1>法律文書一覧</h1>
+    <div class="document-list">
+        <% for (const [id, doc] of Object.entries(documents)) { %>
+            <a href="/document/<%= id %>">
+                <div class="document-item">
+                    <div class="document-icon"><%= doc.displayName.charAt(0) %></div>
+                    <div class="document-info">
+                        <div class="document-name"><%= doc.displayName %></div>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+    <script>
+    console.log('Index page loaded');
+    </script>
+</body>
+</html>

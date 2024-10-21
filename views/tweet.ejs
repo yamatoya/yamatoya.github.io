@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= document.displayName %> - <%= tweet.index %></title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="tweet-container">
+        <div class="tweet-profile-header">
+            <% if (backUrl) { %>
+                <a href="<%= backUrl %>" class="tweet-back-link">←</a>
+            <% } else { %>
+                <a href="/document/<%= document.accountId %>" class="tweet-back-link">←</a>
+            <% } %>
+            <h1><%= document.displayName %></h1>
+        </div>
+        <div class="tweet">
+            <div class="tweet-header">
+                <span class="index"><%= tweet.index %></span>
+                <span class="document-title"><%= document.displayName %></span>
+            </div>
+            <% 
+                let highlightedContent = tweet.content;
+                if (tweet.links && tweet.links.length > 0) {
+                    tweet.links.forEach(link => {
+                        const escapedLinkText = link.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const regex = new RegExp(`(${escapedLinkText})`, 'gi');
+                        highlightedContent = highlightedContent.replace(regex, '<span class="highlight">$1</span>');
+                    });
+                }
+            %>
+            <p class="tweet-content"><%- highlightedContent %></p>
+            <div class="tweet-actions">
+                <button class="copy-url-btn" data-url="<%= currentUrl %>">
+                    <i class="fas fa-link"></i> URLをコピー
+                </button>
+            </div>
+            <% if (tweet.links && tweet.links.length > 0) { %>
+                <div class="tweet-links">
+                    <h3>関連リンク:</h3>
+                    <% function renderLinks(links, depth = 0) { %>
+                        <% links.forEach(link => { %>
+                            <div class="link-item">
+                                <% if (depth === 0) { %>
+                                    <a href="/document/<%= link.url %>?back=<%= encodeURIComponent(currentUrl) %>" class="link-title"><%= link.text %></a>
+                                <% } %>
+                                <% if (link.content && link.content.content) { %>
+                                    <div class="linked-content">
+                                        <% if (link.content.content !== link.text) { %>
+                                            <p><%= link.content.content %></p>
+                                        <% } %>
+                                        <% if (link.content.links && link.content.links.length > 0) { %>
+                                            <% renderLinks(link.content.links, depth + 1) %>
+                                        <% } %>
+                                    </div>
+                                <% } %>
+                            </div>
+                        <% }); %>
+                    <% } %>
+                    <% renderLinks(tweet.links) %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <script>
+    console.log('Tweet page loaded');
+    document.querySelector('.copy-url-btn').addEventListener('click', function() {
+        var url = this.getAttribute('data-url');
+        navigator.clipboard.writeText(url).then(function() {
+            alert('URLがコピーされました');
+        }, function(err) {
+            console.error('URLのコピーに失敗しました', err);
+        });
+    });
+    </script>
+</body>
+</html>

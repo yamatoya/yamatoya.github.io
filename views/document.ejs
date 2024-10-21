@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= document.displayName %></title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="profile-header">
+        <a href="/" class="back-link">←</a>
+        <h1><%= document.displayName %></h1>
+    </div>
+    <div class="tweets">
+        <% document.tweets.forEach((tweet) => { %>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <span class="index"><%= tweet.index %></span>
+                    <span class="document-title"><%= document.displayName %></span>
+                </div>
+                <% 
+                    let highlightedContent = tweet.content;
+                    if (tweet.links && tweet.links.length > 0) {
+                        tweet.links.forEach(link => {
+                            const escapedLinkText = link.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                            const regex = new RegExp(`(${escapedLinkText})`, 'gi');
+                            highlightedContent = highlightedContent.replace(regex, '<span class="highlight">$1</span>');
+                        });
+                    }
+                %>
+                <p class="tweet-content" data-tweet-id="<%= tweet.id %>"><%- highlightedContent %></p>
+            </div>
+        <% }); %>
+    </div>
+    <script>
+    console.log('Document page loaded');
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const tweets = document.querySelectorAll('.tweet');
+        
+        tweets.forEach(tweet => {
+            const content = tweet.querySelector('.tweet-content');
+            const tweetId = content.getAttribute('data-tweet-id');
+            
+            content.addEventListener('mouseup', function(e) {
+                const selection = window.getSelection().toString();
+                if (selection.length > 0) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+            
+            tweet.addEventListener('click', function(e) {
+                if (window.getSelection().toString().length === 0) {
+                    window.location.href = `/document/<%= document.accountId %>/${tweetId}`;
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
