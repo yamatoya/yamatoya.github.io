@@ -213,6 +213,5 @@ a:hover .document-item {
 
 /* ハイライト用のスタイル */
 .highlight {
-  background-color: #caddf2;
-  font-weight: bold;
+  color: #0f83fd;
 }
