@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MeFg5PPOg2Npcw04Mu2qaPEnTbkDaPCduNQp86PqFWs='; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/93V/N+Zlxmyg0uT6IhUJ6tXHSD7MzjE0kKQswrVQhY='; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>法律文書一覧</title>
     <link rel="stylesheet" href="/styles/main.css">
@@ -10,14 +10,21 @@
           integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer">
     <script type="text/javascript">
-      // リダイレクト処理
+      // 404.html から渡された元のURL（パス・クエリ・ハッシュ）を復元する
       (function(){
-        var redirect = sessionStorage.getItem('redirect');
-        if (redirect) {
+        var redirect = null;
+        try {
+          redirect = sessionStorage.getItem('redirect');
           sessionStorage.removeItem('redirect');
-          var url = new URL(window.location);
-          url.pathname = redirect;
-          history.replaceState(null, null, url.toString());
+        } catch (e) {}
+        if (!redirect) {
+          redirect = new URLSearchParams(window.location.search).get('p');
+        }
+        // アプリ内のパスだけを受け付ける（//example.com のような外部URLは無視）
+        if (redirect && /^\/(?![\/\\])/.test(redirect)) {
+          history.replaceState(null, '', redirect);
+        } else if (redirect) {
+          history.replaceState(null, '', '/');
         }
       })();
     </script>
