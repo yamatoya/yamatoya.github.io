@@ -1,14 +1,30 @@
 /* 共通スタイル */
+html {
+  /* ページ内の移動（#item-…）で、共通のヘッダーの下に隠れないようにする */
+  scroll-padding-top: calc(var(--app-header-h) + 8px);
+}
+
 body {
   font-family: var(--font-sans);
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0;
   background-color: var(--surface-subtle);
+  color: var(--fg-body);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
   overflow-x: hidden;
   width: 100%;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--link-hover);
 }
 
 * {
@@ -234,7 +250,6 @@ a:hover .document-item {
 /* iOS用の調整 */
 @supports (-webkit-touch-callout: none) {
   body {
-    padding: 20px 10px;
     min-height: 100vh;
     -webkit-overflow-scrolling: touch;
   }
