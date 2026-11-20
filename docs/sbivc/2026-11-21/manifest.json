@@ -1,0 +1,192 @@
+{
+  "checked_date": "2026-11-21",
+  "source": "https://www.sbivc.co.jp/legal-information",
+  "documents": [
+    {
+      "file": "covenants-ex_tt.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/covenants-ex_tt.pdf",
+      "bytes": 1356918,
+      "sha256": "e87ba2dc013f28f12d4e695c2afb31626fb32f35e503bba98a4091976f8b022c"
+    },
+    {
+      "file": "manual-ex_tt.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/manual-ex_tt.pdf",
+      "bytes": 611655,
+      "sha256": "bca0908ff339e3d78e32c74fb5b26f4e2f364db26c02fbbe3e1e02ad85be21bf"
+    },
+    {
+      "file": "manual-ex_electric-payment-instrument.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/manual-ex_electric-payment-instrument.pdf",
+      "bytes": 480966,
+      "sha256": "ea33924b428e32fb91020aae6d3e59ba4f7f99edeb7e497ec57fd8e2110301ab"
+    },
+    {
+      "file": "lending_covenants_tt.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/lending_covenants_tt.pdf",
+      "bytes": 297679,
+      "sha256": "898cb15cc4a0c9d373936dd48c9bf657ba255a3de5bb2825ad3fd993ae414f45"
+    },
+    {
+      "file": "lending_manual-ex_tt.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/lending_manual-ex_tt.pdf",
+      "bytes": 338513,
+      "sha256": "e4a0e107b7f1a846ddab2a8652eae6f919b706d36ff5d0373427bf3565860419"
+    },
+    {
+      "file": "sbiweb3wallet_covenants.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/sbiweb3wallet_covenants.pdf",
+      "bytes": 1081736,
+      "sha256": "3ab4879b1f0e77e9d277ae28ed58c528b5a35b021f8c293f69ed32ca179d68e2"
+    },
+    {
+      "file": "e-consent.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/e-consent.pdf",
+      "bytes": 122608,
+      "sha256": "a29a20f89935887eedf2f5f20f1ce65888145fb408e70dd60589c3b49dbf9ad1"
+    },
+    {
+      "file": "bestexecutionpolicy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/bestexecutionpolicy.pdf",
+      "bytes": 809437,
+      "sha256": "8c681f06fa2659a1244ec433fb4efa0cdc989e5e5348a6caf61280640d0a96a7"
+    },
+    {
+      "file": "handling-cryptocurrency-overview.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/handling-cryptocurrency-overview.pdf",
+      "bytes": 2837714,
+      "sha256": "957cae1feef5d5841f754f551bce6c239ba9609cc22e2d2ac2f352f10fac858c"
+    },
+    {
+      "file": "handling-system-risc-overview.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/handling-system-risc-overview.pdf",
+      "bytes": 328837,
+      "sha256": "cfccc2830f6272de1dd5d0c3ccb126e55b955ef5eb9fd84de6e00123573018f9"
+    },
+    {
+      "file": "security-policy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/security-policy.pdf",
+      "bytes": 409219,
+      "sha256": "0870adeb441515562dffb3d3abc289ea8c7960e9b9cfe332d3fff5ebd8b10288"
+    },
+    {
+      "file": "cybersecurity_policy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/cybersecurity_policy.pdf",
+      "bytes": 239185,
+      "sha256": "ab2c133d8f50a498ed57f1a085956c58db59619e0bd8e7191751aa29ec3e3769"
+    },
+    {
+      "file": "privacy-policy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/privacy-policy.pdf",
+      "bytes": 288163,
+      "sha256": "1aeb0736aef8899932c7864ff2f348a2a5fe1bab77feb1ff6e29eb3253e7f61c"
+    },
+    {
+      "file": "privacy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/privacy.pdf",
+      "bytes": 302072,
+      "sha256": "fddc27cfa47309b4cd40f4aff7b97ef0965caa83ada7d85d16024aa14ed46e77"
+    },
+    {
+      "file": "joint_use_of_personal_information.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/joint_use_of_personal_information.pdf",
+      "bytes": 465734,
+      "sha256": "acf0067af77d8f473ab3fb5a63d1ceca8b3da25c08db6ab1bc438c42df90cc3e"
+    },
+    {
+      "file": "travel_rule.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/travel_rule.pdf",
+      "bytes": 252898,
+      "sha256": "a630556b6a6893d85345e30642fab239a0970a556c6601e6c1bc147a77870609"
+    },
+    {
+      "file": "obtaining_historical_information.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/obtaining_historical_information.pdf",
+      "bytes": 887571,
+      "sha256": "3a58d397ca880ca45ebe6db800bec225a8cfe17a6260f4f6c279e85306c79750"
+    },
+    {
+      "file": "policy_operating_social_media.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/policy_operating_social_media.pdf",
+      "bytes": 250200,
+      "sha256": "484a310fbb40210c7f57f9b4a158b4b68b150d678180c8ec8bf2f4781b3fde25"
+    },
+    {
+      "file": "fiduciary_duty.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/fiduciary_duty.pdf",
+      "bytes": 343343,
+      "sha256": "07a119f9d8faef6bdcfa1cc161e0d0cb6b92f0bb2b5ca1aa7b4c6988ba86fbae"
+    },
+    {
+      "file": "solicitation_policy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/solicitation_policy.pdf",
+      "bytes": 304799,
+      "sha256": "12180d4f0437036d51523275be9af9bebee5b2ff3121567e4c0d0a665660ba38"
+    },
+    {
+      "file": "handling-complaints.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/handling-complaints.pdf",
+      "bytes": 731839,
+      "sha256": "fdaf6bee82503cae6ba136f629eb3575c0767bd50d0ce857a0a22dce28d74622"
+    },
+    {
+      "file": "debtfulfillmentpolicy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/debtfulfillmentpolicy.pdf",
+      "bytes": 143420,
+      "sha256": "7cdb37a871a9b179b1e86b5328a4beb0638a044f2865c697baa1f73e79a7c77f"
+    },
+    {
+      "file": "debtfulfillmentpolicy_electric-payment-instrument.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/debtfulfillmentpolicy_electric-payment-instrument.pdf",
+      "bytes": 295937,
+      "sha256": "f079ffd597dc84fd89db5a7ee2ff81a4dbcb7335bed6f0220fd92a8c33700d5f"
+    },
+    {
+      "file": "ethics.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/ethics.pdf",
+      "bytes": 687551,
+      "sha256": "5d0a0c02bea374905edc92596ba1df328ab1464a3d345ca670a126a1e90946fa"
+    },
+    {
+      "file": "advantagecontrary.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/advantagecontrary.pdf",
+      "bytes": 147217,
+      "sha256": "e4bb6d06a853c31c1f2c3d01f059bc36259743092c8d4bc827a08a2293724f04"
+    },
+    {
+      "file": "basic_policy_of_amlfct.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/basic_policy_of_amlfct.pdf",
+      "bytes": 147181,
+      "sha256": "74f39cb1922fab999c147848075719b32193a4346e5edd8576f763b7add92b88"
+    },
+    {
+      "file": "handling-antisocial.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/handling-antisocial.pdf",
+      "bytes": 579347,
+      "sha256": "e2763b0501d080f730f8e6fac97ede8d86af836c7f01156f34782a8d732cbf80"
+    },
+    {
+      "file": "electric-payment-instrument_compensation_policy.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/electric-payment-instrument_compensation_policy.pdf",
+      "bytes": 175244,
+      "sha256": "d7225893a67d8ea98398e668d17bd1bd90aa4af7b2ef3540029c54b7fe0acf29"
+    },
+    {
+      "file": "customerharassment.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/customerharassment.pdf",
+      "bytes": 169293,
+      "sha256": "2e54a8a36725ee897388cd7a5cbb7d8d7fef3a3d42a83035a3149a61f610a58b"
+    },
+    {
+      "file": "act_on_specified_commercial_transactions.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/act_on_specified_commercial_transactions.pdf",
+      "bytes": 135412,
+      "sha256": "bf1b65a561605004bf0c2d2b392d8789cc0a1faf1d76ff4b3316314405568e49"
+    },
+    {
+      "file": "SBINFT_Mits_terms_of_use.pdf",
+      "url": "https://www.sbivc.co.jp/assets/docs/SBINFT_Mits_terms_of_use.pdf",
+      "bytes": 350184,
+      "sha256": "c5500521dcbf685de35f3c2c1286635424bc096eccb70615ea63e8dea5e8d0de"
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "asset": "sbivc-documents-99e787667100.js",
+  "documents": [
+    {
+      "id": "sbivc-service-terms",
+      "title": "サービス総合約款",
+      "file": "covenants-ex_tt.pdf",
+      "pages": 30,
+      "items": 49,
+      "articles": 47,
+      "sha256": "e87ba2dc013f28f12d4e695c2afb31626fb32f35e503bba98a4091976f8b022c"
+    },
+    {
+      "id": "sbivc-crypto-manual",
+      "title": "暗号資産取引説明書",
+      "file": "manual-ex_tt.pdf",
+      "pages": 30,
+      "items": 40,
+      "articles": 0,
+      "sha256": "bca0908ff339e3d78e32c74fb5b26f4e2f364db26c02fbbe3e1e02ad85be21bf"
+    },
+    {
+      "id": "sbivc-payment-manual",
+      "title": "電子決済手段取引説明書",
+      "file": "manual-ex_electric-payment-instrument.pdf",
+      "pages": 22,
+      "items": 31,
+      "articles": 0,
+      "sha256": "ea33924b428e32fb91020aae6d3e59ba4f7f99edeb7e497ec57fd8e2110301ab"
+    },
+    {
+      "id": "sbivc-lending-terms",
+      "title": "暗号資産等貸借取引約款",
+      "file": "lending_covenants_tt.pdf",
+      "pages": 6,
+      "items": 22,
+      "articles": 20,
+      "sha256": "898cb15cc4a0c9d373936dd48c9bf657ba255a3de5bb2825ad3fd993ae414f45"
+    },
+    {
+      "id": "sbivc-lending-manual",
+      "title": "暗号資産等貸借取引説明書",
+      "file": "lending_manual-ex_tt.pdf",
+      "pages": 10,
+      "items": 25,
+      "articles": 0,
+      "sha256": "e4a0e107b7f1a846ddab2a8652eae6f919b706d36ff5d0373427bf3565860419"
+    },
+    {
+      "id": "sbivc-web3-terms",
+      "title": "SBI Web3 ウォレットサービス約款",
+      "file": "sbiweb3wallet_covenants.pdf",
+      "pages": 17,
+      "items": 29,
+      "articles": 27,
+      "sha256": "3ab4879b1f0e77e9d277ae28ed58c528b5a35b021f8c293f69ed32ca179d68e2"
+    },
+    {
+      "id": "sbivc-electronic-consent",
+      "title": "情報の電磁的な方法による提供について",
+      "file": "e-consent.pdf",
+      "pages": 2,
+      "items": 16,
+      "articles": 0,
+      "sha256": "a29a20f89935887eedf2f5f20f1ce65888145fb408e70dd60589c3b49dbf9ad1"
+    },
+    {
+      "id": "sbivc-best-execution",
+      "title": "最良執行方針",
+      "file": "bestexecutionpolicy.pdf",
+      "pages": 5,
+      "items": 5,
+      "articles": 0,
+      "sha256": "8c681f06fa2659a1244ec433fb4efa0cdc989e5e5348a6caf61280640d0a96a7"
+    },
+    {
+      "id": "sbivc-asset-overview",
+      "title": "取扱暗号資産及び取扱電子決済手段の概要説明書",
+      "file": "handling-cryptocurrency-overview.pdf",
+      "pages": 322,
+      "items": 322,
+      "articles": 0,
+      "sha256": "957cae1feef5d5841f754f551bce6c239ba9609cc22e2d2ac2f352f10fac858c"
+    },
+    {
+      "id": "sbivc-system-risk",
+      "title": "システムリスク管理方針",
+      "file": "handling-system-risc-overview.pdf",
+      "pages": 4,
+      "items": 11,
+      "articles": 0,
+      "sha256": "cfccc2830f6272de1dd5d0c3ccb126e55b955ef5eb9fd84de6e00123573018f9"
+    },
+    {
+      "id": "sbivc-security",
+      "title": "情報セキュリティポリシー",
+      "file": "security-policy.pdf",
+      "pages": 2,
+      "items": 7,
+      "articles": 0,
+      "sha256": "0870adeb441515562dffb3d3abc289ea8c7960e9b9cfe332d3fff5ebd8b10288"
+    },
+    {
+      "id": "sbivc-cybersecurity",
+      "title": "サイバーセキュリティ基本方針",
+      "file": "cybersecurity_policy.pdf",
+      "pages": 2,
+      "items": 18,
+      "articles": 0,
+      "sha256": "ab2c133d8f50a498ed57f1a085956c58db59619e0bd8e7191751aa29ec3e3769"
+    },
+    {
+      "id": "sbivc-privacy-policy",
+      "title": "個人情報保護方針",
+      "file": "privacy-policy.pdf",
+      "pages": 5,
+      "items": 9,
+      "articles": 7,
+      "sha256": "1aeb0736aef8899932c7864ff2f348a2a5fe1bab77feb1ff6e29eb3253e7f61c"
+    },
+    {
+      "id": "sbivc-privacy-handling",
+      "title": "お客様の個人情報のお取扱いについて",
+      "file": "privacy.pdf",
+      "pages": 5,
+      "items": 17,
+      "articles": 0,
+      "sha256": "fddc27cfa47309b4cd40f4aff7b97ef0965caa83ada7d85d16024aa14ed46e77"
+    },
+    {
+      "id": "sbivc-privacy-joint-use",
+      "title": "個人情報の共同利用について",
+      "file": "joint_use_of_personal_information.pdf",
+      "pages": 3,
+      "items": 1,
+      "articles": 0,
+      "sha256": "acf0067af77d8f473ab3fb5a63d1ceca8b3da25c08db6ab1bc438c42df90cc3e"
+    },
+    {
+      "id": "sbivc-travel-rule",
+      "title": "トラベルルールに関する同意事項",
+      "file": "travel_rule.pdf",
+      "pages": 3,
+      "items": 3,
+      "articles": 0,
+      "sha256": "a630556b6a6893d85345e30642fab239a0970a556c6601e6c1bc147a77870609"
+    },
+    {
+      "id": "sbivc-history-information",
+      "title": "履歴情報の取得について",
+      "file": "obtaining_historical_information.pdf",
+      "pages": 4,
+      "items": 1,
+      "articles": 0,
+      "sha256": "3a58d397ca880ca45ebe6db800bec225a8cfe17a6260f4f6c279e85306c79750"
+    },
+    {
+      "id": "sbivc-social-media",
+      "title": "ソーシャルメディアの運用方針",
+      "file": "policy_operating_social_media.pdf",
+      "pages": 3,
+      "items": 7,
+      "articles": 0,
+      "sha256": "484a310fbb40210c7f57f9b4a158b4b68b150d678180c8ec8bf2f4781b3fde25"
+    },
+    {
+      "id": "sbivc-fiduciary-duty",
+      "title": "顧客中心主義に基づく業務運営方針",
+      "file": "fiduciary_duty.pdf",
+      "pages": 2,
+      "items": 1,
+      "articles": 0,
+      "sha256": "07a119f9d8faef6bdcfa1cc161e0d0cb6b92f0bb2b5ca1aa7b4c6988ba86fbae"
+    },
+    {
+      "id": "sbivc-solicitation",
+      "title": "勧誘方針",
+      "file": "solicitation_policy.pdf",
+      "pages": 1,
+      "items": 6,
+      "articles": 0,
+      "sha256": "12180d4f0437036d51523275be9af9bebee5b2ff3121567e4c0d0a665660ba38"
+    },
+    {
+      "id": "sbivc-complaints",
+      "title": "苦情処理措置及び紛争解決措置について",
+      "file": "handling-complaints.pdf",
+      "pages": 6,
+      "items": 15,
+      "articles": 0,
+      "sha256": "fdaf6bee82503cae6ba136f629eb3575c0767bd50d0ce857a0a22dce28d74622"
+    },
+    {
+      "id": "sbivc-crypto-debt",
+      "title": "債務履行方針（暗号資産）",
+      "file": "debtfulfillmentpolicy.pdf",
+      "pages": 1,
+      "items": 1,
+      "articles": 0,
+      "sha256": "7cdb37a871a9b179b1e86b5328a4beb0638a044f2865c697baa1f73e79a7c77f"
+    },
+    {
+      "id": "sbivc-payment-debt",
+      "title": "債務履行方針（電子決済手段）",
+      "file": "debtfulfillmentpolicy_electric-payment-instrument.pdf",
+      "pages": 1,
+      "items": 1,
+      "articles": 0,
+      "sha256": "f079ffd597dc84fd89db5a7ee2ff81a4dbcb7335bed6f0220fd92a8c33700d5f"
+    },
+    {
+      "id": "sbivc-ethics",
+      "title": "倫理コード",
+      "file": "ethics.pdf",
+      "pages": 2,
+      "items": 12,
+      "articles": 0,
+      "sha256": "5d0a0c02bea374905edc92596ba1df328ab1464a3d345ca670a126a1e90946fa"
+    },
+    {
+      "id": "sbivc-conflicts",
+      "title": "利益相反管理方針",
+      "file": "advantagecontrary.pdf",
+      "pages": 4,
+      "items": 9,
+      "articles": 7,
+      "sha256": "e4bb6d06a853c31c1f2c3d01f059bc36259743092c8d4bc827a08a2293724f04"
+    },
+    {
+      "id": "sbivc-aml",
+      "title": "マネー・ローンダリング等防止に関する基本方針",
+      "file": "basic_policy_of_amlfct.pdf",
+      "pages": 2,
+      "items": 10,
+      "articles": 0,
+      "sha256": "74f39cb1922fab999c147848075719b32193a4346e5edd8576f763b7add92b88"
+    },
+    {
+      "id": "sbivc-antisocial",
+      "title": "反社会的勢力に対する基本方針",
+      "file": "handling-antisocial.pdf",
+      "pages": 1,
+      "items": 5,
+      "articles": 0,
+      "sha256": "e2763b0501d080f730f8e6fac97ede8d86af836c7f01156f34782a8d732cbf80"
+    },
+    {
+      "id": "sbivc-payment-compensation",
+      "title": "電子決済手段等取引サービスにおける不正利用被害の補償方針",
+      "file": "electric-payment-instrument_compensation_policy.pdf",
+      "pages": 2,
+      "items": 1,
+      "articles": 0,
+      "sha256": "d7225893a67d8ea98398e668d17bd1bd90aa4af7b2ef3540029c54b7fe0acf29"
+    },
+    {
+      "id": "sbivc-customer-harassment",
+      "title": "カスタマーハラスメントに対する基本方針",
+      "file": "customerharassment.pdf",
+      "pages": 2,
+      "items": 15,
+      "articles": 0,
+      "sha256": "2e54a8a36725ee897388cd7a5cbb7d8d7fef3a3d42a83035a3149a61f610a58b"
+    },
+    {
+      "id": "sbivc-commercial-transactions",
+      "title": "特定商取引法に基づく表記",
+      "file": "act_on_specified_commercial_transactions.pdf",
+      "pages": 2,
+      "items": 2,
+      "articles": 0,
+      "sha256": "bf1b65a561605004bf0c2d2b392d8789cc0a1faf1d76ff4b3316314405568e49"
+    },
+    {
+      "id": "sbivc-mits-terms",
+      "title": "SBI Mits利用規約",
+      "file": "SBINFT_Mits_terms_of_use.pdf",
+      "pages": 9,
+      "items": 24,
+      "articles": 23,
+      "sha256": "c5500521dcbf685de35f3c2c1286635424bc096eccb70615ea63e8dea5e8d0de"
+    }
+  ]
+}
