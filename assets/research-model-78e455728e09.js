@@ -1,4 +1,5 @@
 // Shared, framework-independent model for topic research and source relationships.
+import { classifyServices, matchesService } from "./services-48285ee69786.js";
 export const TOPICS = [
   { id: 'custody', name: '顧客資産の保護・分別管理', summary: '預り資産の管理、信託、秘密鍵、返還方法を調べる。', terms: ['分別管理', '利用者財産', '顧客資産', '信託', '秘密鍵', 'コールドウォレット'] },
   { id: 'compensation', name: '不正利用・補償・免責', summary: '不正アクセス時の補償条件や損害賠償、免責の範囲を比べる。', terms: ['補償', '不正利用', '不正アクセス', '免責', '損害賠償', '責任を負'] },
@@ -54,16 +55,17 @@ export function buildCatalog(documents, toText) {
           score: matches.reduce((score, [, term]) => score + 1 + (heading.includes(term) ? 3 : 0), 0),
         };
       }
-      rows.push({ docId, doc, item, content, text, body, heading, trail, kind, provider, topics });
+      rows.push({ docId, doc, item, content, text, body, heading, trail, kind, provider, topics,
+        services: classifyServices(docId, doc, `${trail} ${item.index || ''}`, text) });
     }
   }
   return { rows, providers: [...providers].sort((a, b) => a.localeCompare(b, 'ja')), byKey: new Map(rows.map(row => [rowKey(row), row])) };
 }
 
-export function topicRows(catalog, topicId, { kind = '', provider = '', query = '', docId = '' } = {}) {
+export function topicRows(catalog, topicId, { kind = '', provider = '', query = '', docId = '', service = '', includeCommon = true } = {}) {
   const words = query.trim().split(/\s+/).filter(Boolean).map(normalize);
   return catalog.rows.filter(row => row.topics[topicId] && (!kind || row.kind === kind) &&
-    (!provider || row.provider === provider) && (!docId || row.docId === docId) &&
+    (!provider || row.provider === provider) && (!docId || row.docId === docId) && matchesService(row, service, includeCommon) &&
     words.every(word => (row.body + row.heading + normalize(row.doc.displayName)).includes(word)))
     .sort((a, b) => b.topics[topicId].score - a.topics[topicId].score || rowKey(a).localeCompare(rowKey(b), 'ja'));
 }
@@ -82,11 +84,11 @@ function bigrams(text) {
   return grams;
 }
 
-export function rankCompanyCandidates(catalog, rule, topicId, provider, limit = 8) {
+export function rankCompanyCandidates(catalog, rule, topicId, provider, limit = 8, serviceOptions = {}) {
   if (!rule) return [];
   const sourceTerms = new Set(rule.topics[topicId]?.terms || []);
   const sourceGrams = bigrams(rule.body.slice(0, 6000));
-  return topicRows(catalog, topicId, { kind: 'company', provider }).map(row => {
+  return topicRows(catalog, topicId, { kind: 'company', provider, ...serviceOptions }).map(row => {
     const shared = row.topics[topicId].terms.filter(term => sourceTerms.has(term));
     const grams = bigrams(row.body.slice(0, 6000));
     let intersection = 0;

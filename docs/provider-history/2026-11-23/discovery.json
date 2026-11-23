@@ -1,0 +1,1086 @@
+{
+  "checkedAt": "2026-11-23",
+  "discoverySources": [
+    "https://www.sbivc.co.jp/news",
+    "https://jp-news.mercari.com/info/category/announcements"
+  ],
+  "announcements": [
+    {
+      "id": "sbi-j3rl-is_pu",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/j3rl-is_pu",
+      "title": "【重要】メンテナンス時間の記載更新に伴う書面改定のお知らせ",
+      "publishedDate": "2026-11-18",
+      "original": "sbi-j3rl-is_pu.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261118_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261118_manual-ex_electric-payment-instrument.pdf",
+          "kind": "comparison-pdf",
+          "label": "『電子決済手段取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-bzrc9nft53",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/bzrc9nft53",
+      "title": "【重要】APT、OAS、ETC取扱廃止ならびにSBI新生銀行入金追加に伴う書面改定のお知らせ",
+      "publishedDate": "2026-10-28",
+      "original": "sbi-bzrc9nft53.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261028_covenants-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『サービス総合約款 新旧対照表』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261028_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261028_manual-ex_electric-payment-instrument.pdf",
+          "kind": "comparison-pdf",
+          "label": "『電子決済手段取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-8v_jcz-9a",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/8v_jcz-9a",
+      "title": "【重要】取引の適格要件変更ならびに禁止事項追加に伴う『サービス総合約款』改定のお知らせ",
+      "publishedDate": "2026-10-14",
+      "original": "sbi-8v_jcz-9a.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261014_covenants-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『サービス総合約款 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-wu75macihjt",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/wu75macihjt",
+      "title": "【重要】OAS、APT、ETCの取扱い廃止に関連した各種サービス終了に伴う『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-10-07",
+      "original": "sbi-wu75macihjt.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20261007_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-2i-i4rq8v",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/2i-i4rq8v",
+      "title": "【重要】トロン（TRX）の出庫対応に伴う『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-09-30",
+      "original": "sbi-2i-i4rq8v.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260930_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-f3zp3oqoc2",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/f3zp3oqoc2",
+      "title": "【重要】JPYSC積立の追加に伴う『電子決済手段取引説明書』改定のお知らせ",
+      "publishedDate": "2026-09-16",
+      "original": "sbi-f3zp3oqoc2.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260916_manual-ex_electric-payment-instrument.pdf",
+          "kind": "comparison-pdf",
+          "label": "電子決済手段取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-1q6yeuzi_2er",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/1q6yeuzi_2er",
+      "title": "【重要】JPYSCのステーキング報酬受取の追加に伴う『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-09-02",
+      "original": "sbi-1q6yeuzi_2er.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260902_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-xtcy98hu32sh",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/xtcy98hu32sh",
+      "title": "【重要】DAI、OMG、XTZ、SAND、AXS、BAT、APEの取扱廃止に伴う『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-08-05",
+      "original": "sbi-xtcy98hu32sh.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260805_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-b8d7d5_n0",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/b8d7d5_n0",
+      "title": "【重要】メイカー（MKR）の取扱廃止に伴う『暗号資産取引説明書』の改定のお知らせ",
+      "publishedDate": "2026-07-22",
+      "original": "sbi-b8d7d5_n0.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260722_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-snbw0scqu",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/snbw0scqu",
+      "title": "【重要】SBINFT株式会社合併に伴う『SBI Web3ウォレットサービス約款』改定のお知らせ",
+      "publishedDate": "2026-07-01",
+      "original": "sbi-snbw0scqu.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260701_sbiweb3wallet_covenants.pdf",
+          "kind": "comparison-pdf",
+          "label": "SBI Web3ウォレットサービス約款 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-h2y3k298wq0",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/h2y3k298wq0",
+      "title": "【重要】メイカー（MKR）の売却サービス終了及びテゾス（XTZ）のステーキングサービス終了に伴う『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-07-01",
+      "original": "sbi-h2y3k298wq0.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260701_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書"
+        }
+      ]
+    },
+    {
+      "id": "sbi-skwdcxjbfjab",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/skwdcxjbfjab",
+      "title": "【重要】アールエルユーエスディー（RLUSD）及びジェイピーワイエスシー (JPYSC)取扱い開始に伴う『サービス総合約款』、『電子決済手段取引説明書』改定のお知らせ",
+      "publishedDate": "2026-06-24",
+      "original": "sbi-skwdcxjbfjab.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260624_covenants-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『サービス総合約款 新旧対照表』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260624_manual-ex_electric-payment-instrument.pdf",
+          "kind": "comparison-pdf",
+          "label": "『電子決済手段取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-zohm2qy3a",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/zohm2qy3a",
+      "title": "【重要】ポリゴンの名称変更（MATIC→POL)およびカントンコイン（CANTON）の入出庫サービス開始に伴う、『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-06-10",
+      "original": "sbi-zohm2qy3a.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260610_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-jur2jq-0ac1",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/jur2jq-0ac1",
+      "title": "【重要】ダイ（DAI）の買付サービス停止に伴う、『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-06-03",
+      "original": "sbi-jur2jq-0ac1.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260603_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-n08me261wi",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/n08me261wi",
+      "title": "【重要】VCTRADEサービス『サービス総合約款』改定のお知らせ",
+      "publishedDate": "2026-05-13",
+      "original": "sbi-n08me261wi.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/351c84dc4f92471a971f7cd5bec7f9b9/image%20(66).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/23c264661093498aa8030b88f9e9aacd/image%20(67).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-vmpy1dzf5y4",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/vmpy1dzf5y4",
+      "title": "【重要】ALGO（アルゴランド）のステーキング開始に伴うVCTRADEサービス『暗号資産取引説明書』改定のお知らせ",
+      "publishedDate": "2026-04-22",
+      "original": "sbi-vmpy1dzf5y4.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/0285f6aec59548c384f6ab32c973159f/image.png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/649113d83ecb4e7bbe3ca38c5cadded1/image.png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-j3v_1pt2m2",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/j3v_1pt2m2",
+      "title": "VCTRADEサービスに関する約款等の再同意取得実施のお知らせ",
+      "publishedDate": "2026-03-31",
+      "original": "sbi-j3v_1pt2m2.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "sbi-5_m-h__ow5",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/5_m-h__ow5",
+      "title": "【重要】カントンコイン（CANTON）、ベラ（BERA)取扱い開始及びニッポンアイドルトークン（NIDT）の入出庫サービス開始に伴う『暗号資産取引説明書』改訂のお知らせ",
+      "publishedDate": "2026-03-26",
+      "original": "sbi-5_m-h__ow5.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260325_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-ejrz6j2nq6",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/ejrz6j2nq6",
+      "title": "【重要】トンコイン（TON）及びスイ（SUI)取扱い開始に伴う『暗号資産取引説明書』改訂のお知らせ",
+      "publishedDate": "2026-03-11",
+      "original": "sbi-ejrz6j2nq6.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20260311_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-4ndks8ejxdzu",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/4ndks8ejxdzu",
+      "title": "【重要】「暗号資産取引説明書」改定のお知らせ",
+      "publishedDate": "2025-11-26",
+      "original": "sbi-4ndks8ejxdzu.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/9e01d9f682ff4424b03ad9526b664eaa/image%20(21).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/c38669ff153c46e7baeabd6d9a5c6198/image%20(22).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/52b98112fcaf4f66b5fdb7be09b5c61c/image%20(23).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/de1f0836b82d4ea886a043f93337c46e/image%20(24).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/2fabc53835834690ade5d6640e17a173/image%20(25).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-wfa43zz67u",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/wfa43zz67u",
+      "title": "【重要】「暗号資産取引説明書」改定のお知らせ",
+      "publishedDate": "2025-10-28",
+      "original": "sbi-wfa43zz67u.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/c7087cd0d8794ab8a7d0e894b53c6e14/image%20(3).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/229c19df48bf40d3a6d0a75d2042d04d/image%20(2).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/6da32d0ed72b485081eae6bb54c92267/image%20(5).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/84877413f81f45c19905c88e997a1e0c/image%20(6).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/92c2b6027907447f87e82adb88d85b65/image%20(9).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/d933ade6e8364f0f9c322b7a32511d53/image%20(7).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/3ccd697bce324b90b32813e355081207/image%20(8).png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-w3e8_bswxyo",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/w3e8_bswxyo",
+      "title": "【重要】メイカー（MKR）の出庫サービス開始に伴う「サービス総合約款」「暗号資産取引説明書」「電子決済手段取引説明書」改定のお知らせ",
+      "publishedDate": "2025-08-26",
+      "original": "sbi-w3e8_bswxyo.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/cc4998c1b101437294700d3adfb3638c/0903%E7%B7%8F%E5%90%88%E7%B4%84%E6%AC%BE.PNG",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/78fc9a0c993c422996433c5af424bc2f/%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A30826.PNG",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/93bc6391a1d74f64977c74955c767710/0903%E5%8F%96%E5%BC%95%E8%AA%AC%E6%98%8E%E6%9B%B802.PNG",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/2120c2e59f67425989d0169695cb92de/0903%E9%9B%BB%E5%AD%90%E6%B1%BA%E6%B8%88%E6%89%8B%E6%AE%B5%E5%8F%96%E5%BC%95%E8%AA%AC%E6%98%8E%E6%9B%B8.PNG",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-i_btmt3ad4",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/i_btmt3ad4",
+      "title": "【重要】エンジンコイン（ENJ）、エフシーアールコイン（FCR）、モナ（MONA）の取扱い廃止に伴う「暗号資産取引説明書」改定のお知らせ",
+      "publishedDate": "2025-06-18",
+      "original": "sbi-i_btmt3ad4.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/70da1af4d1df441b82c911b170ae1779/1.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/41b25a93b26d4b028039ffa308b868e1/2.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/0d10897a48a94bbdb1162c9624a3ddfd/3.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/64d5758f36554491945a53040a246099/4.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/55a7861810c241a8887c9b105fb0d680/5.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/5dd0708ad32745979df0a1f1eb53f04b/6.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/5329fcb1b80d4ea3b803ccd766f8cab1/7.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/74dfb0c6b3174d29b9075e4d2f1e691e/8.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/95eadb815b294fd0b8014c4a55894e9e/9.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-uu9380u579s5",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/uu9380u579s5",
+      "title": "【重要】「サービス総合約款」改定のお知らせ",
+      "publishedDate": "2025-06-18",
+      "original": "sbi-uu9380u579s5.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/a4ac7b1381af4865baa7370a11251097/1%20(1).jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/2cbbcfab63f74c12b030df03c7026fe3/2.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/b33ebbeb7fe640e7a120d2c4d4c86f48/3%20(2).jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/6d24ea11334e44ad8574521327f220c8/4%20(1).jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/7a0bbcd963324524877f88ee772696d3/5%20(1).jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-fh8i8tzf3e",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/fh8i8tzf3e",
+      "title": "【重要】サービス総合約款改定のお知らせ",
+      "publishedDate": "2025-06-03",
+      "original": "sbi-fh8i8tzf3e.html.txt",
+      "attachments": [
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/ea47c4d391bb412b97938bcf1cb8c803/img_01.jpg",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-3xfpd9er0",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/3xfpd9er0",
+      "title": "【重要】取扱い銘柄の追加に伴う、『暗号資産取引説明書』改訂のお知らせ",
+      "publishedDate": "2025-02-12",
+      "original": "sbi-3xfpd9er0.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20250212_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-fl09vquwzzx4",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/fl09vquwzzx4",
+      "title": "【重要】『暗号資産取引説明書』等改訂のお知らせ",
+      "publishedDate": "2024-10-30",
+      "original": "sbi-fl09vquwzzx4.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20241030_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "新旧対照表『暗号資産取引説明書』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20241030_lending_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "新旧対照表『暗号資産貸借取引説明書（契約締結前書面）』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20241030_flr_lending_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "新旧対照表『【フレア】暗号資産貸借取引説明書（契約締結前書面）』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-3an5x3qc6ce8",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/3an5x3qc6ce8",
+      "title": "【重要】『暗号資産取引説明書』改訂のお知らせ",
+      "publishedDate": "2024-10-17",
+      "original": "sbi-3an5x3qc6ce8.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "sbi-kygkogds2",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/kygkogds2",
+      "title": "【重要】ニアー（NEAR）取扱い開始及び法令諸規則等の改正に伴う『サービス総合約款』、『暗号資産取引説明書』改訂のお知らせ",
+      "publishedDate": "2024-10-02",
+      "original": "sbi-kygkogds2.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20241002_covenants-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『サービス総合約款 新旧対照表』"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20241002_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-mj-id4h-dc",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/mj-id4h-dc",
+      "title": "【重要】レバレッジ取引対象銘柄追加、一部銘柄の取扱単位・最小発注数量引き下げに伴う『暗号資産取引説明書』、『最良執行方針』改訂のお知らせ",
+      "publishedDate": "2024-08-14",
+      "original": "sbi-mj-id4h-dc.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20240814_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-gk_k0f40qa",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/gk_k0f40qa",
+      "title": "【重要：同意のお願い】出金及び出庫制限の取扱いに伴う『暗号資産取引説明書』改訂のお知らせ",
+      "publishedDate": "2023-09-19",
+      "original": "sbi-gk_k0f40qa.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20230920_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "『暗号資産取引説明書 新旧対照表』"
+        }
+      ]
+    },
+    {
+      "id": "sbi-l8-s_84iy",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/l8-s_84iy",
+      "title": "【重要】ビジネス需要拡大に伴う『SBI Web3ウォレットサービス約款』改訂のお知らせ",
+      "publishedDate": "2023-07-12",
+      "original": "sbi-l8-s_84iy.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20230712_sbiweb3wallet_covenants.pdf",
+          "kind": "comparison-pdf",
+          "label": "SBI Web3ウォレットサービス約款 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-zej-su5zmsn",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/zej-su5zmsn",
+      "title": "【重要】取扱い銘柄の追加に伴う『暗号資産取引説明書』等改訂のお知らせ",
+      "publishedDate": "2023-05-31",
+      "original": "sbi-zej-su5zmsn.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison20230531_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書 新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-0qiabrw0p",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/0qiabrw0p",
+      "title": "【重要】フレア（FLR）取扱い追加等に伴う『暗号資産取引説明書』等改訂のお知らせ",
+      "publishedDate": "2023-04-19",
+      "original": "sbi-0qiabrw0p.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202304_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-ouc77n17xyuu",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/ouc77n17xyuu",
+      "title": "【Flare】暗号資産貸借取引説明書（契約締結前交付書面）、暗号資産貸借取引約款の改訂のお知らせ",
+      "publishedDate": "2023-02-01",
+      "original": "sbi-ouc77n17xyuu.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "sbi-p8gnt3204ee",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/p8gnt3204ee",
+      "title": "【重要】SBI Web3ウォレットサービスの提供開始等に伴う『約款』制定のお知らせ",
+      "publishedDate": "2023-01-25",
+      "original": "sbi-p8gnt3204ee.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202301_covenants-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "サービス総合約款（新VCTRADE）新旧対照表"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202301_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産貸借取引説明書（新VCTRADE）新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-d-lzo_cc1c",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/d-lzo_cc1c",
+      "title": "【重要】ステーキングサービスの銘柄追加等に伴う『暗号資産取引説明書』の改訂のお知らせ",
+      "publishedDate": "2022-12-28",
+      "original": "sbi-d-lzo_cc1c.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202212_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書（新VCTRADE）新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-p55zwbuv9",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/p55zwbuv9",
+      "title": "【重要】入出庫サービスの変更に伴う『暗号資産取引説明書』等改訂のお知らせ",
+      "publishedDate": "2022-11-30",
+      "original": "sbi-p55zwbuv9.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202211_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書（新VCTRADE）新旧対照表"
+        }
+      ]
+    },
+    {
+      "id": "sbi-bptzm58cit5h",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/bptzm58cit5h",
+      "title": "【重要】取扱い銘柄の追加に伴う『暗号資産取引説明書』等改訂のお知らせ",
+      "publishedDate": "2022-10-21",
+      "original": "sbi-bptzm58cit5h.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202210_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "暗号資産取引説明書（新VCTRADE）新旧対照表"
+        },
+        {
+          "url": "https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/c4c5dc8a255443bdaeff52151e399c17/%E5%8F%96%E6%89%B1%E3%81%84%E9%8A%98%E6%9F%84%E8%BF%BD%E5%8A%A0%E4%BA%88%E5%91%8A%E3%83%90%E3%83%8A%E3%83%BC_20221021.png",
+          "kind": "comparison-image",
+          "label": "新旧対照表の画像"
+        }
+      ]
+    },
+    {
+      "id": "sbi-8d8vb-1k2vcs",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/8d8vb-1k2vcs",
+      "title": "【重要】ステーキングサービスの開始等に伴う『暗号資産取引説明書』の改訂のお知らせ",
+      "publishedDate": "2022-09-28",
+      "original": "sbi-8d8vb-1k2vcs.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202209_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-wd8s8ubgt_vu",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/wd8s8ubgt_vu",
+      "title": "【重要】取扱い銘柄の追加等に伴う『暗号資産取引説明書』等改訂のお知らせ",
+      "publishedDate": "2022-08-15",
+      "original": "sbi-wd8s8ubgt_vu.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202208_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202208_bestexecutionpolicy.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202208_privacy-policy.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparison202208_privacy.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-wjt7tpw0s",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/wjt7tpw0s",
+      "title": "【重要】新VCTRADEサービスの取引所サービス開始等に伴う『サービス総合約款』等改定のお知らせ",
+      "publishedDate": "2022-06-22",
+      "original": "sbi-wjt7tpw0s.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparative_covenants_ex_tt_20220622.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparative_manual-ex_tt_20220622.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparative_bestexecutionpolicy_20220622.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-0jxe2qlo7",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/0jxe2qlo7",
+      "title": "【重要】サービス名称変更、旧TAOTAO販売所の仕様変更に伴う各種書面改定のお知らせ",
+      "publishedDate": "2022-04-11",
+      "original": "sbi-0jxe2qlo7.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "sbi-a8m1-9emira",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/a8m1-9emira",
+      "title": "【重要】トラベルルール対応及び個人情報保護法改訂に関する掲載書面改訂予定のお知らせ",
+      "publishedDate": "2022-03-29",
+      "original": "sbi-a8m1-9emira.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "sbi-r0xd569-pczs",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/r0xd569-pczs",
+      "title": "【重要】新VCTRADE『サービス総合約款』等改定のお知らせ",
+      "publishedDate": "2022-03-16",
+      "original": "sbi-r0xd569-pczs.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparative_covenants-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparative_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/assets/docs/comparative_lending_manual-ex_tt.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-2zfvfqkjkctc",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/2zfvfqkjkctc",
+      "title": "【重要】『暗号資産の売買等に関するご説明（契約締結前交付書面）』等改定のお知らせ",
+      "publishedDate": "2021-09-29",
+      "original": "sbi-2zfvfqkjkctc.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "sbi-b_vih70d1",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/b_vih70d1",
+      "title": "【重要】『暗号資産の売買等に関するご説明（契約締結前交付書面）』改定のお知らせ",
+      "publishedDate": "2021-09-16",
+      "original": "sbi-b_vih70d1.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/pdf/2021/cxkj2zu8/advance-written-notice-comparison.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-th7ksg2d94",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/th7ksg2d94",
+      "title": "【重要】『暗号資産取引サービス約款』および『暗号資産の売買等に関するご説明（契約締結前交付書面）』改定のお知らせ",
+      "publishedDate": "2021-05-27",
+      "original": "sbi-th7ksg2d94.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/pdf/2021/clause-comparison.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/pdf/2021/20210527_advance-written-notice-comparison.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-lwoh72fiyt",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/lwoh72fiyt",
+      "title": "【重要】『貸暗号資産取引サービス約款』および『貸暗号資産取引等に関するご説明』改定のお知らせ",
+      "publishedDate": "2021-04-27",
+      "original": "sbi-lwoh72fiyt.html.txt",
+      "attachments": [
+        {
+          "url": "https://www.sbivc.co.jp/pdf/2021/20210427_lending-clause-comparison.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        },
+        {
+          "url": "https://www.sbivc.co.jp/pdf/2021/20210427_lending-written-notice-comparison.pdf",
+          "kind": "comparison-pdf",
+          "label": "こちら"
+        }
+      ]
+    },
+    {
+      "id": "sbi-6zks0ol9d",
+      "provider": "SBI VCトレード",
+      "url": "https://www.sbivc.co.jp/newsview/6zks0ol9d",
+      "title": "【重要】暗号資産の売買等に関するご説明（契約締結前交付書面） 改訂のお知らせ",
+      "publishedDate": "2021-04-09",
+      "original": "sbi-6zks0ol9d.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-54840",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/54840",
+      "title": "【重要】暗号資産つみたて利用規約・暗号資産つみたて取引説明書改定のお知らせ",
+      "publishedDate": "2026-11-04",
+      "original": "mercoin-54840.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-55237",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/55237",
+      "title": "【重要】暗号資産取引利用規約・暗号資産取引説明書のお知らせ",
+      "publishedDate": "2026-09-15",
+      "original": "mercoin-55237.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-54185",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/54185",
+      "title": "【重要】メルコイン暗号資産取引利用規約改定のお知らせ",
+      "publishedDate": "2026-06-29",
+      "original": "mercoin-54185.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-53939",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/53939",
+      "title": "【重要】暗号資産取引プライバシーポリシー改定のお知らせ",
+      "publishedDate": "2026-06-08",
+      "original": "mercoin-53939.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-51512",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/51512",
+      "title": "税務上の居住地国の届出および暗号資産取引利用規約、暗号資産取引説明書改定のお知らせ",
+      "publishedDate": "2026-03-04",
+      "original": "mercoin-51512.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-48518",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/48518",
+      "title": "メルコイン暗号資産取引説明書改定のお知らせ",
+      "publishedDate": "2025-11-04",
+      "original": "mercoin-48518.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-46922",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/46922",
+      "title": "メルコイン暗号資産つみたて取引説明書改定のお知らせ",
+      "publishedDate": "2025-07-31",
+      "original": "mercoin-46922.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-46690",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/46690",
+      "title": "メルコイン暗号資産つみたて取引説明書改定のお知らせ",
+      "publishedDate": "2025-07-17",
+      "original": "mercoin-46690.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-44718",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/44718",
+      "title": "メルコイン暗号資産取引説明書改定のお知らせ",
+      "publishedDate": "2025-04-24",
+      "original": "mercoin-44718.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-42702",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/42702",
+      "title": "メルコイン暗号資産取引利用規約・取引説明書改定のお知らせ",
+      "publishedDate": "2024-12-18",
+      "original": "mercoin-42702.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-41722",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/41722",
+      "title": "メルコイン暗号資産つみたて利用規約・暗号資産つみたて取引説明書改定のお知らせ",
+      "publishedDate": "2024-11-20",
+      "original": "mercoin-41722.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-41222",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/41222",
+      "title": "メルコイン暗号資産つみたて取引説明書改定のお知らせ",
+      "publishedDate": "2024-10-22",
+      "original": "mercoin-41222.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-40493",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/40493",
+      "title": "メルコイン暗号資産取引説明書改定のお知らせ",
+      "publishedDate": "2024-09-17",
+      "original": "mercoin-40493.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-37995",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/37995",
+      "title": "メルコイン暗号資産取引説明書改定のお知らせ",
+      "publishedDate": "2024-05-21",
+      "original": "mercoin-37995.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-35126",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/35126",
+      "title": "【2/5変更】2024年2月14日付暗号資産取引利用規約および暗号資産取引説明書改定について",
+      "publishedDate": "2024-02-14",
+      "original": "mercoin-35126.html.txt",
+      "attachments": []
+    },
+    {
+      "id": "mercoin-29966",
+      "provider": "メルコイン",
+      "url": "https://jp-news.mercari.com/info/29966",
+      "title": "メルコイン暗号資産取引説明書改定のお知らせ",
+      "publishedDate": "2023-09-14",
+      "original": "mercoin-29966.html.txt",
+      "attachments": []
+    }
+  ]
+}

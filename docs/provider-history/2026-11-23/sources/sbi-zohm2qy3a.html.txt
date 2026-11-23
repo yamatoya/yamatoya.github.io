@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script type="text/javascript" src="https://cdn.robee.tech/v1/u/grhss2VVJDY.js"></script>
+  <script type="text/javascript">
+    (function (w, d, ns, blid) {
+      w['RobeeObject'] = ns;
+      w[ns] = w[ns] || { api_key: blid };
+      var s = d.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://cdn.robee.tech/v1/sdk.js';
+      var x = d.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    })(window, document, 'robee', 'RBE-grhss2VVJDY');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5JXVXPBG');</script>
+  <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+  <meta name="author" content="SBI BITS">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="ls847pWYEmvQpuG7punCwUaucehbRNtyTLBsjOFBttk" />
+    <title>お知らせ｜暗号資産（仮想通貨）・電子決済手段の取引所｜SBI VCトレード</title>
+    <meta property="og:site_name" content="SBI VCトレード">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="【重要】ポリゴンの名称変更（MATIC→POL)およびカントンコイン（CANTON）の入出庫サービス開始に伴う、『暗号資産取引説明書』改定のお知らせ">
+  <meta name="twitter:title" content="【重要】ポリゴンの名称変更（MATIC→POL)およびカントンコイン（CANTON）の入出庫サービス開始に伴う、『暗号資産取引説明書』改定のお知らせ">
+  <meta property="og:description" content="【重要】ポリゴンの名称変更（M">
+  <meta name="twitter:description" content="【重要】ポリゴンの名称変更（M">
+  <meta property="og:image" content="https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/13f5c56caf7448319d83b6473087ffe2/ogp_news.png">
+  <meta name="twitter:image" content="https://images.microcms-assets.io/assets/114c6b1ea4234471a6bf2e657c3de0a2/13f5c56caf7448319d83b6473087ffe2/ogp_news.png">
+  <link rel="canonical" href="https://www.sbivc.co.jp/newsview/zohm2qy3a">
+  <meta name="description" content="暗号資産（仮想通貨）の口座開設ならSBI VCトレード。口座開設手数料、口座維持手数料、入金手数料、入出庫手数料については無料。ビットコインやXRP、イーサリアム等取扱暗号資産の少額お取引が可能。貸コインや積立サービスも提供。">
+  <meta name="keywords" content="暗号資産,仮想通貨,口座開設">
+
+  <link rel="icon" href="/assets/icons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/site.webmanifest">
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#777777">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/forms.css" rel="stylesheet">
+  <link href="/assets/css/hamburgers.min.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/responsive.css" rel="stylesheet">
+            
+  <script src="/assets/js/jquery-3.6.0.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/jquery-ui.min.js"></script>
+  <script src="/assets/js/smooth-wheeler.js"></script>
+  <script src="/assets/js/chart.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="newsview_page zohm2qy3a_subpage">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JXVXPBG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+    
+  
+<div id="top-menu_holder">
+  <div class="top-menu container">
+    <div class="row">
+      <div class="logo col-md-9">
+        <a class="logo_link" href='/'>
+          <img class="white_logo" src="/assets/images/logo_white.png" alt="暗号資産（仮想通貨）・電子決済手段の取引所・口座開設｜SBI VCトレード" width="132px" height="32px" />
+          <img class="color_logo" src="/assets/images/logo_color.png" alt="暗号資産（仮想通貨）・電子決済手段の取引所・口座開設｜SBI VCトレード" width="132px" height="32px" />
+        </a>
+        <div class="g-mobile_only-2 menu_start_btn"></div>
+        <div class="menu_scrim"></div>
+        <div class="navigation">
+          <ul>
+            <div class="g-mobile_only-2 mobile_header">
+              <li>
+                <a href='/'>
+                  <img class="white_logo" src="/assets/images/logo_white.png" alt="暗号資産（仮想通貨）・電子決済手段の取引所・口座開設｜SBI VCトレード" width="120px" height="28px" />
+                </a>
+              </li>
+            </div>
+            <li class="sub_menu"><a href="#">はじめての方へ</a><ul class ="sub_menu_item"><li><p class="pc_only">はじめての方へ</p><ul><li class=' _self'><a href='https://www.sbivc.co.jp/crypto-assets/what-is-a-crypto-asset' target='_self'>暗号資産とは</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/crypto-assets/what-is-a-electronic-payment' target='_self'>電子決済手段とは</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/reasons' target='_self'>選ばれる理由</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/handling-crypto-assets' target='_self'>取扱暗号資産</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/handling-electronic-payment' target='_self'>取扱電子決済手段</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/account-guide' target='_self'>口座開設ガイド</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/guide' target='_self'>ご利用ガイド</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/tools-apps' target='_self'>取引ツール・アプリ</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/account-guide-houjin' target='_self'>法人のお客さま</a></li></ul></li></ul></li><li class="sub_menu"><a href="#">サービス</a><ul class ="sub_menu_item"><li><p class="pc_only">サービス</p><ul><li class=' _self'><a href='https://www.sbivc.co.jp/services/service-overview' target='_self'>サービス概要</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/prices' target='_self'>銘柄別価格一覧</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/in-kind' target='_self'>現物取引</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/leverage' target='_self'>レバレッジ取引</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/lending' target='_self'>貸コイン</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/tsumitate' target='_self'>積立</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/staking' target='_self'>ステーキング</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/cryptocard/select' target='_self'>SBI VISAクリプトカード</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/web3wallet' target='_self'>SBI Web3ウォレット</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/fee' target='_self'>手数料</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/leverageCost' target='_self'>ファンディングレート</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/leverageCorporation' target='_self'>法人レバレッジ倍率</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/prime' target='_self'>SBIVC for Prime<br class="pc-only">（大口・法人）</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/mits' target='_self'>SBI Mits</a></li></ul></li></ul></li><li class="sub_menu"><a href="#">チャート・相場</a><ul class ="sub_menu_item market_menu_item"><li><p class="pc_only">チャート・相場</p><ul><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/btc' target='_self'><img src='/assets/images/icon_circle_btc.svg' alt='ビットコイン（BTC）/チャート・価格（レート）'><div class='crypto_name btc'>BTC<span>ビットコイン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/eth' target='_self'><img src='/assets/images/icon_circle_eth.svg' alt='イーサリアム（ETH）/チャート・価格（レート）'><div class='crypto_name eth'>ETH<span>イーサリアム</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/xrp' target='_self'><img src='/assets/images/icon_circle_xrp.svg' alt='エックスアールピー（XRP）/チャート・価格（レート）'><div class='crypto_name xrp'>XRP<span>エックスアールピー</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/sol' target='_self'><img src='/assets/images/icon_circle_sol.svg' alt='ソラナ（SOL）/チャート・価格（レート）'><div class='crypto_name sol'>SOL<span>ソラナ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/trx' target='_self'><img src='/assets/images/icon_circle_trx.svg' alt='トロン（TRX）/チャート・価格（レート）'><div class='crypto_name trx'>TRX<span>トロン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/doge' target='_self'><img src='/assets/images/icon_circle_doge.svg' alt='ドージコイン（DOGE）/チャート・価格（レート）'><div class='crypto_name doge'>DOGE<span>ドージコイン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/ada' target='_self'><img src='/assets/images/icon_circle_ada.svg' alt='カルダノ（ADA）/チャート・価格（レート）'><div class='crypto_name ada'>ADA<span>カルダノ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/bch' target='_self'><img src='/assets/images/icon_circle_bch.svg' alt='ビットコインキャッシュ（BCH）/チャート・価格（レート）'><div class='crypto_name bch'>BCH<span>ビットコインキャッシュ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/link' target='_self'><img src='/assets/images/icon_circle_link.svg' alt='チェーンリンク（LINK）/チャート・価格（レート）'><div class='crypto_name link'>LINK<span>チェーンリンク</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/canton' target='_self'><img src='/assets/images/icon_circle_canton.svg' alt='カントンコイン（CANTON）/チャート・価格（レート）'><div class='crypto_name canton'>CANTON<span>カントンコイン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/dai' target='_self'><img src='/assets/images/icon_circle_dai.svg' alt='ダイ（DAI）/チャート・価格（レート）'><div class='crypto_name dai'>DAI<span>ダイ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/xlm' target='_self'><img src='/assets/images/icon_circle_xlm.svg' alt='ステラルーメン（XLM）/チャート・価格（レート）'><div class='crypto_name xlm'>XLM<span>ステラルーメン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/ltc' target='_self'><img src='/assets/images/icon_circle_ltc.svg' alt='ライトコイン（LTC）/チャート・価格（レート）'><div class='crypto_name ltc'>LTC<span>ライトコイン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/hbar' target='_self'><img src='/assets/images/icon_circle_hbar.svg' alt='ヘデラ（HBAR）/チャート・価格（レート）'><div class='crypto_name hbar'>HBAR<span>ヘデラ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/avax' target='_self'><img src='/assets/images/icon_circle_avax.svg' alt='アバランチ（AVAX）/チャート・価格（レート）'><div class='crypto_name avax'>AVAX<span>アバランチ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/sui' target='_self'><img src='/assets/images/icon_circle_sui.svg' alt='スイ（SUI）/チャート・価格（レート）'><div class='crypto_name sui'>SUI<span>スイ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/ton' target='_self'><img src='/assets/images/icon_circle_ton.svg' alt='トンコイン（TON）/チャート・価格（レート）'><div class='crypto_name ton'>TON<span>トンコイン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/shib' target='_self'><img src='/assets/images/icon_circle_shib.svg' alt='シバイヌ（SHIB）/チャート・価格（レート）'><div class='crypto_name shib'>SHIB<span>シバイヌ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/dot' target='_self'><img src='/assets/images/icon_circle_dot.svg' alt='ポルカドット（DOT）/チャート・価格（レート）'><div class='crypto_name dot'>DOT<span>ポルカドット</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/near' target='_self'><img src='/assets/images/icon_circle_near.svg' alt='ニアー（NEAR）/チャート・価格（レート）'><div class='crypto_name near'>NEAR<span>ニアー</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/pol' target='_self'><img src='/assets/images/icon_circle_pol.svg' alt='ポリゴン（POL）/チャート・価格（レート）'><div class='crypto_name pol'>POL<span>ポリゴン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/atom' target='_self'><img src='/assets/images/icon_circle_atom.svg' alt='コスモス（ATOM）/チャート・価格（レート）'><div class='crypto_name atom'>ATOM<span>コスモス</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/flr' target='_self'><img src='/assets/images/icon_circle_flr.svg' alt='フレア（FLR）/チャート・価格（レート）'><div class='crypto_name flr'>FLR<span>フレア</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/algo' target='_self'><img src='/assets/images/icon_circle_algo.svg' alt='アルゴランド（ALGO）/チャート・価格（レート）'><div class='crypto_name algo'>ALGO<span>アルゴランド</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/xdc' target='_self'><img src='/assets/images/icon_circle_xdc.svg' alt='エックスディーシー（XDC）/チャート・価格（レート）'><div class='crypto_name xdc'>XDC<span>エックスディーシー</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/chz' target='_self'><img src='/assets/images/icon_circle_chz.svg' alt='チリーズ（CHZ）/チャート・価格（レート）'><div class='crypto_name chz'>CHZ<span>チリーズ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/bera' target='_self'><img src='/assets/images/icon_circle_bera.svg' alt='ベラ（BERA）/チャート・価格（レート）'><div class='crypto_name bera'>BERA<span>ベラ</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/zpg' target='_self'><img src='/assets/images/icon_circle_zpg.svg' alt='ジパングコイン（ZPG）/チャート・価格（レート）'><div class='crypto_name zpg'>ZPG<span>ジパングコイン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/nidt' target='_self'><img src='/assets/images/icon_circle_nidt.svg' alt='ニッポンアイドルトークン（NIDT）/チャート・価格（レート）'><div class='crypto_name nidt'>NIDT<span>ニッポンアイドルトークン</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/usdc' target='_self'><img src='/assets/images/icon_circle_usdc.svg' alt='ユーエスディーシー（USDC）/チャート・価格（レート）'><div class='crypto_name usdc'>USDC<span>ユーエスディーシー</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/rlusd' target='_self'><img src='/assets/images/icon_circle_rlusd.svg' alt='アールエルユーエスディー（RLUSD）/チャート・価格（レート）'><div class='crypto_name rlusd'>RLUSD<span>アールエルユーエスディー</span></div></a></li><li class=' _self'><a href='https://www.sbivc.co.jp/services/crypto/jpysc' target='_self'><img src='/assets/images/icon_circle_jpysc.svg' alt='ジェイピーワイエスシー（JPYSC）/チャート・価格（レート）'><div class='crypto_name jpysc'>JPYSC<span>ジェイピーワイエスシー</span></div></a></li></ul></li></ul></li><li class="sub_menu"><a href="#">暗号資産情報</a><ul class ="sub_menu_item"><li><p class="pc_only">暗号資産情報</p><ul><li class=' _self'><a href='https://www.sbivc.co.jp/market-reports' target='_self'>マーケット情報</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/columns' target='_self'>暗号資産を学ぶ</a></li></ul></li></ul></li><li class="sub_menu"><a href="#">キャンペーン・お知らせ</a><ul class ="sub_menu_item"><li><p class="pc_only">キャンペーン<br>お知らせ</p><ul><li class=' _self'><a href='https://www.sbivc.co.jp/campaigns' target='_self'>キャンペーン</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/news' target='_self'>お知らせ</a></li></ul></li></ul></li><li><a href='https://www.sbivc.co.jp/faqs'>お問い合わせ</a></li><li class="sub_menu"><a href="#">移管のお客さま</a><ul class ="sub_menu_item account_menu_item"><li><p class="pc_only">移管のお客さま</p><ul><li class=' _self'><a href='https://www.sbivc.co.jp/bpj_vct' target='_self'>BITPOINTからの移管</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/dmm_vct' target='_self'>DMM Bitcoinからの移管</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/vct2' target='_self'>旧SBI VCトレードからの移管</a></li><li class=' _self'><a href='https://www.sbivc.co.jp/login_support' target='_self'>その他ログインでお困りの方</a></li></ul></li></ul></li>            <li class="g-mobile_only-2 mobile_login sub_menu">
+              <a href="https://simple.sbivc.co.jp/" target="_blank">ログイン</a>
+            </li>
+          </ul>
+          <div class="g-mobile_only-2 menu_close_btn"></div>
+          <div class="g-mobile_only-2 mob_sign_up_btn">
+            <a href="https://account.sbivc.co.jp/signup" class="btn text-center" target="_blank">
+              口座開設
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="user_btn col-md-3">
+        <li class="sub_menu">
+          <a href="https://simple.sbivc.co.jp/" target="_blank">ログイン</a>
+        </li>
+        <a class="register" href='https://account.sbivc.co.jp/signup' target="_blank">口座開設</a>
+      </div>
+    </div>
+    <!--div class="hamburger g-mobile_only-2">
+      <a id="hamburger-icon" href="#" title="Menu">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </a>
+    </div-->
+  </div>
+</div>
+<div class="page_banner NARROW_SIZE" id="bpj-link-banner">
+  <div class="background"></div>
+
+      <div class="forground ">
+    
+    <div class="page-caption">
+      <div class="text-blocks container">
+        <div class="row spaced_row bpj_header_row">
+                      <div class="col-sm-6 animate_slideUp">
+              <h4>Notifications</h4>
+              <h1>
+                お知らせ              </h1>
+                            
+                          </div>
+                                <div class="bpj-link-header-wrapper animate_slideUp col-sm-6">
+              <p class="bpj-link-header">
+                VCTRADEサービスとBITPOINTサービスでは、<br>現状は異なるサービスを提供しております。<br>このページは、VCTRADEサービスの紹介ページです。<br>BITPOINTサービスは、<a target="_blank" rel="noopener" href="https://www.bitpoint.co.jp/news/info/">こちら</a>をご覧ください。              </p>
+            </div>
+                  </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+<script>
+  $(function() {
+    var banner_hidden = false;
+
+    $(".menu_start_btn").on('click', function(){
+      // $('.navigation').show();
+      // $('.navigation').addClass('with_logo');
+      $('#top-menu_holder .top-menu .navigation ul').addClass('visible');
+      $('#top-menu_holder .mob_sign_up_btn').addClass('visible');
+      $('#top-menu_holder .menu_close_btn').addClass('visible');
+
+      $('.menu_scrim').fadeIn();
+    });
+
+    $(".menu_close_btn").on('click', function(){
+      // $('.navigation').hide();
+      $('.navigation').find(".sub_menu").removeClass("opened");
+      // $('.navigation').removeClass('with_logo');
+
+      $('.sub_menu_item').hide();
+
+      $('#top-menu_holder .top-menu .navigation ul').removeClass('visible');
+      $('#top-menu_holder .mob_sign_up_btn').removeClass('visible');
+      $('#top-menu_holder .menu_close_btn').removeClass('visible');
+
+      $('.menu_scrim').fadeOut();
+    });
+  });
+</script>
+
+  <div class="main_body  ">
+    <div class="main_body_wrapper">
+                  <div class="container cms_page">
+  <div class="row spaced_row main_body">
+    <div class="col-md-12 add_thick_bottom_gap animate_slideUp">
+      <h6 class=>
+        2026/06/10      </h6>
+
+      <h2>【重要】ポリゴンの名称変更（MATIC→POL)およびカントンコイン（CANTON）の入出庫サービス開始に伴う、『暗号資産取引説明書』改定のお知らせ</h2>
+
+      いつも当社サービスをご利用いただきありがとうございます。<br>
+当社では2026年6月10日付けでポリゴンの名称変更（MATIC→POL)およびカントンコイン（CANTON）の入出庫サービス開始に伴い『暗号資産取引説明書』の一部を改定いたします。<br>
+<br>
+■ 改定書面<br>
+<a href="https://www.sbivc.co.jp/assets/docs/manual-ex_tt.pdf" target="_blank" style="display: inline; word-wrap: break-word;"> 『暗号資産取引説明書』</a><br>
+<br>
+■主な改定内容<br>
+・ポリゴンの名称変更（MATIC→POL)について<br>
+・カントンコイン（CANTON）の入出庫サービス開始について
+<br><br>
+■ 新旧対照表<br>
+<a href="https://www.sbivc.co.jp/assets/docs/comparison20260610_manual-ex_tt.pdf" target="_blank" style="display: inline; word-wrap: break-word;"> 『暗号資産取引説明書 新旧対照表』</a><br>
+<br>
+■ 施行日<br>
+2026年6月10日（水）<br>
+<br>
+今後ともSBI VCトレードをご愛顧賜りますようお願い申し上げます。<br>
+<br>
+      <a href="https://www.sbivc.co.jp/news" class="more_link">
+        お知らせ一覧へ戻る
+      </a>
+    </div>
+  </div>
+</div>      <div class="container footer">
+  <div class="row spaced_row">
+    <div class="col-md-12 menu_links animate_slideUp animate_just_fade" style="z-index: 100">
+            <div class="footer-link">
+        <div class="footer-list-wrap footer-list-wrap--1">
+          <div class="footer-content">
+            <h2 class="footer-heading">はじめての方へ</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/crypto-assets/what-is-a-crypto-asset">暗号資産とは</a></li>
+                <li><a href="/crypto-assets/what-is-a-electronic-payment">電子決済手段とは</a></li>
+                <li><a href="/reasons">選ばれる理由</a></li>
+                <li><a href="/services/handling-crypto-assets">取扱暗号資産</a></li>
+                <li><a href="/services/handling-electronic-payment">取扱電子決済手段</a></li>
+                <li><a href="/account-guide">口座開設ガイド</a></li>
+                <li><a href="/guide">ご利用ガイド</a></li>
+                <li><a href="/services/tools-apps">取引ツール・アプリ</a></li>
+                <li><a href='/account-guide-houjin'>法人のお客さま</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-content">
+            <h2 class="footer-heading">サービス</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/services/service-overview">サービス概要</a></li>
+                <li><a href="/prices">銘柄別価格一覧</a></li>
+                <li><a href="/services/in-kind">現物取引</a></li>
+                <li><a href="/services/leverage">レバレッジ取引</a></li>
+                <li><a href="/services/lending">貸コイン</a></li>
+                <li><a href="/services/tsumitate">積立</a></li>
+                <li><a href="/services/staking">ステーキング</a></li>
+                <li><a href="/cryptocard/select">SBI VISAクリプトカード</a></li>
+                <li><a href="/services/web3wallet">SBI Web3ウォレット</a></li>
+                <li><a href="/services/fee">手数料</a></li>
+                <li><a href="/leverageCost">ファンディングレート</a></li>
+                <li><a href="/leverageCorporation">法人レバレッジ倍率</a></li>
+                <li><a href="/services/prime">SBIVC for Prime（大口・法人）</a></li>
+                <li><a href="/mits">SBI Mits</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-content market-report-list">
+            <h2 class="footer-heading">チャート・相場</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/services/crypto/btc">ビットコイン（BTC）</a></li>
+                <li><a href="/services/crypto/eth">イーサリアム（ETH）</a></li>
+                <li><a href="/services/crypto/xrp">エックスアールピー（XRP）</a></li>
+                <li><a href="/services/crypto/sol">ソラナ（SOL）</a></li>
+                <li><a href="/services/crypto/trx">トロン（TRX）</a></li>
+                <li><a href="/services/crypto/doge">ドージコイン（DOGE）</a></li>
+                <li><a href="/services/crypto/ada">カルダノ（ADA）</a></li>
+                <li><a href="/services/crypto/bch">ビットコインキャッシュ（BCH）</a></li>
+                <li><a href="/services/crypto/link">チェーンリンク（LINK）</a></li>
+                <li><a href="/services/crypto/canton">カントンコイン（CANTON）</a></li>
+                <li><a href="/services/crypto/dai">ダイ（DAI）</a></li>
+                <li><a href="/services/crypto/xlm">ステラルーメン（XLM）</a></li>
+                <li><a href="/services/crypto/ltc">ライトコイン（LTC）</a></li>
+                <li><a href="/services/crypto/hbar">ヘデラ（HBAR）</a></li>
+                <li><a href="/services/crypto/avax">アバランチ（AVAX）</a></li>
+                <li><a href="/services/crypto/sui">スイ（SUI）</a></li>
+                <li><a href="/services/crypto/ton">トンコイン（TON）</a></li>
+                <li><a href="/services/crypto/shib">シバイヌ（SHIB）</a></li>
+                <li><a href="/services/crypto/dot">ポルカドット（DOT）</a></li>
+                <li><a href="/services/crypto/near">ニアー（NEAR）</a></li>
+                <li><a href="/services/crypto/pol">ポリゴン（POL）</a></li>
+                <li><a href="/services/crypto/atom">コスモス（ATOM）</a></li>
+                <li><a href="/services/crypto/flr">フレア（FLR）</a></li>
+                <li><a href="/services/crypto/algo">アルゴランド（ALGO）</a></li>
+                <li><a href="/services/crypto/xdc">エックスディーシー（XDC）</a></li>
+                <li><a href="/services/crypto/chz">チリーズ（CHZ）</a></li>
+                <li><a href="/services/crypto/bera">ベラ（BERA）</a></li>
+                <li><a href="/services/crypto/zpg">ジパングコイン（ZPG）</a></li>
+                <li><a href="/services/crypto/nidt">ニッポンアイドルトークン（NIDT）</a></li>
+                <li><a href="/services/crypto/usdc">ユーエスディーシー（USDC）</a></li>
+                <li><a href="/services/crypto/rlusd">アールエルユーエスディー（RLUSD）</a></li>
+                <li><a href="/services/crypto/jpysc">ジェイピーワイエスシー（JPYSC）</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-content">
+            <h2 class="footer-heading">暗号資産情報</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/market-reports">マーケット情報</a></li>
+                <li><a href="/columns">暗号資産を学ぶ</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-content">
+            <h2 class="footer-heading">キャンペーン・お知らせ</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/campaigns">キャンペーン</a></li>
+                <li><a href="/news">お知らせ</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-content">
+            <h2 class="footer-heading">会社概要</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/company-profile">会社概要</a></li>
+                <li><a href="/disclosure">開示情報</a></li>
+                <li><a href="/adoption">採用情報</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-content">
+            <h2 class="footer-heading">ポリシー</h2>
+            <div class="footer-list-outer">
+              <ul class="footer-list">
+                <li><a href="/legal-information">法的情報等</a></li>
+                <li><a href="/hardfork_policy">ハードフォーク対応方針</a></li>
+                <li><a href="/crypto-assets/risks">リスク</a></li>
+                <li><a href="/system-requirements">推奨環境</a></li>
+                <li><a href="/crypto-assets/efforts-for-safe-trading">安全なお取引のための取り組み</a></li>
+                <li><a href="/listing_examination">当社における新規取扱い暗号資産の審査について</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-list-wrap footer-list-wrap--2">
+          <h2 class="footer-heading"><a href="/faqs">お問い合わせ</a></h2>
+          <h2 class="footer-heading"><a href="/bpj_vct">BITPOINTから移管のお客さまへ</a></h2>
+          <h2 class="footer-heading"><a href="/dmm_vct">DMM Bitcoinから移管のお客さまへ</a></h2>
+          <h2 class="footer-heading"><a href="/vct2">旧SBI VCトレードから移管のお客さまへ</a></h2>
+          <h2 class="footer-heading"><a href="/login_support">ログインでお困りの方 </a></h2>
+          <h2 class="footer-heading"><a href="/mtgox">MTGOX債権者のみなさまへ</a></h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 logo animate_slideUp animate_just_fade">
+      <div class="logo-inner">
+        <a class="logo-img" href="/">
+          <img src='/assets/images/logo_footer.png' alt="暗号資産（仮想通貨）・電子決済手段の取引所・口座開設｜SBI VCトレード" width="125" />
+        </a>
+        <div class="share-btns">
+          <a href="https://twitter.com/sbivc_official" target="_blank">
+            <img src='/assets/images/footer_ico_x.png' width="27" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCvZUMOeEVQWp4ov77mHuDtg" target="_blank">
+            <img src='/assets/images/footer_ico_youtube.png' width="27" />
+          </a>
+        </div>
+        <div class="copyright">
+          <p>SBI VCトレード株式会社</p>
+          <span>© SBI VC Trade Co., Ltd. </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row spaced_row">
+    <div class="col-md-12 footer-notes animate_slideUp animate_just_fade">
+      <p><b>暗号資産及び電子決済手段を利用する際の主な注意点</b>
+        暗号資産及び電子決済手段は、日本円、ドルなどの「法定通貨」とは異なり、国等によりその価値が保証されているものではありません。<br>
+        暗号資産及び電子決済手段は、価格変動により損失が生じる可能性があります。<br>
+        外国通貨で表示される電子決済手段については、為替レートの変動により、日本円における換算価値が購入時点に比べて減少する可能性があります。<br>
+        暗号資産及び電子決済手段は、移転記録の仕組みの破綻によりその価値が失われる可能性があります。<br>
+        当社が倒産した場合には、預託された金銭及び暗号資産及び電子決済手段を返還することができない可能性があります。<br>
+        暗号資産及び電子決済手段は支払いを受ける者の同意がある場合に限り、代価の支払いのために使用することができます。<br>
+        当社のVCTRADEサービスで取り扱う暗号資産及び電子決済手段のお取引にあたっては、その他にも注意を要する点があります。お取引を始めるに際してはVCTRADEサービスに関する「<a href="/assets/docs/covenants-ex_tt.pdf" target="_blank">サービス総合約款</a> 」「<a href="/assets/docs/manual-ex_tt.pdf" target="_blank">暗号資産取引説明書（契約締結前交付書面）</a>」「<a href="/assets/docs/manual-ex_electric-payment-instrument.pdf" target="_blank">電子決済手段取引説明書（契約締結前交付書面）</a>」等をよくお読みのうえ、<a href="/services/service-overview">取引内容や仕組み</a>、<a href="/crypto-assets/risks">リスク等</a>を十分にご理解いただきご自身の判断にてお取引くださるようお願いいたします。<br>
+        秘密鍵を失った場合、保有する暗号資産及び電子決済手段を利用することができず、その価値を失う可能性があります。<br>
+        PDF書面のご確認には、当社が推奨いたしますブラウザソフト、ならびにPDFファイル閲覧ソフトが必要となります。
+        <br />
+      </p>
+
+      <p>
+        <b>手数料について</b>
+        口座管理費、年会費、日本円の入出金手数料、暗号資産の受取・送付（入出庫）手数料はかかりません。そのほか、取引所取引（板取引）での手数料及び、レバレッジ取引において、ファンディングレートが発生しますが、お客さまから徴収する場合と付与する場合がございます。詳しくは、VCTRADEサービスに関する「<a href="/services/fee">手数料</a>」をご確認ください。
+      </p>
+
+      <p>
+        <b>上記に加え、暗号資産関連店頭デリバティブ取引を行う場合の主な注意点</b>
+        暗号資産関連店頭デリバティブ取引に関してお客さまが支払うべき手数料、報酬その他の対価の種類ごとの金額若しくはその上限額又はこれらの計算方法の概要及び当該金額の合計額若しくはその上限額又はこれらの計算方法の概要は、VCTRADEサービスに関する「<a href="/assets/docs/manual_tt.pdf">暗号資産取引説明書</a>」 に定める通りです。<br>
+        暗号資産関連店頭デリバティブ取引を行うためには、あらかじめ日本円又は暗号資産等（当社にて取扱いのある暗号資産・電子決済手段に限ります。）で証拠金を預託いただく必要があります。預託する額又はその計算方法は、VCTRADEサービスに関する「<a href="/services/leverage?tab=rule#leverage-about-margin">証拠金について</a>」に定める通りです。<br>
+        暗号資産関連店頭デリバティブ取引は、少額の資金で証拠金を上回る取引を行うことができる一方、急激な暗号資産の価格変動等により短期間のうちに証拠金の大部分又はそのすべてを失うことや、取引額が証拠金の額を上回るため、証拠金等の額を上回る損失が発生する場合があります。 当該取引の額の当該証拠金等の額に対する比率は、個人のお客さまの場合で最大２倍、法人のお客さまの場合は、一般社団法人　日本暗号資産等取引業協会が別に定める倍率（<a href="/leverageCorporation">法人レバレッジ倍率</a>）です。<br>
+        暗号資産関連店頭デリバティブ取引は、元本を保証するものではなく、暗号資産の価格変動により損失が生じる場合があります。<br>
+        当社の提示するお客さまによる買付価格とお客さまによる売付価格には差額（スプレッド）があります。スプレッドは暗号資産の価格の急変時や流動性の低下時に拡大することがあり、お客さまの意図した取引が行えない可能性があります。
+        VCTRADEサービスに関する「<a href="/assets/docs/manual-ex_tt.pdf" target="_blank">暗号資産取引説明書（契約締結前交付書面）</a>」等をよくお読みのうえ、リスク、仕組み、特徴について十分に理解いただき、ご納得されたうえでご自身の判断にて取引を行っていただきますようお願いいたします。
+      </p>
+      <table>
+        <tr>
+          <td>商号</td>
+          <td>：</td>
+          <td>SBI VCトレード株式会社</td>
+        </tr>
+        <tr>
+          <td>第一種金融商品取引業</td>
+          <td>：</td>
+          <td>関東財務局長（金商）第3247号</td>
+        </tr>
+        <tr>
+          <td>暗号資産交換業</td>
+          <td>：</td>
+          <td>関東財務局長 第00011号</td>
+        </tr>
+        <tr>
+          <td>電子決済手段等取引業</td>
+          <td>：</td>
+          <td>関東財務局長 第00001号</td>
+        </tr>
+        <tr>
+          <td>加入協会</td>
+          <td>：</td>
+          <td>一般社団法人 日本暗号資産等取引業協会（会員番号1011）<br>
+          一般社団法人 日本暗号資産ビジネス協会<br>
+          一般社団法人 日本デジタル経済連盟<br>
+          一般社団法人 日本デジタル分散型金融協会<br>
+          一般社団法人 JPCrypto-ISAC</td>
+        </tr>
+      </table>
+
+      <p>
+        <b>免責事項</b>
+        当社ウェブページ遷移前に表示された情報は、当社が作成・管理しているものではありません。
+      </p>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  
+  <script src="/assets/js/custom.js"></script>
+</body>
+
+</html>

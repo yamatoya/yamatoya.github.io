@@ -1,0 +1,833 @@
+{
+  "events": [
+    {
+      "id": "sbi-j3rl-is_pu",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-11-18",
+      "effectiveDate": "2026-11-18",
+      "docIds": [
+        "sbivc-crypto-manual",
+        "sbivc-payment-manual"
+      ],
+      "segments": 5,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-bzrc9nft53",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-10-28",
+      "effectiveDate": "2026-10-28",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-crypto-manual",
+        "sbivc-payment-manual"
+      ],
+      "segments": 13,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-8v_jcz-9a",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-10-14",
+      "effectiveDate": "2026-10-14",
+      "docIds": [
+        "sbivc-service-terms"
+      ],
+      "segments": 5,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-wu75macihjt",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-10-07",
+      "effectiveDate": "2026-10-07",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 8,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-2i-i4rq8v",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-09-30",
+      "effectiveDate": "2026-09-30",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 3,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-f3zp3oqoc2",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-09-16",
+      "effectiveDate": "2026-09-16",
+      "docIds": [
+        "sbivc-payment-manual"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-1q6yeuzi_2er",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-09-02",
+      "effectiveDate": "2026-09-02",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 3,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-xtcy98hu32sh",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-08-05",
+      "effectiveDate": "2026-08-05",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 8,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-b8d7d5_n0",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-07-22",
+      "effectiveDate": "2026-07-22",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-snbw0scqu",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-07-01",
+      "effectiveDate": "2026-07-01",
+      "docIds": [
+        "sbivc-web3-terms"
+      ],
+      "segments": 3,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-h2y3k298wq0",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-07-01",
+      "effectiveDate": "2026-07-01",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 3,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-skwdcxjbfjab",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-06-24",
+      "effectiveDate": "2026-06-24",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-payment-manual"
+      ],
+      "segments": 13,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-zohm2qy3a",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-06-10",
+      "effectiveDate": "2026-06-10",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 7,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-jur2jq-0ac1",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-06-03",
+      "effectiveDate": "2026-06-03",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 6,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-n08me261wi",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-05-13",
+      "effectiveDate": "2026-05-13",
+      "docIds": [
+        "sbivc-service-terms"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-vmpy1dzf5y4",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-04-22",
+      "effectiveDate": "2026-04-22",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-j3v_1pt2m2",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-03-31",
+      "effectiveDate": null,
+      "docIds": [
+        "sbivc-privacy-handling"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-5_m-h__ow5",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-03-26",
+      "effectiveDate": "2026-03-25",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 5,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-ejrz6j2nq6",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2026-03-11",
+      "effectiveDate": "2026-03-11",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 6,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-4ndks8ejxdzu",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-11-26",
+      "effectiveDate": null,
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-wfa43zz67u",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-10-28",
+      "effectiveDate": null,
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-w3e8_bswxyo",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-08-26",
+      "effectiveDate": "2025-09-03",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-crypto-manual",
+        "sbivc-payment-manual"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-i_btmt3ad4",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-06-18",
+      "effectiveDate": "2025-06-25",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-uu9380u579s5",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-06-18",
+      "effectiveDate": "2025-06-25",
+      "docIds": [
+        "sbivc-service-terms"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-fh8i8tzf3e",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-06-03",
+      "effectiveDate": "2025-06-11",
+      "docIds": [
+        "sbivc-service-terms"
+      ],
+      "segments": 0,
+      "coverage": "comparison-images",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-3xfpd9er0",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2025-02-12",
+      "effectiveDate": "2025-02-26",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 9,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": [
+        {
+          "file": "e490c07c4f8122e6.pdf",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "sbi-fl09vquwzzx4",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2024-10-30",
+      "effectiveDate": "2024-11-06",
+      "docIds": [
+        "sbivc-crypto-manual",
+        "sbivc-lending-manual"
+      ],
+      "segments": 13,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-3an5x3qc6ce8",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2024-10-17",
+      "effectiveDate": "2024-10-23",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-kygkogds2",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2024-10-02",
+      "effectiveDate": "2024-10-02",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-crypto-manual"
+      ],
+      "segments": 13,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-mj-id4h-dc",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2024-08-14",
+      "effectiveDate": "2024-08-14",
+      "docIds": [
+        "sbivc-crypto-manual",
+        "sbivc-best-execution"
+      ],
+      "segments": 7,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-gk_k0f40qa",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2023-09-19",
+      "effectiveDate": "2023-09-20",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-l8-s_84iy",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2023-07-12",
+      "effectiveDate": "2023-07-12",
+      "docIds": [
+        "sbivc-web3-terms"
+      ],
+      "segments": 7,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-zej-su5zmsn",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2023-05-31",
+      "effectiveDate": "2023-05-31",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 6,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-0qiabrw0p",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2023-04-19",
+      "effectiveDate": "2023-04-19",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 6,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-ouc77n17xyuu",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2023-02-01",
+      "effectiveDate": null,
+      "docIds": [
+        "sbivc-lending-terms",
+        "sbivc-lending-manual"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-p8gnt3204ee",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2023-01-25",
+      "effectiveDate": "2023-01-25",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-lending-manual",
+        "sbivc-web3-terms"
+      ],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-d-lzo_cc1c",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-12-28",
+      "effectiveDate": "2023-01-01",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-p55zwbuv9",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-11-30",
+      "effectiveDate": "2022-11-30",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-bptzm58cit5h",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-10-21",
+      "effectiveDate": "2022-10-26",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-8d8vb-1k2vcs",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-09-28",
+      "effectiveDate": "2022-10-01",
+      "docIds": [
+        "sbivc-crypto-manual"
+      ],
+      "segments": 3,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-wd8s8ubgt_vu",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-08-15",
+      "effectiveDate": "2022-08-17",
+      "docIds": [
+        "sbivc-crypto-manual",
+        "sbivc-best-execution",
+        "sbivc-privacy-policy",
+        "sbivc-privacy-handling"
+      ],
+      "segments": 24,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-wjt7tpw0s",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-06-22",
+      "effectiveDate": "2022-06-22",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-crypto-manual",
+        "sbivc-best-execution"
+      ],
+      "segments": 22,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-0jxe2qlo7",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-04-11",
+      "effectiveDate": "2022-04-13",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-crypto-manual",
+        "sbivc-lending-terms",
+        "sbivc-lending-manual",
+        "sbivc-best-execution",
+        "sbivc-privacy-policy",
+        "sbivc-privacy-handling"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-a8m1-9emira",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-03-29",
+      "effectiveDate": null,
+      "docIds": [
+        "sbivc-privacy-policy",
+        "sbivc-privacy-handling"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-r0xd569-pczs",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2022-03-16",
+      "effectiveDate": "2022-03-16",
+      "docIds": [
+        "sbivc-service-terms",
+        "sbivc-crypto-manual",
+        "sbivc-lending-manual"
+      ],
+      "segments": 10,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-2zfvfqkjkctc",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2021-09-29",
+      "effectiveDate": "2021-10-01",
+      "docIds": [],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-b_vih70d1",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2021-09-16",
+      "effectiveDate": "2021-09-16",
+      "docIds": [],
+      "segments": 38,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-th7ksg2d94",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2021-05-27",
+      "effectiveDate": "2021-05-27",
+      "docIds": [],
+      "segments": 77,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "sbi-lwoh72fiyt",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2021-04-27",
+      "effectiveDate": "2021-05-27",
+      "docIds": [],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": [
+        {
+          "file": "0a02cf325a7a4ea9.pdf",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "sbi-6zks0ol9d",
+      "provider": "SBI VCトレード",
+      "publishedDate": "2021-04-09",
+      "effectiveDate": "2021-04-09",
+      "docIds": [],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-54840",
+      "provider": "メルコイン",
+      "publishedDate": "2026-11-04",
+      "effectiveDate": "2026-11-04",
+      "docIds": [
+        "mercoin_auto_invest_tos",
+        "mercoin_auto_invest_es"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-55237",
+      "provider": "メルコイン",
+      "publishedDate": "2026-09-15",
+      "effectiveDate": "2026-09-15",
+      "docIds": [
+        "mercoin_tos",
+        "mercoin_es"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-54185",
+      "provider": "メルコイン",
+      "publishedDate": "2026-06-29",
+      "effectiveDate": "2026-06-29",
+      "docIds": [
+        "mercoin_tos"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-53939",
+      "provider": "メルコイン",
+      "publishedDate": "2026-06-08",
+      "effectiveDate": "2026-06-08",
+      "docIds": [
+        "mercoin_pp"
+      ],
+      "segments": 1,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-51512",
+      "provider": "メルコイン",
+      "publishedDate": "2026-03-04",
+      "effectiveDate": "2026-03-04",
+      "docIds": [
+        "mercoin_tos",
+        "mercoin_es"
+      ],
+      "segments": 1,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-48518",
+      "provider": "メルコイン",
+      "publishedDate": "2025-11-04",
+      "effectiveDate": "2025-11-04",
+      "docIds": [
+        "mercoin_es"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-46922",
+      "provider": "メルコイン",
+      "publishedDate": "2025-07-31",
+      "effectiveDate": "2025-07-31",
+      "docIds": [
+        "mercoin_auto_invest_es"
+      ],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-46690",
+      "provider": "メルコイン",
+      "publishedDate": "2025-07-17",
+      "effectiveDate": "2025-07-17",
+      "docIds": [
+        "mercoin_auto_invest_es"
+      ],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-44718",
+      "provider": "メルコイン",
+      "publishedDate": "2025-04-24",
+      "effectiveDate": "2025-04-24",
+      "docIds": [
+        "mercoin_es"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-42702",
+      "provider": "メルコイン",
+      "publishedDate": "2024-12-18",
+      "effectiveDate": "2024-12-18",
+      "docIds": [
+        "mercoin_tos",
+        "mercoin_es"
+      ],
+      "segments": 1,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-41722",
+      "provider": "メルコイン",
+      "publishedDate": "2024-11-20",
+      "effectiveDate": null,
+      "docIds": [
+        "mercoin_auto_invest_tos",
+        "mercoin_auto_invest_es"
+      ],
+      "segments": 6,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-41222",
+      "provider": "メルコイン",
+      "publishedDate": "2024-10-22",
+      "effectiveDate": "2024-10-22",
+      "docIds": [
+        "mercoin_auto_invest_es"
+      ],
+      "segments": 2,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-40493",
+      "provider": "メルコイン",
+      "publishedDate": "2024-09-17",
+      "effectiveDate": "2024-09-17",
+      "docIds": [
+        "mercoin_es"
+      ],
+      "segments": 1,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-37995",
+      "provider": "メルコイン",
+      "publishedDate": "2024-05-21",
+      "effectiveDate": "2024-05-21",
+      "docIds": [
+        "mercoin_es"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-35126",
+      "provider": "メルコイン",
+      "publishedDate": "2024-01-23",
+      "effectiveDate": "2024-02-14",
+      "docIds": [
+        "mercoin_tos",
+        "mercoin_es"
+      ],
+      "segments": 4,
+      "coverage": "comparison-excerpts",
+      "unresolvedPages": []
+    },
+    {
+      "id": "mercoin-29966",
+      "provider": "メルコイン",
+      "publishedDate": "2023-09-14",
+      "effectiveDate": "2023-09-14",
+      "docIds": [
+        "mercoin_es"
+      ],
+      "segments": 0,
+      "coverage": "announcement-only",
+      "unresolvedPages": []
+    }
+  ],
+  "coverage": {
+    "comparison-excerpts": 46,
+    "announcement-only": 12,
+    "comparison-images": 8
+  }
+}

@@ -1,7 +1,13 @@
 import {
   TOPICS, KINDS, MAPPING_KEY, buildCatalog, topicRows, excerpt, rowKey,
   isRegulation, rankCompanyCandidates, createMapping, resolveMapping, upsertMapping, normalize,
-} from "./research-model-b21a6628a583.js";
+} from "./research-model-78e455728e09.js";
+import { SERVICES, matchesService, serviceName, withServiceQuery } from "./services-48285ee69786.js";
+import { createUxViews } from "./ux-views-71fa6be3e48e.js";
+import { workspaceFor } from "./ux-model-9f325f4573ed.js";
+import { rowsReport } from "./report-model-932f100c817a.js";
+import { createReportViews } from "./report-views-713f42d4a466.js";
+import { createHistoryViews } from "./history-views-c0b5c472f2a2.js";
 
 export function createResearchViews(api) {
   const { h: createVNode, ref, computed, watch, nextTick, useRoute, useRouter, loadDocuments,
@@ -27,7 +33,7 @@ export function createResearchViews(api) {
   const short = (text, max = 90) => text.length > max ? text.slice(0, max) + '…' : text;
   const badge = (text, tone = '') => h('span', { class: `research-badge ${tone}` }, text);
   const empty = text => h('p', { class: 'research-empty' }, text);
-  const button = (text, action, options = {}) => h('button', { type: 'button', class: 'research-button', onClick: action, ...options }, text);
+  const button = (text, action, options = {}) => h('button', { type: 'button', class: `research-button ${['確認記録を保存', 'HTMLを書き出す'].includes(text) ? 'primary' : ''}`, onClick: action, ...options }, text);
   const field = (label, control) => h('label', { class: 'research-field' }, [h('span', { class: 'research-label' }, label), control]);
   const select = (value, options, change, label) => h('select', {
     class: 'research-select', value, 'aria-label': label, onChange: event => change(event.target.value),
@@ -37,10 +43,10 @@ export function createResearchViews(api) {
   function context(withCatalog = true) {
     const route = useRoute(), router = useRouter();
     const link = (href, label, props = {}) => h('a', {
-      href, ...props,
+      href: withServiceQuery(href, route.query), ...props,
       onClick: event => {
         if (event.button || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-        event.preventDefault(); router.push(href);
+        event.preventDefault(); router.push(withServiceQuery(href, route.query));
       },
     }, label);
     const query = patch => {
@@ -50,21 +56,28 @@ export function createResearchViews(api) {
     };
     const topic = computed(() => TOPICS.find(value => value.id === scalar(route.params.topicId || route.query.topic)) ||
       (route.params.topicId ? null : TOPICS[0]));
-    return { route, router, link, query, topic, catalog: withCatalog ? catalog() : null };
+    const serviceOptions = computed(() => ({ service: SERVICES.some(service => service.id === route.query.service) ? route.query.service : '', includeCommon: route.query.common !== '0' }));
+    return { route, router, link, query, topic, serviceOptions, catalog: withCatalog ? catalog() : null };
   }
 
-  function topLinks(ctx) {
-    const topic = ctx.topic.value?.id || TOPICS[0].id;
-    return h('nav', { class: 'research-tabs', 'aria-label': '調査・比較の機能' }, [
-      ctx.link('/topics', '論点から調べる', { class: ctx.route.name?.startsWith('research-topic') ? 'active' : '' }),
-      ctx.link(`/provider-compare?topic=${topic}`, '事業者間の規約比較', { class: ctx.route.name === 'research-compare' ? 'active' : '' }),
-      ctx.link(`/regulation-map?topic=${topic}`, '規制と公表資料の対応表', { class: ctx.route.name === 'research-mapping' ? 'active' : '' }),
-    ]);
+  function serviceControls(ctx) {
+    return [field('対象サービス', select(ctx.serviceOptions.value.service, [{ value: '', label: 'すべてのサービス' }, ...SERVICES.map(service => ({ value: service.id, label: service.name }))],
+      service => ctx.query({ service, event: '', l: '', r: '', ldoc: '', rdoc: '' }), '対象サービス')),
+    ctx.serviceOptions.value.service && !['common', 'unknown'].includes(ctx.serviceOptions.value.service) ? h('label', { class: 'research-check' }, [
+      h('input', { type: 'checkbox', checked: ctx.serviceOptions.value.includeCommon, onChange: event => ctx.query({ common: event.target.checked ? '' : '0', event: '' }) }), '共通資料も含める',
+    ]) : null];
   }
+
   function shell(ctx, heading, description, children) {
+    const workspace = workspaceFor(ctx.route.path, ctx.route.query);
+    let foundFilters = false;
+    const content = children.map(node => {
+      if (!foundFilters && node?.props?.class === 'research-toolbar') { foundFilters = true; return ux.filterPanel(ctx, node.children || []); }
+      return node;
+    });
     return h('div', { class: 'research page' }, [h('div', { class: 'research-container' }, [
-      h('header', { class: 'research-header' }, [ctx.link('/', 'ホーム', { class: 'research-back' }), h('h1', {}, heading), h('p', {}, description)]),
-      topLinks(ctx), ...children,
+      h('header', { class: 'research-header' }, [workspace?.label !== heading ? h('p', { class: 'ux-eyebrow' }, workspace?.label || '調査ワークスペース') : null, h('h1', {}, heading), h('p', {}, description)]),
+      ux.workspaceTabs(ctx), ...content,
     ])]);
   }
   function topicSelect(ctx) {
@@ -77,58 +90,38 @@ export function createResearchViews(api) {
     if (row.doc.source?.localUrl?.startsWith('/docs/')) links.push(h('a', {
       href: row.doc.source.localUrl + `#page=${row.item.sourcePages?.[0] || 1}`, target: '_blank', rel: 'noopener noreferrer',
     }, '保存した原本PDF'));
+    if (row.kind === 'company') links.push(ctx.link(`/provider-history?doc=${encodeURIComponent(row.docId)}`, '過去の改定・新旧比較'));
     return h('div', { class: 'research-source-links' }, links);
   }
-  function evidence(ctx, row, topicId, { full = false } = {}) {
+  function evidence(ctx, row, topicId, { full = false, report = !full } = {}) {
     return h('article', { class: 'research-evidence', key: rowKey(row) }, [
       h('div', { class: 'research-meta' }, [badge(kindName(row.kind)), row.provider ? badge(row.provider) : null,
-        row.doc.company?.fetchedAt ? h('span', {}, `取得 ${row.doc.company.fetchedAt}`) : null]),
+        row.doc.company?.fetchedAt ? h('span', {}, `取得 ${row.doc.company.fetchedAt}`) : null,
+        ]),
       h('h3', {}, ctx.link(`/document/${row.docId}/${row.item.id}`, title(row))),
       full ? h('div', { class: 'research-body', innerHTML: sanitize(row.content) }) : h('p', { class: 'research-excerpt' }, excerpt(row, topicId)),
-      row.topics[topicId] ? h('p', { class: 'research-match-terms' }, `該当語句: ${row.topics[topicId].terms.join('・')}`) : null,
-      sourceLinks(ctx, row),
+      h('details', { class: 'research-evidence-tools', open: full }, [h('summary', {}, report ? '出典・保存の操作' : '出典を確認'),
+        h('p', { class: 'research-muted' }, `対象サービス：${row.services.ids.map(serviceName).join('・')} ／ ${row.services.basis}`),
+        row.topics[topicId] ? h('p', { class: 'research-match-terms' }, `該当語句: ${row.topics[topicId].terms.join('・')}`) : null,
+        sourceLinks(ctx, row), report ? reports.reportAction(ctx, rowsReport('source', title(row), [row], toText)) : null,
+      ]),
     ]);
   }
-
-  const Nav = {
-    name: 'ResearchNav', setup() {
-      const ctx = context(false);
-      return () => h('div', { class: 'research-nav' }, [h('h2', { class: 'nav-heading' }, '調べる・比較する'),
-        h('ul', { class: 'nav-list' }, [
-          ['/topics', '論点から調べる', 'research-topic'],
-          ['/provider-compare', '事業者間の規約比較', 'research-compare'],
-          ['/regulation-map', '規制と公表資料の対応表', 'research-mapping'],
-        ].map(([url, text, name]) => h('li', {}, ctx.link(url, text, {
-          class: `nav-link ${ctx.route.name?.startsWith(name) ? 'current' : ''}`,
-        }))))]);
-    },
-  };
-  const Home = {
-    name: 'ResearchHomeLinks', setup() {
-      const ctx = context(false);
-      return () => h('section', { class: 'research research-home', 'aria-label': '調べる・比較する' }, [
-        h('h2', {}, '調べる・比較する'),
-        h('div', { class: 'research-home-grid' }, [
-          ['/topics', '論点から調べる', '法令・規則・事業者資料を、共通の論点から探す。'],
-          ['/provider-compare', '事業者間の規約比較', '同じ論点の規約・方針を横並びで読む。'],
-          ['/regulation-map', '規制と公表資料の対応表', '規制の条文と公表資料を結びつけ、根拠を残す。'],
-        ].map(([url, name, text]) => ctx.link(url, [h('strong', {}, name), h('span', {}, text)], { class: 'research-home-card' }))),
-      ]);
-    },
-  };
 
   const Topics = {
     name: 'ResearchTopics', setup() {
       const ctx = context(), limits = ref({});
       const rows = computed(() => ctx.topic.value ? topicRows(ctx.catalog, ctx.topic.value.id, {
         query: scalar(ctx.route.query.q), provider: scalar(ctx.route.query.provider),
+        ...ctx.serviceOptions.value,
       }).filter(row => !ctx.route.query.kind || row.kind === ctx.route.query.kind) : []);
       watch(() => ctx.route.fullPath, () => { limits.value = {}; });
       return () => {
         if (!ctx.route.params.topicId) return shell(ctx, '論点から調べる', '同じ論点に関する法令・規則・事業者の公表資料をまとめて探せます。', [
+          h('div', { class: 'research-toolbar' }, serviceControls(ctx)),
           h('p', { class: 'research-note' }, '分類は本文・見出しの語句による候補です。適用範囲や資料同士の関係は原文で確認できます。'),
           h('div', { class: 'research-topic-grid' }, TOPICS.map(topic => {
-            const found = topicRows(ctx.catalog, topic.id);
+            const found = topicRows(ctx.catalog, topic.id, ctx.serviceOptions.value);
             const companies = new Set(found.filter(row => row.kind === 'company').map(row => row.provider));
             return ctx.link(`/topics/${topic.id}`, [h('h2', {}, topic.name), h('p', {}, topic.summary),
               h('span', { class: 'research-topic-count' }, `${found.filter(isRegulation).length} 規制の項目 · ${found.filter(row => row.kind === 'company').length} 事業者資料の項目 · ${companies.size} 事業者`),
@@ -139,6 +132,7 @@ export function createResearchViews(api) {
         const topic = ctx.topic.value;
         return shell(ctx, topic.name, topic.summary, [
           h('div', { class: 'research-toolbar' }, [
+            ...serviceControls(ctx),
             field('本文・文書名を絞り込む', h('input', { type: 'search', class: 'research-input', value: scalar(ctx.route.query.q),
               onInput: event => ctx.query({ q: event.target.value }), placeholder: '語句を入力' })),
             field('資料の種類', select(scalar(ctx.route.query.kind), [{ value: '', label: 'すべての種類' }, ...KINDS.map(kind => ({ value: kind.id, label: kind.name }))], kind => ctx.query({ kind }), '資料の種類')),
@@ -166,24 +160,26 @@ export function createResearchViews(api) {
   const Compare = {
     name: 'ProviderComparison', setup() {
       const ctx = context();
+      const selectedRows = {};
       function column(side) {
         const topic = ctx.topic.value, providers = ctx.catalog.providers;
         const defaultProvider = providers[side === 'l' ? 0 : Math.min(1, providers.length - 1)] || '';
         const providerKey = side === 'l' ? 'left' : 'right';
         const provider = providers.includes(scalar(ctx.route.query[providerKey])) ? ctx.route.query[providerKey] : defaultProvider;
         const all = ctx.route.query[`${side}all`] === '1';
-        const available = all ? ctx.catalog.rows.filter(row => row.provider === provider && row.kind === 'company') : topicRows(ctx.catalog, topic.id, { kind: 'company', provider });
+        const available = all ? ctx.catalog.rows.filter(row => row.provider === provider && row.kind === 'company' && matchesService(row, ctx.serviceOptions.value.service, ctx.serviceOptions.value.includeCommon)) : topicRows(ctx.catalog, topic.id, { kind: 'company', provider, ...ctx.serviceOptions.value });
         const docs = [...new Map(available.map(row => [row.docId, row.doc])).entries()];
         const wanted = available.find(row => rowKey(row) === ctx.route.query[side]);
         const docId = docs.some(([id]) => id === ctx.route.query[`${side}doc`]) ? ctx.route.query[`${side}doc`] : wanted?.docId || docs[0]?.[0];
         const items = available.filter(row => row.docId === docId);
         const selected = wanted?.docId === docId ? wanted : items[0];
+        selectedRows[side] = selected;
         return h('section', { class: 'research-compare-column', 'aria-label': side === 'l' ? '左側の事業者資料' : '右側の事業者資料' }, [
           h('div', { class: 'research-column-controls' }, [
             field(side === 'l' ? '左側の事業者' : '右側の事業者', select(provider, providers.map(name => ({ value: name, label: name })),
               value => ctx.query({ [providerKey]: value, [side]: '', [`${side}doc`]: '' }), `${side === 'l' ? '左側' : '右側'}の事業者`)),
             h('label', { class: 'research-check' }, [h('input', { type: 'checkbox', checked: all,
-              onChange: event => ctx.query({ [`${side}all`]: event.target.checked ? '1' : '', [side]: '', [`${side}doc`]: '' }) }), 'この事業者の全資料から選ぶ']),
+              onChange: event => ctx.query({ [`${side}all`]: event.target.checked ? '1' : '', [side]: '', [`${side}doc`]: '' }) }), '論点以外の資料も選ぶ（サービス条件は維持）']),
             field('文書', select(docId || '', docs.map(([id, doc]) => ({ value: id, label: toText(doc.displayName) })),
               value => ctx.query({ [`${side}doc`]: value, [side]: '' }), `${side === 'l' ? '左側' : '右側'}の文書`)),
             field('条文・項目', select(selected ? rowKey(selected) : '', items.map(row => ({ value: rowKey(row), label: short(row.item.index || '本文') })),
@@ -194,10 +190,11 @@ export function createResearchViews(api) {
         ]);
       }
       return () => shell(ctx, '事業者間の規約比較', '同じ論点の規約・方針を横並びに表示します。左右の文書と条文は自由に選べます。', [
-        h('div', { class: 'research-toolbar' }, [topicSelect(ctx),
+        h('div', { class: 'research-toolbar' }, [topicSelect(ctx), ...serviceControls(ctx),
           ctx.link(`/topics/${ctx.topic.value.id}`, 'この論点の全資料'), ctx.link(`/regulation-map?topic=${ctx.topic.value.id}`, '規制との対応を調べる')]),
         h('p', { class: 'research-note' }, '同じ語句を含む項目を候補として表示します。サービスの対象・契約条件・取得日も確かめながら比較してください。'),
         ctx.catalog.providers.length ? h('div', { class: 'research-comparison' }, [column('l'), column('r')]) : empty('比較できる事業者資料がありません。'),
+        selectedRows.l && selectedRows.r ? reports.reportAction(ctx, rowsReport('comparison', `${ctx.topic.value.name}の事業者間比較`, [selectedRows.l, selectedRows.r], toText)) : null,
       ]);
     },
   };
@@ -214,20 +211,20 @@ export function createResearchViews(api) {
         const row = ctx.catalog.byKey.get(selectedRule.value);
         return row && isRegulation(row) ? row : null;
       });
-      const candidates = computed(() => rankCompanyCandidates(ctx.catalog, rule.value, ctx.topic.value.id, formProvider.value));
-      const companyOptions = computed(() => expanded.value ? ctx.catalog.rows.filter(row => row.kind === 'company' && row.provider === formProvider.value) : candidates.value.map(candidate => candidate.row));
+      const candidates = computed(() => rankCompanyCandidates(ctx.catalog, rule.value, ctx.topic.value.id, formProvider.value, 8, ctx.serviceOptions.value));
+      const companyOptions = computed(() => expanded.value ? ctx.catalog.rows.filter(row => row.kind === 'company' && row.provider === formProvider.value && matchesService(row, ctx.serviceOptions.value.service, ctx.serviceOptions.value.includeCommon)) : candidates.value.map(candidate => candidate.row));
       const company = computed(() => {
         const saved = ctx.catalog.byKey.get(selectedCompany.value);
-        if (saved?.kind === 'company' && saved.provider === formProvider.value) return saved;
+        if (saved?.kind === 'company' && saved.provider === formProvider.value && matchesService(saved, ctx.serviceOptions.value.service, ctx.serviceOptions.value.includeCommon)) return saved;
         return companyOptions.value[0] || null;
       });
       const allRules = computed(() => {
-        const found = topicRows(ctx.catalog, ctx.topic.value.id, { query: scalar(ctx.route.query.q), docId: scalar(ctx.route.query.doc) }).filter(isRegulation);
+        const found = topicRows(ctx.catalog, ctx.topic.value.id, { query: scalar(ctx.route.query.q), docId: scalar(ctx.route.query.doc), ...ctx.serviceOptions.value }).filter(isRegulation);
         const words = scalar(ctx.route.query.q).trim().split(/\s+/).filter(Boolean).map(normalize);
         // A saved relationship remains visible even after a text change removes
         // the words which originally classified its regulation under this topic.
         const saved = active.value.map(value => value.rule).filter(row => row && isRegulation(row) &&
-          (!ctx.route.query.doc || row.docId === ctx.route.query.doc) && words.every(word =>
+          (!ctx.route.query.doc || row.docId === ctx.route.query.doc) && matchesService(row, ctx.serviceOptions.value.service, ctx.serviceOptions.value.includeCommon) && words.every(word =>
             (row.body + row.heading + normalize(row.doc.displayName)).includes(word)));
         return [...new Map([...found, ...saved].map(row => [rowKey(row), row])).values()];
       });
@@ -281,10 +278,10 @@ export function createResearchViews(api) {
       }
       return () => {
         const topic = ctx.topic.value, visible = rules.value.slice(page.value * 8, (page.value + 1) * 8);
-        const docs = [...new Map(topicRows(ctx.catalog, topic.id).filter(isRegulation).map(row => [row.docId, row.doc])).entries()];
+        const docs = [...new Map(topicRows(ctx.catalog, topic.id, ctx.serviceOptions.value).filter(isRegulation).map(row => [row.docId, row.doc])).entries()];
         const missing = active.value.filter(value => value.state === 'missing');
         return shell(ctx, '規制と公表資料の対応表', '規制の条文ごとに、各事業者の関連資料を探し、確認した対応づけと根拠メモを記録できます。', [
-          h('div', { class: 'research-toolbar' }, [topicSelect(ctx),
+          h('div', { class: 'research-toolbar' }, [topicSelect(ctx), ...serviceControls(ctx),
             field('事業者', select(scalar(ctx.route.query.provider), [{ value: '', label: 'すべての事業者' }, ...ctx.catalog.providers.map(name => ({ value: name, label: name }))], provider => ctx.query({ provider }), '対応表の事業者')),
             field('表示する状態', select(scalar(ctx.route.query.status), [
               { value: '', label: 'すべて' }, { value: 'unmapped', label: '未確認の事業者あり' }, { value: 'confirmed', label: '確認した対応づけあり' }, { value: 'review', label: '本文変更・再確認' },
@@ -323,7 +320,7 @@ export function createResearchViews(api) {
                 h('p', { class: 'research-excerpt' }, excerpt(row, topic.id, 135)), button('対応資料を選ぶ', () => chooseRule(row))]),
               ...providers.value.map(provider => {
                 const linked = active.value.filter(value => value.rule && rowKey(value.rule) === rowKey(row) && value.company?.provider === provider);
-                const count = rankCompanyCandidates(ctx.catalog, row, topic.id, provider).length;
+                const count = rankCompanyCandidates(ctx.catalog, row, topic.id, provider, 8, ctx.serviceOptions.value).length;
                 return h('td', { key: provider }, linked.length ? linked.map(relationship) : [badge('未確認'), h('p', {}, count ? `共通語の候補 ${count}件` : '共通語の候補なし'),
                   button('候補を確認', () => { chooseRule(row); formProvider.value = provider; })]);
               }),
@@ -338,5 +335,8 @@ export function createResearchViews(api) {
       };
     },
   };
-  return { Nav, Home, Topics, Compare, Mapping };
+  const ux = createUxViews(api, { h, ref, context, shell, button, badge, field, scalar });
+  const reports = createReportViews(api, { h, ref, computed, context, shell, serviceControls, select, field, badge, button, empty, evidence, sourceLinks, scalar });
+  const history = createHistoryViews(api, { reportAction: reports.reportAction, h, ref, computed, watch, context, shell, serviceControls, select, field, badge, button, empty, evidence, sourceLinks, title, formatDay, scalar });
+  return { Nav: ux.Nav, Home: ux.Home, Hub: ux.Hub, LibraryHeader: ux.LibraryHeader, Topics, Compare, Mapping, ...history, ...reports };
 }

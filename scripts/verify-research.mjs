@@ -76,7 +76,7 @@ const backupContext = vm.createContext({
 });
 vm.runInContext(backupCode, backupContext);
 const exported = JSON.parse(JSON.stringify(backupContext.dh(documents, {})));
-assert.equal(exported.version, 2);
+assert.equal(exported.version, 4);
 assert.equal(exported.researchMappings.length, 1);
 assert.equal(backupContext.fh(exported, target).counts.researchMappings, 1);
 backupContext.ph(exported);
@@ -92,7 +92,7 @@ assert.equal(backupContext.fh(deletionExport, target).counts.researchMappings, 0
 backupContext.ph(exported);
 assert.equal(target[MAPPING_KEY][0].deleted, true, 'Older backup must not resurrect removed relationships');
 assert(backupContext.fh({ ...exported, version: 1, researchMappings: undefined }, target).ok);
-assert(!backupContext.fh({ ...exported, version: 3 }, target).ok);
+assert(!backupContext.fh({ ...exported, version: 5 }, target).ok);
 
 // Ensure bundled-data upgrades preserve relationships and their deletion state.
 const mergeCode = code.slice(code.indexOf('var pm='), code.indexOf('var Em=', code.indexOf('var pm=')));
@@ -109,7 +109,8 @@ assert.equal(JSON.parse(store.get('legal-documents-data'))[MAPPING_KEY][0].delet
 const viewAsset = code.match(/import \{ createResearchViews \} from "\.\/([^"/]+)"/)[1];
 const viewCode = readFileSync(resolve(root, 'assets', viewAsset), 'utf8');
 const modelAsset = viewCode.match(/\.\/(research-model-[a-f0-9]+\.js)/)[1];
-assert.equal(readFileSync(resolve(root, 'assets', modelAsset), 'utf8'), readFileSync(resolve(root, 'features/research-model.mjs'), 'utf8'));
+assert.equal(readFileSync(resolve(root, 'assets', modelAsset), 'utf8').replace(/"\.\/services-[a-f0-9]+\.js"/, "'./services.mjs'"), readFileSync(resolve(root, 'features/research-model.mjs'), 'utf8'));
 assert(html.includes('/assets/research-'));
 for (const path of ['/topics', '/topics/:topicId', '/provider-compare', '/regulation-map']) assert(code.includes(`path:\`${path}\``));
-console.log(`PASS: ${TOPICS.length} topics across ${catalog.rows.length} source items; both providers; source-based suggestions; confirmation/change/missing states; backup v1/v2, newer-note merge and tombstones; existing-data upgrades; deployable routes and modules.`);
+console.log(`PASS: ${TOPICS.length} topics across ${catalog.rows.length} source items; both providers; source-based suggestions; confirmation/change/missing states; backup v1/v2/v3/v4, newer-note merge and tombstones; existing-data upgrades; deployable routes and modules.`);
+export { documents, catalog, toText, code, backupContext, target };
