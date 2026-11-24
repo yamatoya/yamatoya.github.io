@@ -3,6 +3,7 @@ import {
   isRegulation, rankCompanyCandidates, createMapping, resolveMapping, upsertMapping, normalize,
 } from './research-model.mjs';
 import { SERVICES, matchesService, serviceName, withServiceQuery } from './services.mjs';
+import { createShareViews } from './share-views.mjs';
 import { createUxViews } from './ux-views.mjs';
 import { workspaceFor } from './ux-model.mjs';
 import { rowsReport } from './report-model.mjs';
@@ -103,7 +104,7 @@ export function createResearchViews(api) {
       h('details', { class: 'research-evidence-tools', open: full }, [h('summary', {}, report ? '出典・保存の操作' : '出典を確認'),
         h('p', { class: 'research-muted' }, `対象サービス：${row.services.ids.map(serviceName).join('・')} ／ ${row.services.basis}`),
         row.topics[topicId] ? h('p', { class: 'research-match-terms' }, `該当語句: ${row.topics[topicId].terms.join('・')}`) : null,
-        sourceLinks(ctx, row), report ? reports.reportAction(ctx, rowsReport('source', title(row), [row], toText)) : null,
+        sourceLinks(ctx, row), h(share.ShareQuote, { row }), report ? reports.reportAction(ctx, rowsReport('source', title(row), [row], toText)) : null,
       ]),
     ]);
   }
@@ -335,8 +336,9 @@ export function createResearchViews(api) {
       };
     },
   };
+  const share = createShareViews(api, { h });
   const ux = createUxViews(api, { h, ref, context, shell, button, badge, field, scalar });
   const reports = createReportViews(api, { h, ref, computed, context, shell, serviceControls, select, field, badge, button, empty, evidence, sourceLinks, scalar });
   const history = createHistoryViews(api, { reportAction: reports.reportAction, h, ref, computed, watch, context, shell, serviceControls, select, field, badge, button, empty, evidence, sourceLinks, title, formatDay, scalar });
-  return { Nav: ux.Nav, Home: ux.Home, Hub: ux.Hub, LibraryHeader: ux.LibraryHeader, Topics, Compare, Mapping, ...history, ...reports };
+  return { Nav: ux.Nav, Home: ux.Home, Hub: ux.Hub, LibraryHeader: ux.LibraryHeader, Topics, Compare, Mapping, ...history, ...reports, ...share };
 }

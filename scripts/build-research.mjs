@@ -30,7 +30,7 @@ function collectOld(name) {
   if (!name || oldModules.has(name)) return;
   oldModules.add(name);
   const source = readFileSync(resolve(root, 'assets', name), 'utf8');
-  for (const match of source.matchAll(/from ["']\.\/((?:research-|history-|services-|report-|definitions-|ux-)[\w-]+\.js)["']/g)) collectOld(match[1]);
+  for (const match of source.matchAll(/from ["']\.\/((?:research-|history-|services-|report-|definitions-|ux-|share-)[\w-]+\.js)["']/g)) collectOld(match[1]);
 }
 collectOld(previousView);
 const previousData = code.match(/import historyData from "\.\/([^"/]+)"/)?.[1];
@@ -83,6 +83,12 @@ if (!code.includes('/* UX_SEARCH_OPTIONS */')) {
 }
 // Focus the visible primary navigation rather than the superseded hidden list.
 code = code.replace('n.value?.querySelector(`a`)?.focus()', 'n.value?.querySelector(`.ux-nav-primary`)?.focus()');
+if (!code.includes('/* QUOTE_SHARE */')) {
+  const toolbar = 'H(`div`,ES,[';
+  if (!code.includes(toolbar)) throw new Error('Native article toolbar not found');
+  code = code.replace(toolbar, toolbar + '/* QUOTE_SHARE */U(researchViews.ShareQuote,{doc:r.document,item:r.tweet,docId:r.route.params.documentId,itemId:r.route.params.tweetId,content:r.document.public_comment?void 0:r.contentHtml,asOf:r.asOfDate,exists:r.document.public_comment||r.shown.exists},null,8,[`doc`,`item`,`docId`,`itemId`,`content`,`asOf`,`exists`]),');
+}
+code = code.replace('class:`action-btn primary`,onClick:t[5]||=e=>r.copyCitation(!1)', 'class:`action-btn`,onClick:t[5]||=e=>r.copyCitation(!1)');
 // Keep the native full-text search, document tree and record management usable.
 code = code.replace('!e.searchQuery?U(researchViews.Home)', '!e.searchQuery&&e.$route.path===`/`?U(researchViews.Home)');
 code = code.replace('"show-search":r.route.name!==`index`', '"show-search":![`index`,`research-library`].includes(r.route.name)');
